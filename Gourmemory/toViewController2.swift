@@ -10,7 +10,7 @@ import UIKit
 import CoreLocation
 import MapKit
 
-class ViewController2 : UIViewController ,UIPickerViewDelegate,UIPickerViewDataSource,MKMapViewDelegate,CLLocationManagerDelegate,UITextFieldDelegate{
+class ViewController2 : UIViewController ,UIPickerViewDelegate,UIPickerViewDataSource,MKMapViewDelegate,CLLocationManagerDelegate,UITextFieldDelegate, UINavigationControllerDelegate,UIImagePickerControllerDelegate{
     
     let dataList = ["スイーツ","朝ごはん","小腹","和食","洋食"]
     var shopname : String!
@@ -25,6 +25,8 @@ class ViewController2 : UIViewController ,UIPickerViewDelegate,UIPickerViewDataS
     var myPin:MKPointAnnotation = MKPointAnnotation()
     var cal = NSCalendar.current
     let now = NSDate()
+    
+    var isCamShown = false
     
     @IBOutlet var imageView2 : UIImageView!
     @IBOutlet var mapView : MKMapView!
@@ -79,6 +81,23 @@ class ViewController2 : UIViewController ,UIPickerViewDelegate,UIPickerViewDataS
         //        print(weekday)
         //        print(weekdays[weekday])
         
+        
+        
+    }
+    
+    
+    func firstCam(){
+    
+        if isCamShown == false{
+            cameraStart()
+        }
+        
+        isCamShown = true
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        
+        firstCam()
     }
     
     @IBAction func buttonTapped(sender : AnyObject) {
@@ -114,6 +133,23 @@ class ViewController2 : UIViewController ,UIPickerViewDelegate,UIPickerViewDataS
         
     }
     
+    func cameraStart() {
+        
+        print("cameraStart")
+        
+        let sourceType:UIImagePickerControllerSourceType = UIImagePickerControllerSourceType.camera
+        
+        if UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.camera){
+            let cameraPicker = UIImagePickerController()
+            cameraPicker.sourceType = sourceType
+            cameraPicker.delegate = self
+            self.present(cameraPicker, animated: true, completion: nil)
+            
+        }
+        
+    }
+
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
@@ -126,16 +162,16 @@ class ViewController2 : UIViewController ,UIPickerViewDelegate,UIPickerViewDataS
         let category = "和食"
         let date = Date()
         let weekday = "木"
-        let text = "きわみたん"
+        let text = "きわみ"
         let newData = Kiwami(shopname: shopname, image: image, coordinate: coordiate, text: text, category: category, date: date, weekDay: weekday)
         
     }
     
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "toViewController3" {
-            let vc3: ViewController3 = segue.destination as! ViewController3
+    @IBAction func returnButton (_ segue:UIStoryboardSegue){
+//dismiss(animated: true, completion: self.performSegue(withIdentifier: "ViewController", sender: nil))
+        dismiss(animated: true) {
+            //nasi
         }
-    }
 }
 
 
@@ -150,3 +186,4 @@ class ViewController2 : UIViewController ,UIPickerViewDelegate,UIPickerViewDataS
  */
 
 
+}

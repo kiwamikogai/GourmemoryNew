@@ -26,13 +26,16 @@ class BigCenterTabBarController: UITabBarController {
         button.sizeToFit()
         button.center = CGPoint(x: tabBar.bounds.size.width / 2, y: tabBar.bounds.size.height - (button.bounds.size.height/2))
         button.backgroundColor = UIColor.blue
-//        button.addTarget(self, action: #selector(self.tapBigCenter(sender:)), for: .touchUpInside)
+        button.addTarget(self, action: #selector(self.tapBigCenter(sender:)), for: .touchUpInside)
         tabBar.addSubview(button)
     }
     
     // タブ真ん中を選択する
-    func tapBigCenter(sender:AnyObject){
-        selectedIndex = 2;
+    func tapBigCenter(sender:AnyObject) {
+        selectedIndex = 2
+        //prepare(for: "toViewControlller2", sender: nil)
+        performSegue(withIdentifier: "toViewController2", sender: nil)
+    
     }
 
     

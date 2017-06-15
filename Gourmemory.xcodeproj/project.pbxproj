@@ -16,7 +16,7 @@
 		832E2C2C1E4348D5005DCB53 /* GourmemoryUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 832E2C2B1E4348D5005DCB53 /* GourmemoryUITests.swift */; };
 		833FF7FA1EBB47790045F109 /* toViewController3.swift in Sources */ = {isa = PBXBuildFile; fileRef = 833FF7F91EBB47790045F109 /* toViewController3.swift */; };
 		8359887F1EDE797400988863 /* Kiwami.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8359887E1EDE797400988863 /* Kiwami.swift */; };
-		835988811EE9594500988863 /* toViewController4.swift in Sources */ = {isa = PBXBuildFile; fileRef = 835988801EE9594500988863 /* toViewController4.swift */; };
+		835988811EE9594500988863 /* BigCenterTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 835988801EE9594500988863 /* BigCenterTabBarController.swift */; };
 		8367C85E1E936ADC007D080C /* toViewController2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8367C85D1E936ADC007D080C /* toViewController2.swift */; };
 /* End PBXBuildFile section */
 
@@ -53,7 +53,7 @@
 		832E2C2D1E4348D5005DCB53 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		833FF7F91EBB47790045F109 /* toViewController3.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = toViewController3.swift; sourceTree = "<group>"; };
 		8359887E1EDE797400988863 /* Kiwami.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Kiwami.swift; sourceTree = "<group>"; };
-		835988801EE9594500988863 /* toViewController4.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = toViewController4.swift; sourceTree = "<group>"; };
+		835988801EE9594500988863 /* BigCenterTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BigCenterTabBarController.swift; sourceTree = "<group>"; };
 		8367C85D1E936ADC007D080C /* toViewController2.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = toViewController2.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -109,7 +109,7 @@
 				832E2C0D1E4348D4005DCB53 /* ViewController.swift */,
 				8367C85D1E936ADC007D080C /* toViewController2.swift */,
 				833FF7F91EBB47790045F109 /* toViewController3.swift */,
-				835988801EE9594500988863 /* toViewController4.swift */,
+				835988801EE9594500988863 /* BigCenterTabBarController.swift */,
 				8359887E1EDE797400988863 /* Kiwami.swift */,
 				832E2C0F1E4348D4005DCB53 /* Main.storyboard */,
 				832E2C141E4348D4005DCB53 /* LaunchScreen.storyboard */,
@@ -273,7 +273,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				832E2C0E1E4348D4005DCB53 /* ViewController.swift in Sources */,
-				835988811EE9594500988863 /* toViewController4.swift in Sources */,
+				835988811EE9594500988863 /* BigCenterTabBarController.swift in Sources */,
 				832E2C0C1E4348D4005DCB53 /* AppDelegate.swift in Sources */,
 				8367C85E1E936ADC007D080C /* toViewController2.swift in Sources */,
 				833FF7FA1EBB47790045F109 /* toViewController3.swift in Sources */,

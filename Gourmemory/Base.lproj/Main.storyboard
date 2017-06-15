@@ -20,9 +20,9 @@
                     </tabBar>
                     <connections>
                         <segue destination="BYZ-38-t0r" kind="relationship" relationship="viewControllers" id="pX4-Q0-iKB"/>
-                        <segue destination="xy2-ZE-a9c" kind="relationship" relationship="viewControllers" id="ORc-p8-29X"/>
                         <segue destination="aoD-EY-X5z" kind="relationship" relationship="viewControllers" id="awn-ch-BFq"/>
                         <segue destination="okm-iH-Hdi" kind="relationship" relationship="viewControllers" id="4P8-Ua-n9t"/>
+                        <segue destination="lS9-bb-sO2" kind="presentation" identifier="toViewController2" id="B2B-Hl-jkS"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TmG-cM-aLr" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -147,6 +147,17 @@
                                 <rect key="frame" x="211" y="211" width="152" height="139"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="B1D-hW-PmH">
+                                <rect key="frame" x="16" y="30" width="30" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                <state key="normal" title="＜">
+                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="returnButton:" destination="lS9-bb-sO2" eventType="touchUpInside" id="Zgn-r4-uxt"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -162,7 +173,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oSV-Ik-Jr7" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="bgW-MU-MNb" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="1793" y="498"/>
+            <point key="canvasLocation" x="1094" y="498"/>
         </scene>
         <!--Item-->
         <scene sceneID="eET-ax-tPe">
@@ -202,41 +213,6 @@
             </objects>
             <point key="canvasLocation" x="-23" y="1339"/>
         </scene>
-        <!--Item-->
-        <scene sceneID="WGP-1M-P1r">
-            <objects>
-                <viewController id="xy2-ZE-a9c" customClass="ViewController4" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="RFr-GJ-gks"/>
-                        <viewControllerLayoutGuide type="bottom" id="WWR-YS-xfC"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="hts-Wg-Git">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bbD-1x-FSA">
-                                <rect key="frame" x="152" y="209" width="70" height="43"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="52"/>
-                                <state key="normal" title="+">
-                                    <color key="titleColor" red="0.2666666667" green="0.23529411759999999" blue="0.23529411759999999" alpha="1" colorSpace="calibratedRGB"/>
-                                </state>
-                                <connections>
-                                    <action selector="cameraStartWithSender:" destination="BYZ-38-t0r" eventType="touchUpInside" id="oyy-PQ-pp7"/>
-                                </connections>
-                            </button>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                    <tabBarItem key="tabBarItem" title="Item" id="aSk-ZN-m3Z"/>
-                    <connections>
-                        <segue destination="lS9-bb-sO2" kind="presentation" id="cCS-Aa-o2h"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="yox-rL-ZrP" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="969" y="498"/>
-        </scene>
         <!--View Controller3-->
         <scene sceneID="qbF-dK-yzS">
             <objects>
@@ -254,7 +230,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JjR-fn-2Kl" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2622" y="498"/>
+            <point key="canvasLocation" x="1830" y="498"/>
         </scene>
     </scenes>
 </document>
