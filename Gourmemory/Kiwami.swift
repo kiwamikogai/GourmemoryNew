@@ -29,6 +29,24 @@ class Kiwami {
         self.category = category
         self.date = date
         self.weekDay = weekDay
+        
     }
 
+}
+
+class DataSave{
+    
+//    var kiwami: Kiwami!
+    var array:[Kiwami] = []
+    
+    init(kiwami:Kiwami){
+//        self.kiwami = kiwami
+    }
+
+    func save(newkiwami:Kiwami){
+    var userDefault: UserDefaults = UserDefaults.standard
+        array = userDefault.object(forKey: "kiwamiClass") as! [Kiwami]
+        array.append(newkiwami)
+        userDefault.set(array,forKey:"KiwamiClass")
+}
 }

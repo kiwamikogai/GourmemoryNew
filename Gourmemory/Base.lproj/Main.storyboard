@@ -163,11 +163,12 @@
                     </view>
                     <connections>
                         <outlet property="dateLabel" destination="NrR-yi-BTo" id="XVJ-5M-WUX"/>
+                        <outlet property="imageView" destination="oV3-3j-CkN" id="1bf-T4-3y7"/>
                         <outlet property="imageView2" destination="oV3-3j-CkN" id="m2k-9I-kE3"/>
                         <outlet property="mapView" destination="kGr-NN-Qtz" id="Ac3-nC-Zks"/>
                         <outlet property="selectedImageView" destination="oV3-3j-CkN" id="oe3-kg-cTh"/>
                         <outlet property="textField" destination="v3z-zg-Gbi" id="W5h-0O-8pO"/>
-                        <segue destination="HwR-zD-m8l" kind="modal" identifier="ViewController3" id="5cK-BY-0fc"/>
+                        <segue destination="HwR-zD-m8l" kind="modal" identifier="toViewController3" id="5cK-BY-0fc"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oSV-Ik-Jr7" userLabel="First Responder" sceneMemberID="firstResponder"/>

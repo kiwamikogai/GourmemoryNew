@@ -33,6 +33,7 @@ class ViewController2 : UIViewController ,UIPickerViewDelegate,UIPickerViewDataS
     @IBOutlet var selectedImageView : UIImageView!
     @IBOutlet var textField : UITextField!
     @IBOutlet var dateLabel : UILabel!
+    @IBOutlet var imageView : UIImageView!
     
     let weekArray:[String] = ["さきね","日","月","火","水","木","金","土"]
     
@@ -51,7 +52,6 @@ class ViewController2 : UIViewController ,UIPickerViewDelegate,UIPickerViewDataS
         
         annotaion.title = textField.text!
         annotaion.subtitle = ""
-        
         
         self.mapView.addAnnotation(annotaion)
         
@@ -81,10 +81,7 @@ class ViewController2 : UIViewController ,UIPickerViewDelegate,UIPickerViewDataS
         //        print(weekday)
         //        print(weekdays[weekday])
         
-        
-        
     }
-    
     
     func firstCam(){
     
@@ -101,6 +98,15 @@ class ViewController2 : UIViewController ,UIPickerViewDelegate,UIPickerViewDataS
     }
     
     @IBAction func buttonTapped(sender : AnyObject) {
+        
+        //ここにほぞんするためのこーどをかく
+        var kiwami:Kiwami = Kiwami(shopname: <#T##String#>, image: <#T##UIImage#>, coordinate: <#T##CLLocationCoordinate2D#>, text: <#T##String#>, category: <#T##String#>, date: <#T##Date#>, weekDay: <#T##String#>)
+//        kiwami.image =
+//        kiwami.text
+//        
+        var dataSave:DataSave = DataSave()
+        dataSave.save(newkiwami: kiwami)
+        
         performSegue(withIdentifier: "toViewController3",sender: nil)
         
     }
@@ -149,6 +155,9 @@ class ViewController2 : UIViewController ,UIPickerViewDelegate,UIPickerViewDataS
         
     }
 
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+        
+    }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -172,7 +181,16 @@ class ViewController2 : UIViewController ,UIPickerViewDelegate,UIPickerViewDataS
         dismiss(animated: true) {
             //nasi
         }
-}
+    }
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+       
+        let image = info[UIImagePickerControllerOriginalImage] as? UIImage
+        
+        imageView.image = image
+        
+        self.dismiss(animated: true, completion: nil)
+    }
 
 
 /*
