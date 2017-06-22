@@ -100,7 +100,7 @@ class ViewController2 : UIViewController ,UIPickerViewDelegate,UIPickerViewDataS
     @IBAction func buttonTapped(sender : AnyObject) {
         
         //ここにほぞんするためのこーどをかく
-        var kiwami:Kiwami = Kiwami(shopname: <#T##String#>, image: <#T##UIImage#>, coordinate: <#T##CLLocationCoordinate2D#>, text: <#T##String#>, category: <#T##String#>, date: <#T##Date#>, weekDay: <#T##String#>)
+        var kiwami:Kiwami = Kiwami(shopname: textField, image: image, coordinate: annotaion.coordinate, text: textField, category: pickerView, date: Label, weekDay: Label)
 //        kiwami.image =
 //        kiwami.text
 //        
