@@ -132,7 +132,7 @@ class ViewController: UIViewController,MKMapViewDelegate,CLLocationManagerDelega
         if segue.identifier == "toViewController2" {
             let vc2: ViewController2 = segue.destination as! ViewController2
             
-            vc2.shopname = "self"
+            //vc2.shopname = "self"
             vc2.coordiate2 = coordiate
             vc2.image = imageView.image
             self.imageView.image = nil

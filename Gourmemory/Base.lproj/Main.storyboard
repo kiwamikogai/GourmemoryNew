@@ -132,7 +132,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="保存する"/>
                                 <connections>
-                                    <action selector="buttonTappedWithSender:" destination="lS9-bb-sO2" eventType="touchUpInside" id="4oi-74-coA"/>
+                                    <action selector="SaveKiwamiWithSender:" destination="lS9-bb-sO2" eventType="touchUpInside" id="K5X-cK-DxM"/>
                                     <segue destination="bgW-MU-MNb" kind="unwind" unwindAction="goBack:" id="tcG-sU-lrL"/>
                                 </connections>
                             </button>
@@ -167,14 +167,14 @@
                         <outlet property="imageView2" destination="oV3-3j-CkN" id="m2k-9I-kE3"/>
                         <outlet property="mapView" destination="kGr-NN-Qtz" id="Ac3-nC-Zks"/>
                         <outlet property="selectedImageView" destination="oV3-3j-CkN" id="oe3-kg-cTh"/>
+                        <outlet property="shosaiTextView" destination="aPa-VD-cwm" id="ZUe-ht-y4C"/>
                         <outlet property="textField" destination="v3z-zg-Gbi" id="W5h-0O-8pO"/>
-                        <segue destination="HwR-zD-m8l" kind="modal" identifier="toViewController3" id="5cK-BY-0fc"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oSV-Ik-Jr7" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="bgW-MU-MNb" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="1094" y="498"/>
+            <point key="canvasLocation" x="914" y="498"/>
         </scene>
         <!--Item-->
         <scene sceneID="eET-ax-tPe">
@@ -213,25 +213,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RtZ-rp-WvD" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-23" y="1339"/>
-        </scene>
-        <!--View Controller3-->
-        <scene sceneID="qbF-dK-yzS">
-            <objects>
-                <viewController id="HwR-zD-m8l" customClass="ViewController3" customModule="Gourmemory" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="eQs-iP-FVd"/>
-                        <viewControllerLayoutGuide type="bottom" id="OIj-aU-e7P"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="gCB-fj-yVs">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                    <navigationItem key="navigationItem" id="DYt-Vm-3BV"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="JjR-fn-2Kl" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1830" y="498"/>
         </scene>
     </scenes>
 </document>

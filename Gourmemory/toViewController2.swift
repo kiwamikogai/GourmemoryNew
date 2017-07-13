@@ -13,7 +13,10 @@ import MapKit
 class ViewController2 : UIViewController ,UIPickerViewDelegate,UIPickerViewDataSource,MKMapViewDelegate,CLLocationManagerDelegate,UITextFieldDelegate, UINavigationControllerDelegate,UIImagePickerControllerDelegate{
     
     let dataList = ["スイーツ","朝ごはん","小腹","和食","洋食"]
-    var shopname : String!
+    //var shopname : String!
+    //var shosai : String!
+    var categoryPickerView: UIPickerView!
+    var category: String!
     var coordiate2 : CLLocationCoordinate2D!
     var image : UIImage!
     let coordiate = CLLocationCoordinate2DMake(37.331652997806785, -122.03072304117417)
@@ -25,7 +28,6 @@ class ViewController2 : UIViewController ,UIPickerViewDelegate,UIPickerViewDataS
     var myPin:MKPointAnnotation = MKPointAnnotation()
     var cal = NSCalendar.current
     let now = NSDate()
-    
     var isCamShown = false
     
     @IBOutlet var imageView2 : UIImageView!
@@ -34,6 +36,7 @@ class ViewController2 : UIViewController ,UIPickerViewDelegate,UIPickerViewDataS
     @IBOutlet var textField : UITextField!
     @IBOutlet var dateLabel : UILabel!
     @IBOutlet var imageView : UIImageView!
+    @IBOutlet var shosaiTextView : UITextView!
     
     let weekArray:[String] = ["さきね","日","月","火","水","木","金","土"]
     
@@ -61,15 +64,18 @@ class ViewController2 : UIViewController ,UIPickerViewDelegate,UIPickerViewDataS
         testManager.startUpdatingLocation()
         testManager.requestWhenInUseAuthorization()
         
-        let picker = UIPickerView(frame: CGRect(x: 200, y: 0, width: self.view.frame.width - 200, height: 100))
-        picker.center.y = self.view.center.y - 160
-        picker.delegate = self
-        picker.dataSource = self as! UIPickerViewDataSource
-        picker.selectRow(1, inComponent: 0, animated: true)
+        categoryPickerView = UIPickerView(frame: CGRect(x: 200, y: 0, width: self.view.frame.width - 200, height: 100))
+        categoryPickerView.center.y = self.view.center.y - 160
+        categoryPickerView.delegate = self
+        categoryPickerView.dataSource = self as! UIPickerViewDataSource
+        categoryPickerView.selectRow(1, inComponent: 0, animated: true)
         
-        self.view.addSubview(picker)
+        self.view.addSubview(categoryPickerView)
         imageView2.image = image
         
+        
+        
+        //画面のラベルに日時表示
         let monthComp = Calendar.Component.month
         let month = NSCalendar.current.component(monthComp, from: NSDate() as Date)
         let dayComp = Calendar.Component.day
@@ -97,14 +103,20 @@ class ViewController2 : UIViewController ,UIPickerViewDelegate,UIPickerViewDataS
         firstCam()
     }
     
-    @IBAction func buttonTapped(sender : AnyObject) {
+    @IBAction func SaveKiwami(sender : AnyObject) {
         
         //ここにほぞんするためのこーどをかく
-        var kiwami:Kiwami = Kiwami(shopname: textField, image: image, coordinate: annotaion.coordinate, text: textField, category: pickerView, date: Label, weekDay: Label)
+        //まず保存したい情報を抽出する
+        let shopname = textField.text
+        let shosai = shosaiTextView.text
+
+        
+        //Kiwamiオブジェクトでひとまとめにして保存
+        let kiwami: Kiwami = Kiwami(shopname: shopname!, image: image, coordinate: annotaion.coordinate, text: shosai!, category: category, date: Date(), weekDay: "木曜")
 //        kiwami.image =
 //        kiwami.text
 //        
-        var dataSave:DataSave = DataSave()
+        let dataSave: DataSave = DataSave()
         dataSave.save(newkiwami: kiwami)
         
         performSegue(withIdentifier: "toViewController3",sender: nil)
@@ -126,6 +138,7 @@ class ViewController2 : UIViewController ,UIPickerViewDelegate,UIPickerViewDataS
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         
         annotaion.subtitle = dataList[row]
+        category = dataList[row]
         print(dataList[row])
     }
     
@@ -167,14 +180,6 @@ class ViewController2 : UIViewController ,UIPickerViewDelegate,UIPickerViewDataS
         self.view.endEditing(true)
     }
     
-    @IBAction func OKButton (_ segue:UIStoryboardSegue){
-        let category = "和食"
-        let date = Date()
-        let weekday = "木"
-        let text = "きわみ"
-        let newData = Kiwami(shopname: shopname, image: image, coordinate: coordiate, text: text, category: category, date: date, weekDay: weekday)
-        
-    }
     
     @IBAction func returnButton (_ segue:UIStoryboardSegue){
 //dismiss(animated: true, completion: self.performSegue(withIdentifier: "ViewController", sender: nil))
@@ -185,7 +190,7 @@ class ViewController2 : UIViewController ,UIPickerViewDelegate,UIPickerViewDataS
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
        
-        let image = info[UIImagePickerControllerOriginalImage] as? UIImage
+        image = info[UIImagePickerControllerOriginalImage] as? UIImage
         
         imageView.image = image
         

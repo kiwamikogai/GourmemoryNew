@@ -39,14 +39,19 @@ class DataSave{
 //    var kiwami: Kiwami!
     var array:[Kiwami] = []
     
-    init(kiwami:Kiwami){
+    init(){
 //        self.kiwami = kiwami
     }
 
     func save(newkiwami:Kiwami){
-    var userDefault: UserDefaults = UserDefaults.standard
-        array = userDefault.object(forKey: "kiwamiClass") as! [Kiwami]
+        print(newkiwami)
+        let userDefault: UserDefaults = UserDefaults.standard
+        
+        if userDefault.object(forKey: "iwaKmiClass") != nil{
+            array = userDefault.object(forKey: "KiwamiClass") as! [Kiwami]
+        }
+        
         array.append(newkiwami)
-        userDefault.set(array,forKey:"KiwamiClass")
-}
+        userDefault.set(array, forKey:"KiwamiClass")
+    }
 }
