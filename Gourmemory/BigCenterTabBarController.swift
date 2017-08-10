@@ -12,21 +12,23 @@ class BigCenterTabBarController: UITabBarController {
     
     override func viewDidLoad() {
         
-        
         super.viewDidLoad()
         setupBigCenterButton()
         
     }
     
     private func setupBigCenterButton(){
-//        let button = UIButton(type: .custom)
+
         let button = UIButton()
 
-
         button.sizeToFit()
+        button.frame.size = CGSize(width: tabBar.bounds.size.height * 1.5, height: tabBar.bounds.size.height * 1.5)
         button.center = CGPoint(x: tabBar.bounds.size.width / 2, y: tabBar.bounds.size.height - (button.bounds.size.height/2))
+
+        
         button.backgroundColor = UIColor.blue
         button.addTarget(self, action: #selector(self.tapBigCenter(sender:)), for: .touchUpInside)
+        
         tabBar.addSubview(button)
     }
     

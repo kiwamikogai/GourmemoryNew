@@ -7,10 +7,9 @@
 //
 
 import UIKit
-
 import MapKit
-
 import AVFoundation
+import RealmSwift      //データベース用のライブラリを読み込んでるで
 
 class ViewController: UIViewController,MKMapViewDelegate,CLLocationManagerDelegate,UIImagePickerControllerDelegate,UINavigationControllerDelegate,UITextFieldDelegate {
     
@@ -33,18 +32,20 @@ class ViewController: UIViewController,MKMapViewDelegate,CLLocationManagerDelega
     @IBOutlet var mapView:MKMapView!
     @IBOutlet var selectedImageView : UIImageView!
     
+    var annotationData:Results<Kiwami>!
+    
     var testManager:CLLocationManager = CLLocationManager()
     
     override func viewDidLoad() {
         
+        
         let region = MKCoordinateRegionMake(coordiate, span)
         mapView.setRegion(region, animated:true)
         
-        annotaion.coordinate = CLLocationCoordinate2DMake(37.331652997806785, -122.03072304117417)
-        annotaion.title = "ラーメン屋"
         
-        annotaion.subtitle = "豚骨系"
-        self.mapView.addAnnotation(annotaion)
+        readKiwamiData()
+        
+        
         
         super.viewDidLoad()
         
@@ -56,9 +57,64 @@ class ViewController: UIViewController,MKMapViewDelegate,CLLocationManagerDelega
         
     }
     
+    
+    //保存したデータを読み込んで、ピン打つとこ！
+    func readKiwamiData(){
+        //realmに保存したデータを読み込んでいく!!
+        
+        //データベースの定義
+        let realm = try! Realm()
+        
+        //保存されたKiwamiのデータが空じゃなければ
+        if realm.objects(Kiwami.self) != nil {
+            
+            //Kiwamiクラスのデータの読み込み realm.object(クラス名.self)で読み込めるよ！
+            annotationData = realm.objects(Kiwami.self)
+            
+            
+            //annotationを追加しまくる
+            for i in 0..<annotationData.count {
+                
+                let kiwami:Kiwami = annotationData[i]
+                
+                var annotaion = MKPointAnnotation()
+                
+                annotaion.coordinate = CLLocationCoordinate2DMake(kiwami.latitude, kiwami.longitude)
+                annotaion.title = kiwami.shopname
+                annotaion.subtitle = kiwami.text
+                self.mapView.addAnnotation(annotaion)
+            }
+            
+        }
+
+    }
+    
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
+    
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        for location in locations {
+            
+            let center = CLLocationCoordinate2DMake(location.coordinate.latitude, location.coordinate.longitude)
+            
+            let span = MKCoordinateSpanMake(0.05, 0.05)
+            
+            let rejion = MKCoordinateRegionMake(center, span)
+            mapView.setRegion(rejion, animated:true)
+            
+            let annotation = MKPointAnnotation()
+            annotaion.coordinate = CLLocationCoordinate2DMake(location.coordinate.latitude, location.coordinate.longitude)
+            mapView.addAnnotation(annotation)
+            
+        }
+    }
+
+    
+    
+    /* ボタン追加したから要らないとこ
+    
     
     @IBAction func cameraStart(sender : AnyObject) {
         
@@ -89,28 +145,15 @@ class ViewController: UIViewController,MKMapViewDelegate,CLLocationManagerDelega
         performSegue(withIdentifier: "toViewController2",sender: nil)
         
     }
-    
-    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        for location in locations {
-            
-            let center = CLLocationCoordinate2DMake(location.coordinate.latitude, location.coordinate.longitude)
-            
-            let span = MKCoordinateSpanMake(0.05, 0.05)
-            
-            let rejion = MKCoordinateRegionMake(center, span)
-            mapView.setRegion(rejion, animated:true)
-            
-            let annotation = MKPointAnnotation()
-            annotaion.coordinate = CLLocationCoordinate2DMake(location.coordinate.latitude, location.coordinate.longitude)
-            mapView.addAnnotation(annotation)
-            
-        }
-    }
+ 
     
     func imagePickerControllerDidCancel(picker: UIImagePickerController) {
         picker.dismiss(animated: true, completion: nil)
     }
     
+    */
+    
+    //アラート出すならメソッドの中確認！！
     func image(image: UIImage, didFinishSavingWithError error: NSError!, contextInfo: UnsafeMutablePointer<Void>) {
         if error != nil {
             showAlert(title: "きわみ", message: "Failed to save the picture.")
@@ -119,6 +162,7 @@ class ViewController: UIViewController,MKMapViewDelegate,CLLocationManagerDelega
         }
     }
     
+    //アラート出すメソッド
     func showAlert(title: String, message: String) {
         let alertView = UIAlertView()
         alertView.title = title
@@ -128,6 +172,7 @@ class ViewController: UIViewController,MKMapViewDelegate,CLLocationManagerDelega
         
     }
     
+    //画面遷移ないならここも要らんかな！現状呼ばれてないよ！
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "toViewController2" {
             let vc2: ViewController2 = segue.destination as! ViewController2

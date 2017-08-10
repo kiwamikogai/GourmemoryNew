@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		26F7A08EE20C635F877203D7 /* Pods_GourmemoryUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 444BF3629418F20D978B7761 /* Pods_GourmemoryUITests.framework */; };
 		832E2C0C1E4348D4005DCB53 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 832E2C0B1E4348D4005DCB53 /* AppDelegate.swift */; };
 		832E2C0E1E4348D4005DCB53 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 832E2C0D1E4348D4005DCB53 /* ViewController.swift */; };
 		832E2C111E4348D4005DCB53 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 832E2C0F1E4348D4005DCB53 /* Main.storyboard */; };
@@ -18,6 +19,8 @@
 		8359887F1EDE797400988863 /* Kiwami.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8359887E1EDE797400988863 /* Kiwami.swift */; };
 		835988811EE9594500988863 /* BigCenterTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 835988801EE9594500988863 /* BigCenterTabBarController.swift */; };
 		8367C85E1E936ADC007D080C /* toViewController2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8367C85D1E936ADC007D080C /* toViewController2.swift */; };
+		C299FB819266BDB6C38E9795 /* Pods_Gourmemory.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CBA4AA3635E8A2A5903EE08F /* Pods_Gourmemory.framework */; };
+		F032D6408FF4DBD6213698ED /* Pods_GourmemoryTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EE7E91A0BFC35A3413F0C937 /* Pods_GourmemoryTests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,6 +41,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		05430B1503E18342196A365B /* Pods-GourmemoryTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GourmemoryTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-GourmemoryTests/Pods-GourmemoryTests.release.xcconfig"; sourceTree = "<group>"; };
+		31FA0AD9768C656675C4C908 /* Pods-Gourmemory.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Gourmemory.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Gourmemory/Pods-Gourmemory.debug.xcconfig"; sourceTree = "<group>"; };
+		444BF3629418F20D978B7761 /* Pods_GourmemoryUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GourmemoryUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		4868D04B706BE91CA4557022 /* Pods-GourmemoryUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GourmemoryUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-GourmemoryUITests/Pods-GourmemoryUITests.release.xcconfig"; sourceTree = "<group>"; };
+		688E64B8FA1904106761B7C9 /* Pods-GourmemoryUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GourmemoryUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-GourmemoryUITests/Pods-GourmemoryUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		7417A75581239083FBA29C05 /* Pods-GourmemoryTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GourmemoryTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-GourmemoryTests/Pods-GourmemoryTests.debug.xcconfig"; sourceTree = "<group>"; };
 		832E2C081E4348D4005DCB53 /* Gourmemory.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Gourmemory.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		832E2C0B1E4348D4005DCB53 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		832E2C0D1E4348D4005DCB53 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -55,6 +64,9 @@
 		8359887E1EDE797400988863 /* Kiwami.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Kiwami.swift; sourceTree = "<group>"; };
 		835988801EE9594500988863 /* BigCenterTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BigCenterTabBarController.swift; sourceTree = "<group>"; };
 		8367C85D1E936ADC007D080C /* toViewController2.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = toViewController2.swift; sourceTree = "<group>"; };
+		8FCAB96D58E66A0B07A39D04 /* Pods-Gourmemory.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Gourmemory.release.xcconfig"; path = "Pods/Target Support Files/Pods-Gourmemory/Pods-Gourmemory.release.xcconfig"; sourceTree = "<group>"; };
+		CBA4AA3635E8A2A5903EE08F /* Pods_Gourmemory.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Gourmemory.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		EE7E91A0BFC35A3413F0C937 /* Pods_GourmemoryTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GourmemoryTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,6 +74,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C299FB819266BDB6C38E9795 /* Pods_Gourmemory.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -69,6 +82,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F032D6408FF4DBD6213698ED /* Pods_GourmemoryTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -76,12 +90,26 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				26F7A08EE20C635F877203D7 /* Pods_GourmemoryUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3F26BDF9D892467A8764ECFD /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				31FA0AD9768C656675C4C908 /* Pods-Gourmemory.debug.xcconfig */,
+				8FCAB96D58E66A0B07A39D04 /* Pods-Gourmemory.release.xcconfig */,
+				7417A75581239083FBA29C05 /* Pods-GourmemoryTests.debug.xcconfig */,
+				05430B1503E18342196A365B /* Pods-GourmemoryTests.release.xcconfig */,
+				688E64B8FA1904106761B7C9 /* Pods-GourmemoryUITests.debug.xcconfig */,
+				4868D04B706BE91CA4557022 /* Pods-GourmemoryUITests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		832E2BFF1E4348D4005DCB53 = {
 			isa = PBXGroup;
 			children = (
@@ -89,6 +117,8 @@
 				832E2C1F1E4348D5005DCB53 /* GourmemoryTests */,
 				832E2C2A1E4348D5005DCB53 /* GourmemoryUITests */,
 				832E2C091E4348D4005DCB53 /* Products */,
+				3F26BDF9D892467A8764ECFD /* Pods */,
+				A8E64DFC39A0896B511C4C01 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -137,6 +167,16 @@
 			path = GourmemoryUITests;
 			sourceTree = "<group>";
 		};
+		A8E64DFC39A0896B511C4C01 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				CBA4AA3635E8A2A5903EE08F /* Pods_Gourmemory.framework */,
+				EE7E91A0BFC35A3413F0C937 /* Pods_GourmemoryTests.framework */,
+				444BF3629418F20D978B7761 /* Pods_GourmemoryUITests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -144,9 +184,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 832E2C301E4348D5005DCB53 /* Build configuration list for PBXNativeTarget "Gourmemory" */;
 			buildPhases = (
+				E2CB73347488D39F4B685C73 /* [CP] Check Pods Manifest.lock */,
 				832E2C041E4348D4005DCB53 /* Sources */,
 				832E2C051E4348D4005DCB53 /* Frameworks */,
 				832E2C061E4348D4005DCB53 /* Resources */,
+				4B5A05EBEF61FFCC8F039B16 /* [CP] Embed Pods Frameworks */,
+				E7999B8FF8D34DC7F60997FB /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -161,9 +204,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 832E2C331E4348D5005DCB53 /* Build configuration list for PBXNativeTarget "GourmemoryTests" */;
 			buildPhases = (
+				D9F679071F4025A08DD5B2B2 /* [CP] Check Pods Manifest.lock */,
 				832E2C181E4348D5005DCB53 /* Sources */,
 				832E2C191E4348D5005DCB53 /* Frameworks */,
 				832E2C1A1E4348D5005DCB53 /* Resources */,
+				DC5C885EE95B8FE6E271731C /* [CP] Embed Pods Frameworks */,
+				D39B90FAEB50DE814FAEFD68 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -179,9 +225,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 832E2C361E4348D5005DCB53 /* Build configuration list for PBXNativeTarget "GourmemoryUITests" */;
 			buildPhases = (
+				87C27F8B95485F9C3E95799F /* [CP] Check Pods Manifest.lock */,
 				832E2C231E4348D5005DCB53 /* Sources */,
 				832E2C241E4348D5005DCB53 /* Frameworks */,
 				832E2C251E4348D5005DCB53 /* Resources */,
+				9D2E4EBE4CB985024AD12387 /* [CP] Embed Pods Frameworks */,
+				EE7B4115C7CB2E01988378C9 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -266,6 +315,144 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		4B5A05EBEF61FFCC8F039B16 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Gourmemory/Pods-Gourmemory-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		87C27F8B95485F9C3E95799F /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		9D2E4EBE4CB985024AD12387 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-GourmemoryUITests/Pods-GourmemoryUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D39B90FAEB50DE814FAEFD68 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-GourmemoryTests/Pods-GourmemoryTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D9F679071F4025A08DD5B2B2 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		DC5C885EE95B8FE6E271731C /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-GourmemoryTests/Pods-GourmemoryTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E2CB73347488D39F4B685C73 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		E7999B8FF8D34DC7F60997FB /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Gourmemory/Pods-Gourmemory-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		EE7B4115C7CB2E01988378C9 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-GourmemoryUITests/Pods-GourmemoryUITests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		832E2C041E4348D4005DCB53 /* Sources */ = {
@@ -425,6 +612,7 @@
 		};
 		832E2C311E4348D5005DCB53 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 31FA0AD9768C656675C4C908 /* Pods-Gourmemory.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = UWJ4P79UVK;
@@ -438,6 +626,7 @@
 		};
 		832E2C321E4348D5005DCB53 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8FCAB96D58E66A0B07A39D04 /* Pods-Gourmemory.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = UWJ4P79UVK;
@@ -451,6 +640,7 @@
 		};
 		832E2C341E4348D5005DCB53 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7417A75581239083FBA29C05 /* Pods-GourmemoryTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -465,6 +655,7 @@
 		};
 		832E2C351E4348D5005DCB53 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 05430B1503E18342196A365B /* Pods-GourmemoryTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -479,6 +670,7 @@
 		};
 		832E2C371E4348D5005DCB53 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 688E64B8FA1904106761B7C9 /* Pods-GourmemoryUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				INFOPLIST_FILE = GourmemoryUITests/Info.plist;
@@ -492,6 +684,7 @@
 		};
 		832E2C381E4348D5005DCB53 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4868D04B706BE91CA4557022 /* Pods-GourmemoryUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				INFOPLIST_FILE = GourmemoryUITests/Info.plist;
