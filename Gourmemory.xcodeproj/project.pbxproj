@@ -15,10 +15,14 @@
 		832E2C161E4348D4005DCB53 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 832E2C141E4348D4005DCB53 /* LaunchScreen.storyboard */; };
 		832E2C211E4348D5005DCB53 /* GourmemoryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 832E2C201E4348D5005DCB53 /* GourmemoryTests.swift */; };
 		832E2C2C1E4348D5005DCB53 /* GourmemoryUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 832E2C2B1E4348D5005DCB53 /* GourmemoryUITests.swift */; };
+		8335B1DC1F46D40F003EC749 /* RealmFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8335B1DB1F46D40F003EC749 /* RealmFactory.swift */; };
 		833FF7FA1EBB47790045F109 /* toViewController3.swift in Sources */ = {isa = PBXBuildFile; fileRef = 833FF7F91EBB47790045F109 /* toViewController3.swift */; };
 		8359887F1EDE797400988863 /* Kiwami.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8359887E1EDE797400988863 /* Kiwami.swift */; };
 		835988811EE9594500988863 /* BigCenterTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 835988801EE9594500988863 /* BigCenterTabBarController.swift */; };
 		8367C85E1E936ADC007D080C /* toViewController2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8367C85D1E936ADC007D080C /* toViewController2.swift */; };
+		83CE70B11F4694AE008D1F6D /* TableTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83CE70B01F4694AE008D1F6D /* TableTableViewController.swift */; };
+		83CE70B41F4694FF008D1F6D /* CustomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83CE70B21F4694FF008D1F6D /* CustomTableViewCell.swift */; };
+		83CE70B51F4694FF008D1F6D /* CustomTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 83CE70B31F4694FF008D1F6D /* CustomTableViewCell.xib */; };
 		C299FB819266BDB6C38E9795 /* Pods_Gourmemory.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CBA4AA3635E8A2A5903EE08F /* Pods_Gourmemory.framework */; };
 		F032D6408FF4DBD6213698ED /* Pods_GourmemoryTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EE7E91A0BFC35A3413F0C937 /* Pods_GourmemoryTests.framework */; };
 /* End PBXBuildFile section */
@@ -60,10 +64,14 @@
 		832E2C271E4348D5005DCB53 /* GourmemoryUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GourmemoryUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		832E2C2B1E4348D5005DCB53 /* GourmemoryUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GourmemoryUITests.swift; sourceTree = "<group>"; };
 		832E2C2D1E4348D5005DCB53 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8335B1DB1F46D40F003EC749 /* RealmFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RealmFactory.swift; sourceTree = "<group>"; };
 		833FF7F91EBB47790045F109 /* toViewController3.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = toViewController3.swift; sourceTree = "<group>"; };
 		8359887E1EDE797400988863 /* Kiwami.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Kiwami.swift; sourceTree = "<group>"; };
 		835988801EE9594500988863 /* BigCenterTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BigCenterTabBarController.swift; sourceTree = "<group>"; };
 		8367C85D1E936ADC007D080C /* toViewController2.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = toViewController2.swift; sourceTree = "<group>"; };
+		83CE70B01F4694AE008D1F6D /* TableTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableTableViewController.swift; sourceTree = "<group>"; };
+		83CE70B21F4694FF008D1F6D /* CustomTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomTableViewCell.swift; sourceTree = "<group>"; };
+		83CE70B31F4694FF008D1F6D /* CustomTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CustomTableViewCell.xib; sourceTree = "<group>"; };
 		8FCAB96D58E66A0B07A39D04 /* Pods-Gourmemory.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Gourmemory.release.xcconfig"; path = "Pods/Target Support Files/Pods-Gourmemory/Pods-Gourmemory.release.xcconfig"; sourceTree = "<group>"; };
 		CBA4AA3635E8A2A5903EE08F /* Pods_Gourmemory.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Gourmemory.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EE7E91A0BFC35A3413F0C937 /* Pods_GourmemoryTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GourmemoryTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -141,7 +149,11 @@
 				833FF7F91EBB47790045F109 /* toViewController3.swift */,
 				835988801EE9594500988863 /* BigCenterTabBarController.swift */,
 				8359887E1EDE797400988863 /* Kiwami.swift */,
+				8335B1DB1F46D40F003EC749 /* RealmFactory.swift */,
 				832E2C0F1E4348D4005DCB53 /* Main.storyboard */,
+				83CE70B21F4694FF008D1F6D /* CustomTableViewCell.swift */,
+				83CE70B31F4694FF008D1F6D /* CustomTableViewCell.xib */,
+				83CE70B01F4694AE008D1F6D /* TableTableViewController.swift */,
 				832E2C141E4348D4005DCB53 /* LaunchScreen.storyboard */,
 				832E2C121E4348D4005DCB53 /* Assets.xcassets */,
 				832E2C171E4348D4005DCB53 /* Info.plist */,
@@ -296,6 +308,7 @@
 			files = (
 				832E2C161E4348D4005DCB53 /* LaunchScreen.storyboard in Resources */,
 				832E2C131E4348D4005DCB53 /* Assets.xcassets in Resources */,
+				83CE70B51F4694FF008D1F6D /* CustomTableViewCell.xib in Resources */,
 				832E2C111E4348D4005DCB53 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -461,8 +474,11 @@
 			files = (
 				832E2C0E1E4348D4005DCB53 /* ViewController.swift in Sources */,
 				835988811EE9594500988863 /* BigCenterTabBarController.swift in Sources */,
+				83CE70B41F4694FF008D1F6D /* CustomTableViewCell.swift in Sources */,
 				832E2C0C1E4348D4005DCB53 /* AppDelegate.swift in Sources */,
 				8367C85E1E936ADC007D080C /* toViewController2.swift in Sources */,
+				8335B1DC1F46D40F003EC749 /* RealmFactory.swift in Sources */,
+				83CE70B11F4694AE008D1F6D /* TableTableViewController.swift in Sources */,
 				833FF7FA1EBB47790045F109 /* toViewController3.swift in Sources */,
 				8359887F1EDE797400988863 /* Kiwami.swift in Sources */,
 			);

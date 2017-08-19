@@ -20,6 +20,7 @@ class ViewController2 : UIViewController ,UIPickerViewDelegate,UIPickerViewDataS
     //var shosai : String!
     var categoryPickerView: UIPickerView!
     var category: String!
+    var weakday: String!
     var coordiate2 : CLLocationCoordinate2D!
     var image : UIImage!
     let coordiate = CLLocationCoordinate2DMake(37.331652997806785, -122.03072304117417)
@@ -91,10 +92,7 @@ class ViewController2 : UIViewController ,UIPickerViewDelegate,UIPickerViewDataS
         let week = NSCalendar.current.component(weekcomp, from: NSDate() as Date)
         let weekText:String = weekArray[week]
         dateLabel.text = String(month) + "月" + String(day) + "日" + "("+weekText+")"
-        //        print(weekday)
-        //        print(weekdays[weekday])
-        
-    }
+          }
     
     //画面が表示されるたび最初に呼ばれるとこ
     override func viewDidAppear(_ animated: Bool) {
@@ -125,14 +123,13 @@ class ViewController2 : UIViewController ,UIPickerViewDelegate,UIPickerViewDataS
         //kiwamiオブジェクトの設定
         let kiwami: Kiwami = Kiwami()
         kiwami.shopname = shopname!
-//        kiwami.image = image!
         kiwami.imageData = saveImage
         kiwami.latitude = annotaion.coordinate.latitude
         kiwami.longitude = annotaion.coordinate.longitude
         kiwami.text = shosai!
         kiwami.category = category
         kiwami.date = Date()
-        kiwami.weekDay = "木曜"
+        kiwami.weekDay = dateLabel.text
         
         //データベースに保存 try! realm.writeで書き込みモード
         try! realm.write {
@@ -145,27 +142,7 @@ class ViewController2 : UIViewController ,UIPickerViewDelegate,UIPickerViewDataS
         //保存できたら画面消す
         dismiss(animated: true) {
         }
-        
-
-        
-        
-        //Kiwamiオブジェクトでひとまとめにして保存
-        /*
-        let kiwami: Kiwami = Kiwami(shopname: shopname!, image: image, coordinate: annotaion.coordinate, text: shosai!, category: category, date: Date(), weekDay: "木曜")
-        kiwami.image =
-        kiwami.text
-        
-        let dataSave: DataSave = DataSave()
-        dataSave.save(newkiwami: kiwami)
-        */
-        
-        
-        //画面遷移なかったからコメントアウトしといた
-        /*
-        performSegue(withIdentifier: "toViewController3",sender: nil)
-        */
-        
-    }
+        }
     
     
     //MARK: - pickerView

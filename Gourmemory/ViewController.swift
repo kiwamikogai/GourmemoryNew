@@ -9,7 +9,7 @@
 import UIKit
 import MapKit
 import AVFoundation
-import RealmSwift      //データベース用のライブラリを読み込んでるで
+import RealmSwift     //データベース用のライブラリを読み込んでるで
 
 class ViewController: UIViewController,MKMapViewDelegate,CLLocationManagerDelegate,UIImagePickerControllerDelegate,UINavigationControllerDelegate,UITextFieldDelegate {
     
