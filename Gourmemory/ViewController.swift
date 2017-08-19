@@ -173,7 +173,8 @@ class ViewController: UIViewController,MKMapViewDelegate,CLLocationManagerDelega
     }
     
     //画面遷移ないならここも要らんかな！現状呼ばれてないよ！
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+    override func prepare(
+        for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "toViewController2" {
             let vc2: ViewController2 = segue.destination as! ViewController2
             

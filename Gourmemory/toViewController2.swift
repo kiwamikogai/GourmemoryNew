@@ -65,6 +65,7 @@ class ViewController2 : UIViewController ,UIPickerViewDelegate,UIPickerViewDataS
         annotaion.title = textField.text!
         annotaion.subtitle = ""
         
+        
         self.mapView.addAnnotation(annotaion)
         
         
@@ -111,10 +112,10 @@ class ViewController2 : UIViewController ,UIPickerViewDelegate,UIPickerViewDataS
         
         
         //画像のリサイズ。そのままだと大きすぎるから小さくする
-        var smallImage = image.resize(image: image, width: Int(image.size.width/2.0), height: Int(image.size.height/2.0))
+        let smallImage = image.resize(image: image, width: Int(image.size.width/2.0), height: Int(image.size.height/2.0))
         
         //画像をData型に変換する。画像そのままだと保存できないんよ
-        var saveImage = UIImagePNGRepresentation(smallImage)
+        let saveImage = UIImagePNGRepresentation(smallImage)
         
         
         //データベースの定義
@@ -142,7 +143,7 @@ class ViewController2 : UIViewController ,UIPickerViewDelegate,UIPickerViewDataS
         //保存できたら画面消す
         dismiss(animated: true) {
         }
-        }
+    }
     
     
     //MARK: - pickerView

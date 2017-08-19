@@ -27,7 +27,7 @@ class Kiwami: Object {
     static func findAll() -> [Kiwami] {
         let realm = RealmFactory.sharedInstance.realm()
         let kiwamis = realm.objects(Kiwami.self)
-        return kiwamis.map { $0 }
+        return kiwamis.map { $0 }.reversed()
     }
 }
 

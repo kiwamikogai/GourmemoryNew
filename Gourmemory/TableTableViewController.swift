@@ -41,6 +41,13 @@ class TableTableViewController: UITableViewController {
         return 1
     }
     
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        print(indexPath)
+        performSegue(withIdentifier: "ViewController4",sender: nil)
+    }
+    
+    
+    
     // tableviewセルの個数
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return kiwamis.count
