@@ -29,9 +29,9 @@
 		8362995F1F4D201F0065056F /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8362995E1F4D201F0065056F /* Extension.swift */; };
 		836299611F4D3ED90065056F /* カメラ.png in Resources */ = {isa = PBXBuildFile; fileRef = 836299601F4D3ED90065056F /* カメラ.png */; };
 		8367C85E1E936ADC007D080C /* toViewController2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8367C85D1E936ADC007D080C /* toViewController2.swift */; };
+		83BB54881F4EB69D005251CE /* CustomTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 83BB54871F4EB69D005251CE /* CustomTableViewCell.xib */; };
 		83CE70B11F4694AE008D1F6D /* TableTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83CE70B01F4694AE008D1F6D /* TableTableViewController.swift */; };
 		83CE70B41F4694FF008D1F6D /* CustomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83CE70B21F4694FF008D1F6D /* CustomTableViewCell.swift */; };
-		83CE70B51F4694FF008D1F6D /* CustomTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 83CE70B31F4694FF008D1F6D /* CustomTableViewCell.xib */; };
 		C299FB819266BDB6C38E9795 /* Pods_Gourmemory.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CBA4AA3635E8A2A5903EE08F /* Pods_Gourmemory.framework */; };
 		F032D6408FF4DBD6213698ED /* Pods_GourmemoryTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EE7E91A0BFC35A3413F0C937 /* Pods_GourmemoryTests.framework */; };
 /* End PBXBuildFile section */
@@ -87,9 +87,9 @@
 		8362995E1F4D201F0065056F /* Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
 		836299601F4D3ED90065056F /* カメラ.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "カメラ.png"; sourceTree = "<group>"; };
 		8367C85D1E936ADC007D080C /* toViewController2.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = toViewController2.swift; sourceTree = "<group>"; };
+		83BB54871F4EB69D005251CE /* CustomTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CustomTableViewCell.xib; sourceTree = "<group>"; };
 		83CE70B01F4694AE008D1F6D /* TableTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableTableViewController.swift; sourceTree = "<group>"; };
 		83CE70B21F4694FF008D1F6D /* CustomTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomTableViewCell.swift; sourceTree = "<group>"; };
-		83CE70B31F4694FF008D1F6D /* CustomTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CustomTableViewCell.xib; sourceTree = "<group>"; };
 		8FCAB96D58E66A0B07A39D04 /* Pods-Gourmemory.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Gourmemory.release.xcconfig"; path = "Pods/Target Support Files/Pods-Gourmemory/Pods-Gourmemory.release.xcconfig"; sourceTree = "<group>"; };
 		CBA4AA3635E8A2A5903EE08F /* Pods_Gourmemory.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Gourmemory.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EE7E91A0BFC35A3413F0C937 /* Pods_GourmemoryTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GourmemoryTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -167,9 +167,9 @@
 				8367C85D1E936ADC007D080C /* toViewController2.swift */,
 				833FF7F91EBB47790045F109 /* toViewController3.swift */,
 				83CE70B21F4694FF008D1F6D /* CustomTableViewCell.swift */,
-				83CE70B31F4694FF008D1F6D /* CustomTableViewCell.xib */,
 				83CE70B01F4694AE008D1F6D /* TableTableViewController.swift */,
 				8359887E1EDE797400988863 /* Kiwami.swift */,
+				83BB54871F4EB69D005251CE /* CustomTableViewCell.xib */,
 				8335B1DB1F46D40F003EC749 /* RealmFactory.swift */,
 				832E2C141E4348D4005DCB53 /* LaunchScreen.storyboard */,
 				8362995E1F4D201F0065056F /* Extension.swift */,
@@ -335,6 +335,7 @@
 			files = (
 				8362995D1F4D1E710065056F /* f.png in Resources */,
 				8362995B1F4D1E710065056F /* d.png in Resources */,
+				83BB54881F4EB69D005251CE /* CustomTableViewCell.xib in Resources */,
 				832E2C161E4348D4005DCB53 /* LaunchScreen.storyboard in Resources */,
 				836299611F4D3ED90065056F /* カメラ.png in Resources */,
 				836299431F4AD4070065056F /* アプリ@2x.png in Resources */,
@@ -342,7 +343,6 @@
 				8362995A1F4D1E710065056F /* c.png in Resources */,
 				8362995C1F4D1E710065056F /* e.png in Resources */,
 				836299581F4D1E710065056F /* a.png in Resources */,
-				83CE70B51F4694FF008D1F6D /* CustomTableViewCell.xib in Resources */,
 				832E2C111E4348D4005DCB53 /* Main.storyboard in Resources */,
 				836299591F4D1E710065056F /* b.png in Resources */,
 			);

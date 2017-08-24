@@ -7,33 +7,32 @@
 //
 
 import UIKit
+import MapKit
 
-class ViewController3: UIViewController {
+class ViewController3: UIViewController{
     
     var kiwami: Kiwami?
     
     @IBOutlet var imageView: UIImageView!
     @IBOutlet var imageView2: UIImageView!
     @IBOutlet var selectedImageView: UIImageView!
-    @IBOutlet var dateLabel: UILabel!
     @IBOutlet var shopnameLabel: UILabel!
+    @IBOutlet var mapView: MKMapView!
     
     override func viewDidLoad() {
+        
+        self.navigationController?.navigationBar.barTintColor = UIColor(rgb: 0x6AB9BE)
+        self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.white]
+        self.title = kiwami!.weekDay
+        
         super.viewDidLoad()
-         print(kiwami)
+        print(kiwami)
         guard let kiwami = kiwami else { return }
-        dateLabel.text = kiwami.weekDay!
+//        dateLabel.text = kiwami.weekDay!
         imageView.image = UIImage(data: kiwami.imageData)
         shopnameLabel.text = kiwami.shopname
         
         
-    }
-    
-    @IBAction func returnButton (_ segue:UIStoryboardSegue){
-        
-        dismiss(animated: true) {
-           
-        }
     }
     
     override func didReceiveMemoryWarning() {

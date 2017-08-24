@@ -13,8 +13,7 @@ class CustomTableViewCell: UITableViewCell {
     @IBOutlet var dateLabel: UILabel!
     @IBOutlet var categoryLabel: UILabel!
     @IBOutlet var storeLabel: UILabel!
-    @IBOutlet var placeLabel: UILabel!
-   
+ 
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

@@ -10,6 +10,7 @@ class ParentTabBarController: UITabBarController, UITabBarControllerDelegate {
         setupBigCenterButton()
         self.delegate = self
         
+        
         if let count = self.tabBar.items?.count {
             for i in 0...count-1 {
                 let imageNameForSelectedState   = selectesIconNames[i]
@@ -24,7 +25,12 @@ class ParentTabBarController: UITabBarController, UITabBarControllerDelegate {
         UITabBarItem.appearance().setTitleTextAttributes([NSForegroundColorAttributeName: UIColor(rgb: 0xC7E5E7)], for: .selected)
         tabBar.barTintColor = UIColor(rgb: 0xC7E5E7)
         
+        self.tabBar.items?[0].imageInsets = UIEdgeInsets(top: 5, left: 0, bottom: -5, right: 0)
+        self.tabBar.items?[0].title = nil
         
+        self.tabBar.items?[2].imageInsets = UIEdgeInsets(top: 5, left: 0, bottom: -5, right: 0)
+        self.tabBar.items?[2].title = nil
+       
     }
     
     func tabBarController(_ tabBarController: UITabBarController, shouldSelect viewController: UIViewController) -> Bool {

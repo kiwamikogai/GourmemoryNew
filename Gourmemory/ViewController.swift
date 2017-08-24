@@ -29,7 +29,7 @@ class ViewController: UIViewController,MKMapViewDelegate,CLLocationManagerDelega
     var annotaion = MKPointAnnotation()
     
     @IBOutlet var imageView : UIImageView!
-    @IBOutlet var mapView:MKMapView!
+    @IBOutlet var mapView: MKMapView!
     @IBOutlet var selectedImageView : UIImageView!
     
     var annotationData:Results<Kiwami>!
@@ -39,10 +39,10 @@ class ViewController: UIViewController,MKMapViewDelegate,CLLocationManagerDelega
     override func viewDidLoad() {
         self.navigationController?.navigationBar.barTintColor = UIColor(rgb: 0x6AB9BE)
         self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.white]
+
         
         let region = MKCoordinateRegionMake(coordiate, span)
-        mapView.setRegion(region, animated:true)
-        
+        mapView.setRegion(region, animated: true)
         
         readKiwamiData()
         
@@ -83,7 +83,7 @@ class ViewController: UIViewController,MKMapViewDelegate,CLLocationManagerDelega
             }
             
         }
-
+        
     }
     
     
@@ -107,48 +107,48 @@ class ViewController: UIViewController,MKMapViewDelegate,CLLocationManagerDelega
             
         }
     }
-
+    
     
     
     /* ボタン追加したから要らないとこ
-    
-    
-    @IBAction func cameraStart(sender : AnyObject) {
-        
-        let sourceType:UIImagePickerControllerSourceType = UIImagePickerControllerSourceType.camera
-        
-        if UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.camera){
-            let cameraPicker = UIImagePickerController()
-            cameraPicker.sourceType = sourceType
-            cameraPicker.delegate = self
-            self.present(cameraPicker, animated: true, completion: nil)
-            
-        }
-        
-    }
-    
-    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
-        
-        if let pickedImage = info[UIImagePickerControllerOriginalImage] as? UIImage {
-            self.imageView.image = pickedImage
-        }
-        picker.dismiss(animated: true, completion: {
-            
-            self.performSegue(withIdentifier: "toViewController2", sender: nil)
-        })
-        
-    }
-    @IBAction func buttonTapped(sender : AnyObject) {
-        performSegue(withIdentifier: "toViewController2",sender: nil)
-        
-    }
- 
-    
-    func imagePickerControllerDidCancel(picker: UIImagePickerController) {
-        picker.dismiss(animated: true, completion: nil)
-    }
-    
-    */
+     
+     
+     @IBAction func cameraStart(sender : AnyObject) {
+     
+     let sourceType:UIImagePickerControllerSourceType = UIImagePickerControllerSourceType.camera
+     
+     if UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.camera){
+     let cameraPicker = UIImagePickerController()
+     cameraPicker.sourceType = sourceType
+     cameraPicker.delegate = self
+     self.present(cameraPicker, animated: true, completion: nil)
+     
+     }
+     
+     }
+     
+     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+     
+     if let pickedImage = info[UIImagePickerControllerOriginalImage] as? UIImage {
+     self.imageView.image = pickedImage
+     }
+     picker.dismiss(animated: true, completion: {
+     
+     self.performSegue(withIdentifier: "toViewController2", sender: nil)
+     })
+     
+     }
+     @IBAction func buttonTapped(sender : AnyObject) {
+     performSegue(withIdentifier: "toViewController2",sender: nil)
+     
+     }
+     
+     
+     func imagePickerControllerDidCancel(picker: UIImagePickerController) {
+     picker.dismiss(animated: true, completion: nil)
+     }
+     
+     */
     
     //アラート出すならメソッドの中確認！！
     func image(image: UIImage, didFinishSavingWithError error: NSError!, contextInfo: UnsafeMutablePointer<Void>) {

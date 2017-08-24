@@ -66,7 +66,6 @@ class TableTableViewController: UITableViewController {
         cell.storeLabel.text = kiwamis[indexPath.row].shopname
         cell.dateLabel.text = kiwamis[indexPath.row].weekDay
         cell.categoryLabel.text = kiwamis[indexPath.row].category
-        cell.placeLabel.text = kiwamis[indexPath.row].text
         return cell
     }
     
