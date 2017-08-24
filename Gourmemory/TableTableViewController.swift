@@ -14,15 +14,18 @@ class TableTableViewController: UITableViewController {
     var refresher: UIRefreshControl!
 
     override func viewDidLoad() {
+        
+        self.navigationController?.navigationBar.barTintColor = UIColor(rgb: 0x6AB9BE)
         super.viewDidLoad()
         
         self.tableView.register(UINib(nibName: "CustomTableViewCell", bundle: nil), forCellReuseIdentifier: "customCell")
+        self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.white]
         
         kiwamis = Kiwami.findAll()
         refresher = UIRefreshControl()
         tableView.addSubview(refresher)
-        refresher.attributedTitle = NSAttributedString(string: "Pull to refresh")
-        refresher.tintColor = UIColor(red:1.00,green:0.21,blue:0.55,alpha:1.0)
+        refresher.attributedTitle = NSAttributedString(string: "更新する")
+        refresher.tintColor = UIColor(rgb: 0x6AB9BE)
         refresher.addTarget(self, action: #selector(TableTableViewController.refresh), for: .valueChanged)
     }
     
@@ -42,13 +45,18 @@ class TableTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        print(indexPath)
-        performSegue(withIdentifier: "ViewController4",sender: nil)
+        performSegue(withIdentifier: "ViewController3",sender: indexPath.row)
+     
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "ViewController3" {
+            let vc3 = segue.destination as! ViewController3
+            vc3.kiwami = kiwamis[sender as! Int]
+        }
+
+    }
     
-    
-    // tableviewセルの個数
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return kiwamis.count
     }

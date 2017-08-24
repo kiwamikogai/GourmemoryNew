@@ -37,7 +37,8 @@ class ViewController: UIViewController,MKMapViewDelegate,CLLocationManagerDelega
     var testManager:CLLocationManager = CLLocationManager()
     
     override func viewDidLoad() {
-        
+        self.navigationController?.navigationBar.barTintColor = UIColor(rgb: 0x6AB9BE)
+        self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.white]
         
         let region = MKCoordinateRegionMake(coordiate, span)
         mapView.setRegion(region, animated:true)
@@ -45,15 +46,11 @@ class ViewController: UIViewController,MKMapViewDelegate,CLLocationManagerDelega
         
         readKiwamiData()
         
-        
-        
         super.viewDidLoad()
         
         testManager.delegate = self as! CLLocationManagerDelegate
         testManager.startUpdatingLocation()
         testManager.requestWhenInUseAuthorization()
-        
-        super.viewDidLoad()
         
     }
     

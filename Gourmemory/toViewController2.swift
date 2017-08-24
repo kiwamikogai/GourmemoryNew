@@ -9,16 +9,16 @@
 import UIKit
 import CoreLocation
 import MapKit
-import RealmSwift       //データベース用のライブラリを読み込んでるで
+import RealmSwift      //データベース用のライブラリを読み込んでるで
 
 //入力するとこ。センターボタン
 
 class ViewController2 : UIViewController ,UIPickerViewDelegate,UIPickerViewDataSource,MKMapViewDelegate,CLLocationManagerDelegate,UITextFieldDelegate, UINavigationControllerDelegate,UIImagePickerControllerDelegate{
     
-    let dataList = ["スイーツ","朝ごはん","小腹","和食","洋食"]
+    let dataList = ["優勝","激ウマ","イケる","アリ","まあうん","..."]
     //var shopname : String!
     //var shosai : String!
-    var categoryPickerView: UIPickerView!
+
     var category: String!
     var weakday: String!
     var coordiate2 : CLLocationCoordinate2D!
@@ -34,25 +34,25 @@ class ViewController2 : UIViewController ,UIPickerViewDelegate,UIPickerViewDataS
     let now = NSDate()
     var isCamShown = false
     
+    @IBOutlet var categoryPickerView: UIPickerView!
     @IBOutlet var imageView2 : UIImageView!
     @IBOutlet var mapView : MKMapView!
     @IBOutlet var selectedImageView : UIImageView!
     @IBOutlet var textField : UITextField!
-    @IBOutlet var dateLabel : UILabel!
     @IBOutlet var imageView : UIImageView!
-    @IBOutlet var shosaiTextView : UITextView!
     
     let weekArray:[String] = ["さきね","日","月","火","水","木","金","土"]
     
     var pickerView : UIPickerView!
     var testManager:CLLocationManager = CLLocationManager()
     
-    
-    
     //MARK: - normal
     
     //初回呼び出されるとこ
     override func viewDidLoad() {
+        
+        self.navigationController?.navigationBar.barTintColor = UIColor(rgb: 0x6AB9BE)
+        self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.white]
         
         super.viewDidLoad()
         
@@ -68,19 +68,17 @@ class ViewController2 : UIViewController ,UIPickerViewDelegate,UIPickerViewDataS
         
         self.mapView.addAnnotation(annotaion)
         
-        
-        
         testManager.delegate = self
         testManager.startUpdatingLocation()
         testManager.requestWhenInUseAuthorization()
         
-        categoryPickerView = UIPickerView(frame: CGRect(x: 200, y: 0, width: self.view.frame.width - 200, height: 100))
-        categoryPickerView.center.y = self.view.center.y - 160
+//        categoryPickerView = UIPickerView(frame: CGRect(x: 200, y: 0, width: self.view.frame.width - 200, height: 100))
+//        categoryPickerView.center.y = self.view.center.y - 160
         categoryPickerView.delegate = self
-        categoryPickerView.dataSource = self as! UIPickerViewDataSource
+        categoryPickerView.dataSource = self as UIPickerViewDataSource
         categoryPickerView.selectRow(1, inComponent: 0, animated: true)
         
-        self.view.addSubview(categoryPickerView)
+//        self.view.addSubview(categoryPickerView)
         imageView2.image = image
         
         
@@ -92,8 +90,9 @@ class ViewController2 : UIViewController ,UIPickerViewDelegate,UIPickerViewDataS
         let weekcomp = Calendar.Component.weekday
         let week = NSCalendar.current.component(weekcomp, from: NSDate() as Date)
         let weekText:String = weekArray[week]
-        dateLabel.text = String(month) + "月" + String(day) + "日" + "("+weekText+")"
-          }
+//        dateLabel.text = String(month) + "月" + String(day) + "日" + "("+weekText+")"
+        self.title = String(month) + "月" + String(day) + "日" + "("+weekText+")"
+    }
     
     //画面が表示されるたび最初に呼ばれるとこ
     override func viewDidAppear(_ animated: Bool) {
@@ -103,12 +102,45 @@ class ViewController2 : UIViewController ,UIPickerViewDelegate,UIPickerViewDataS
     
     
     //データのセーブ。保存ボタンが押されたら呼ばれる
+    
     @IBAction func SaveKiwami(sender : AnyObject) {
+        
+        if textField.text == "" {
+            
+            let alertController = UIAlertController(title: "エラー", message: "店名が未記入です", preferredStyle: .alert)
+            
+            alertController.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+            
+            //アラートを表示
+            present(alertController, animated: true, completion: nil)
+            
+            print("OK")
+            
+            return
+            
+        }
+        
+        func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+            
+            //キーボード以外のところをタップするとキーボードを閉じる
+            if textField.isFirstResponder {
+                
+                textField.resignFirstResponder()
+                
+            }
+            
+            //キーボード以外のところをタップするとキーボードを閉じる
+            if textField.isFirstResponder{
+                textField.resignFirstResponder()
+            }
+            
+        }
+        
         
         //ここにほぞんするためのこーどをかく
         //まず保存したい情報を抽出する
         let shopname = textField.text
-        let shosai = shosaiTextView.text
+        //        let shosai = shosaiTextView.text
         
         
         //画像のリサイズ。そのままだと大きすぎるから小さくする
@@ -127,10 +159,10 @@ class ViewController2 : UIViewController ,UIPickerViewDelegate,UIPickerViewDataS
         kiwami.imageData = saveImage
         kiwami.latitude = annotaion.coordinate.latitude
         kiwami.longitude = annotaion.coordinate.longitude
-        kiwami.text = shosai!
+        //        kiwami.text = shosai!
         kiwami.category = category
         kiwami.date = Date()
-        kiwami.weekDay = dateLabel.text
+        kiwami.weekDay = self.title
         
         //データベースに保存 try! realm.writeで書き込みモード
         try! realm.write {
@@ -199,7 +231,7 @@ class ViewController2 : UIViewController ,UIPickerViewDelegate,UIPickerViewDataS
         isCamShown = true
         
     }
-
+    
     //カメラの起動するとこ
     func cameraStart() {
         
@@ -226,13 +258,11 @@ class ViewController2 : UIViewController ,UIPickerViewDelegate,UIPickerViewDataS
         
         self.dismiss(animated: true, completion: nil)
     }
-
     
     //imagePicerを呼び出したけどキャンセルした時動くとこ
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
-        
+        self.dismiss(animated: true, completion: nil)
     }
-    
     
     //ほっとくとこ。メモリ管理系
     override func didReceiveMemoryWarning() {
@@ -248,22 +278,23 @@ class ViewController2 : UIViewController ,UIPickerViewDelegate,UIPickerViewDataS
     
     //戻るボタン押されたら画面消すとこ
     @IBAction func returnButton (_ segue:UIStoryboardSegue){
-
+        
         dismiss(animated: true) {
             //nasi
         }
     }
     
     //アラート出すとこ
+    
+    
     func showAlert(title: String, message: String) {
         let alertView = UIAlertView()
         alertView.title = title
         alertView.message = message
         alertView.addButton(withTitle: "OK")
         alertView.show()
-        
+       
     }
-
     
     //mapのとこ
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
@@ -282,8 +313,5 @@ class ViewController2 : UIViewController ,UIPickerViewDelegate,UIPickerViewDataS
             
         }
     }
-
     
-
-
 }

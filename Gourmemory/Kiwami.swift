@@ -29,6 +29,7 @@ class Kiwami: Object {
         let kiwamis = realm.objects(Kiwami.self)
         return kiwamis.map { $0 }.reversed()
     }
+    
 }
 
 

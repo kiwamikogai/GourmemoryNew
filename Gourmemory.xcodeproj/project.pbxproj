@@ -18,7 +18,16 @@
 		8335B1DC1F46D40F003EC749 /* RealmFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8335B1DB1F46D40F003EC749 /* RealmFactory.swift */; };
 		833FF7FA1EBB47790045F109 /* toViewController3.swift in Sources */ = {isa = PBXBuildFile; fileRef = 833FF7F91EBB47790045F109 /* toViewController3.swift */; };
 		8359887F1EDE797400988863 /* Kiwami.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8359887E1EDE797400988863 /* Kiwami.swift */; };
-		835988811EE9594500988863 /* BigCenterTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 835988801EE9594500988863 /* BigCenterTabBarController.swift */; };
+		836299431F4AD4070065056F /* アプリ@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 836299421F4AD4070065056F /* アプリ@2x.png */; };
+		836299511F4D155C0065056F /* ParentTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 836299501F4D155C0065056F /* ParentTabBarController.swift */; };
+		836299581F4D1E710065056F /* a.png in Resources */ = {isa = PBXBuildFile; fileRef = 836299521F4D1E710065056F /* a.png */; };
+		836299591F4D1E710065056F /* b.png in Resources */ = {isa = PBXBuildFile; fileRef = 836299531F4D1E710065056F /* b.png */; };
+		8362995A1F4D1E710065056F /* c.png in Resources */ = {isa = PBXBuildFile; fileRef = 836299541F4D1E710065056F /* c.png */; };
+		8362995B1F4D1E710065056F /* d.png in Resources */ = {isa = PBXBuildFile; fileRef = 836299551F4D1E710065056F /* d.png */; };
+		8362995C1F4D1E710065056F /* e.png in Resources */ = {isa = PBXBuildFile; fileRef = 836299561F4D1E710065056F /* e.png */; };
+		8362995D1F4D1E710065056F /* f.png in Resources */ = {isa = PBXBuildFile; fileRef = 836299571F4D1E710065056F /* f.png */; };
+		8362995F1F4D201F0065056F /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8362995E1F4D201F0065056F /* Extension.swift */; };
+		836299611F4D3ED90065056F /* カメラ.png in Resources */ = {isa = PBXBuildFile; fileRef = 836299601F4D3ED90065056F /* カメラ.png */; };
 		8367C85E1E936ADC007D080C /* toViewController2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8367C85D1E936ADC007D080C /* toViewController2.swift */; };
 		83CE70B11F4694AE008D1F6D /* TableTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83CE70B01F4694AE008D1F6D /* TableTableViewController.swift */; };
 		83CE70B41F4694FF008D1F6D /* CustomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83CE70B21F4694FF008D1F6D /* CustomTableViewCell.swift */; };
@@ -67,7 +76,16 @@
 		8335B1DB1F46D40F003EC749 /* RealmFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RealmFactory.swift; sourceTree = "<group>"; };
 		833FF7F91EBB47790045F109 /* toViewController3.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = toViewController3.swift; sourceTree = "<group>"; };
 		8359887E1EDE797400988863 /* Kiwami.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Kiwami.swift; sourceTree = "<group>"; };
-		835988801EE9594500988863 /* BigCenterTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BigCenterTabBarController.swift; sourceTree = "<group>"; };
+		836299421F4AD4070065056F /* アプリ@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "アプリ@2x.png"; sourceTree = "<group>"; };
+		836299501F4D155C0065056F /* ParentTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParentTabBarController.swift; sourceTree = "<group>"; };
+		836299521F4D1E710065056F /* a.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = a.png; sourceTree = "<group>"; };
+		836299531F4D1E710065056F /* b.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = b.png; sourceTree = "<group>"; };
+		836299541F4D1E710065056F /* c.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = c.png; sourceTree = "<group>"; };
+		836299551F4D1E710065056F /* d.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = d.png; sourceTree = "<group>"; };
+		836299561F4D1E710065056F /* e.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = e.png; sourceTree = "<group>"; };
+		836299571F4D1E710065056F /* f.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = f.png; sourceTree = "<group>"; };
+		8362995E1F4D201F0065056F /* Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
+		836299601F4D3ED90065056F /* カメラ.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "カメラ.png"; sourceTree = "<group>"; };
 		8367C85D1E936ADC007D080C /* toViewController2.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = toViewController2.swift; sourceTree = "<group>"; };
 		83CE70B01F4694AE008D1F6D /* TableTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableTableViewController.swift; sourceTree = "<group>"; };
 		83CE70B21F4694FF008D1F6D /* CustomTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomTableViewCell.swift; sourceTree = "<group>"; };
@@ -143,19 +161,28 @@
 		832E2C0A1E4348D4005DCB53 /* Gourmemory */ = {
 			isa = PBXGroup;
 			children = (
+				832E2C0F1E4348D4005DCB53 /* Main.storyboard */,
 				832E2C0B1E4348D4005DCB53 /* AppDelegate.swift */,
 				832E2C0D1E4348D4005DCB53 /* ViewController.swift */,
 				8367C85D1E936ADC007D080C /* toViewController2.swift */,
 				833FF7F91EBB47790045F109 /* toViewController3.swift */,
-				835988801EE9594500988863 /* BigCenterTabBarController.swift */,
-				8359887E1EDE797400988863 /* Kiwami.swift */,
-				8335B1DB1F46D40F003EC749 /* RealmFactory.swift */,
-				832E2C0F1E4348D4005DCB53 /* Main.storyboard */,
 				83CE70B21F4694FF008D1F6D /* CustomTableViewCell.swift */,
 				83CE70B31F4694FF008D1F6D /* CustomTableViewCell.xib */,
 				83CE70B01F4694AE008D1F6D /* TableTableViewController.swift */,
+				8359887E1EDE797400988863 /* Kiwami.swift */,
+				8335B1DB1F46D40F003EC749 /* RealmFactory.swift */,
 				832E2C141E4348D4005DCB53 /* LaunchScreen.storyboard */,
+				8362995E1F4D201F0065056F /* Extension.swift */,
+				836299501F4D155C0065056F /* ParentTabBarController.swift */,
 				832E2C121E4348D4005DCB53 /* Assets.xcassets */,
+				836299601F4D3ED90065056F /* カメラ.png */,
+				836299521F4D1E710065056F /* a.png */,
+				836299531F4D1E710065056F /* b.png */,
+				836299541F4D1E710065056F /* c.png */,
+				836299551F4D1E710065056F /* d.png */,
+				836299561F4D1E710065056F /* e.png */,
+				836299571F4D1E710065056F /* f.png */,
+				836299421F4AD4070065056F /* アプリ@2x.png */,
 				832E2C171E4348D4005DCB53 /* Info.plist */,
 			);
 			path = Gourmemory;
@@ -306,10 +333,18 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8362995D1F4D1E710065056F /* f.png in Resources */,
+				8362995B1F4D1E710065056F /* d.png in Resources */,
 				832E2C161E4348D4005DCB53 /* LaunchScreen.storyboard in Resources */,
+				836299611F4D3ED90065056F /* カメラ.png in Resources */,
+				836299431F4AD4070065056F /* アプリ@2x.png in Resources */,
 				832E2C131E4348D4005DCB53 /* Assets.xcassets in Resources */,
+				8362995A1F4D1E710065056F /* c.png in Resources */,
+				8362995C1F4D1E710065056F /* e.png in Resources */,
+				836299581F4D1E710065056F /* a.png in Resources */,
 				83CE70B51F4694FF008D1F6D /* CustomTableViewCell.xib in Resources */,
 				832E2C111E4348D4005DCB53 /* Main.storyboard in Resources */,
+				836299591F4D1E710065056F /* b.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -473,7 +508,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				832E2C0E1E4348D4005DCB53 /* ViewController.swift in Sources */,
-				835988811EE9594500988863 /* BigCenterTabBarController.swift in Sources */,
 				83CE70B41F4694FF008D1F6D /* CustomTableViewCell.swift in Sources */,
 				832E2C0C1E4348D4005DCB53 /* AppDelegate.swift in Sources */,
 				8367C85E1E936ADC007D080C /* toViewController2.swift in Sources */,
@@ -481,6 +515,8 @@
 				83CE70B11F4694AE008D1F6D /* TableTableViewController.swift in Sources */,
 				833FF7FA1EBB47790045F109 /* toViewController3.swift in Sources */,
 				8359887F1EDE797400988863 /* Kiwami.swift in Sources */,
+				8362995F1F4D201F0065056F /* Extension.swift in Sources */,
+				836299511F4D155C0065056F /* ParentTabBarController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
