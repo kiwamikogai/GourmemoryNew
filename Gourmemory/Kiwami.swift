@@ -15,7 +15,7 @@ class Kiwami: Object {
     
     dynamic var shopname: String!
     dynamic var imageData: Data!
-
+    
     dynamic var latitude: Double = 37.331652997806785
     dynamic var longitude: Double = -122.03072304117417
     
@@ -23,11 +23,24 @@ class Kiwami: Object {
     dynamic var category: String!
     dynamic var date: Date!
     dynamic var weekDay: String!
-
+    
     static func findAll() -> [Kiwami] {
         let realm = RealmFactory.sharedInstance.realm()
         let kiwamis = realm.objects(Kiwami.self)
         return kiwamis.map { $0 }.reversed()
+    }
+    
+    // realm削除
+    func delete() {
+        let realm = RealmFactory.sharedInstance.realm()
+        do {
+            try realm.write {
+                realm.delete(self)
+            }
+        } catch let error  {
+            print(error)
+        }
+        
     }
     
 }
@@ -44,5 +57,5 @@ extension UIImage{
         UIGraphicsEndImageContext()
         return resizeImage!
     }
-
+    
 }

@@ -21,31 +21,62 @@ class ViewController3: UIViewController{
     @IBOutlet var categoryLabel: UILabel!
     @IBOutlet var mapView: MKMapView!
     
-    @IBAction func share(sender: UIButton) {
+    
+    @IBAction func showAlert(_ sender: Any) {
+        let actionSheet = UIAlertController(title: nil, message: nil, preferredStyle: UIAlertControllerStyle.actionSheet)
         
-        // 共有する項目
-        let shareText = "Apple - Apple Watch"
-        let shareWebsite = NSURL(string: "https://www.apple.com/jp/watch/")!
-        //let shareImage = UIImage(named: "shareSample.png")!
-        let activityItems = [shareText, shareWebsite] as [Any]
+        let action1 = UIAlertAction(title: "編集", style: UIAlertActionStyle.default, handler: {
+            (action: UIAlertAction!) in
+            print("アクション１をタップした時の処理")
+        })
         
-        // 初期化処理
-        let activityVC = UIActivityViewController(activityItems: activityItems, applicationActivities: nil)
+        let action2 = UIAlertAction(title: "シェア", style: UIAlertActionStyle.default, handler: {
+            (action: UIAlertAction!) in
+            print("アクション２をタップした時の処理")
+            
+            // 共有する項目
+            let shareText = "しらすは稚魚、俺は普通部ぅ"
+//            let shareWebsite = NSURL(string: "https://www.apple.com/jp/watch/")!
+            let shareImage = self.imageView.image!
+            
+            let activityItems: [Any] = [shareText, shareImage]
+            
+            // 初期化処理
+            let activityVC = UIActivityViewController(activityItems: activityItems, applicationActivities: nil)
+            
+            // 使用しないアクティビティタイプ
+            let excludedActivityTypes = [
+                UIActivityType.message,
+                UIActivityType.saveToCameraRoll,
+                UIActivityType.print
+            ]
+            
+            activityVC.excludedActivityTypes = excludedActivityTypes
+            
+            // UIActivityViewControllerを表示
+            self.present(activityVC, animated: true, completion: nil)
+        })
         
-        // 使用しないアクティビティタイプ
-        let excludedActivityTypes = [
-            UIActivityType.message,
-            UIActivityType.saveToCameraRoll,
-            UIActivityType.print
-        ]
+        let action3 = UIAlertAction(title: "削除", style: UIAlertActionStyle.destructive, handler: {
+            (action: UIAlertAction!) in
+            print("アクション３をタップした時の処理")
+            self.kiwami?.delete()
+            self.navigationController?.popToRootViewController(animated: true)
+        })
         
-        activityVC.excludedActivityTypes = excludedActivityTypes
         
-        // UIActivityViewControllerを表示
-        self.present(activityVC, animated: true, completion: nil)
+        let cancel = UIAlertAction(title: "キャンセル", style: UIAlertActionStyle.cancel, handler: {
+            (action: UIAlertAction!) in
+            print("キャンセルをタップした時の処理")
+        })
+        
+        actionSheet.addAction(action1)
+        actionSheet.addAction(action2)
+        actionSheet.addAction(action3)
+        actionSheet.addAction(cancel)
+        
+        self.present(actionSheet, animated: true, completion: nil)
     }
-    
-    
     
     
     override func viewDidLoad() {
@@ -56,7 +87,7 @@ class ViewController3: UIViewController{
         self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "戻る", style: UIBarButtonItemStyle.plain, target: nil, action: nil)
         
         super.viewDidLoad()
-        print(kiwami)
+        print("これは\(kiwami)")
         guard let kiwami = kiwami else { return }
         //        dateLabel.text = kiwami.weekDay!
         imageView.image = UIImage(data: kiwami.imageData)

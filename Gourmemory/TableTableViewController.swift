@@ -12,25 +12,28 @@ class TableTableViewController: UITableViewController {
     
     var kiwamis: [Kiwami] = []
     var refresher: UIRefreshControl!
-
+    
     override func viewDidLoad() {
         
         self.navigationController?.navigationBar.barTintColor = UIColor(rgb: 0x6AB9BE)
         
         super.viewDidLoad()
         
-//        self.view
+        //        self.view
         self.tableView.register(UINib(nibName: "CustomTableViewCell", bundle: nil), forCellReuseIdentifier: "customCell")
         self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.white]
         self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: UIBarButtonItemStyle.plain, target: nil, action: nil)
-
         
-        kiwamis = Kiwami.findAll()
         refresher = UIRefreshControl()
         tableView.addSubview(refresher)
         refresher.attributedTitle = NSAttributedString(string: "更新する")
         refresher.tintColor = UIColor(rgb: 0x6AB9BE)
         refresher.addTarget(self, action: #selector(TableTableViewController.refresh), for: .valueChanged)
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        kiwamis = Kiwami.findAll()
+        tableView.reloadData()
     }
     
     func refresh() {
@@ -41,16 +44,16 @@ class TableTableViewController: UITableViewController {
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-               // Dispose of any resources that can be recreated.
+        // Dispose of any resources that can be recreated.
     }
-
+    
     override func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         performSegue(withIdentifier: "ViewController3",sender: indexPath.row)
-     
+        
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -58,12 +61,12 @@ class TableTableViewController: UITableViewController {
             let vc3 = segue.destination as! ViewController3
             vc3.kiwami = kiwamis[sender as! Int]
         }
-
+        
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return kiwamis.count
-       
+        
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -77,4 +80,4 @@ class TableTableViewController: UITableViewController {
     
 }
 
- 
+
