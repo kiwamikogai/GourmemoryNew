@@ -15,10 +15,10 @@ import RealmSwift      //データベース用のライブラリを読み込ん�
 
 class ViewController2 : UIViewController ,UIPickerViewDelegate,UIPickerViewDataSource,MKMapViewDelegate,CLLocationManagerDelegate,UITextFieldDelegate, UINavigationControllerDelegate,UIImagePickerControllerDelegate{
     
-    let dataList = ["優勝","激ウマ","イケる","アリ","まあうん","..."]
+    let dataList = ["😋","😍","😆","😕","😓","😭"]
     //var shopname : String!
     //var shosai : String!
-
+    
     var category: String!
     var weakday: String!
     var coordiate2 : CLLocationCoordinate2D!
@@ -51,8 +51,11 @@ class ViewController2 : UIViewController ,UIPickerViewDelegate,UIPickerViewDataS
     //初回呼び出されるとこ
     override func viewDidLoad() {
         
+        
         self.navigationController?.navigationBar.barTintColor = UIColor(rgb: 0x6AB9BE)
         self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.white]
+        
+        //navigationItem.leftBarButtonItem?.setBackgroundImage(UIImage(named: "ばつ.png"), for: .normal, barMetrics: .default)
         
         super.viewDidLoad()
         
@@ -72,13 +75,13 @@ class ViewController2 : UIViewController ,UIPickerViewDelegate,UIPickerViewDataS
         testManager.startUpdatingLocation()
         testManager.requestWhenInUseAuthorization()
         
-//        categoryPickerView = UIPickerView(frame: CGRect(x: 200, y: 0, width: self.view.frame.width - 200, height: 100))
-//        categoryPickerView.center.y = self.view.center.y - 160
+        //        categoryPickerView = UIPickerView(frame: CGRect(x: 200, y: 0, width: self.view.frame.width - 200, height: 100))
+        //        categoryPickerView.center.y = self.view.center.y - 160
         categoryPickerView.delegate = self
         categoryPickerView.dataSource = self as UIPickerViewDataSource
         categoryPickerView.selectRow(1, inComponent: 0, animated: true)
         
-//        self.view.addSubview(categoryPickerView)
+        //        self.view.addSubview(categoryPickerView)
         imageView2.image = image
         
         
@@ -90,15 +93,9 @@ class ViewController2 : UIViewController ,UIPickerViewDelegate,UIPickerViewDataS
         let weekcomp = Calendar.Component.weekday
         let week = NSCalendar.current.component(weekcomp, from: NSDate() as Date)
         let weekText:String = weekArray[week]
-//        dateLabel.text = String(month) + "月" + String(day) + "日" + "("+weekText+")"
+        //        dateLabel.text = String(month) + "月" + String(day) + "日" + "("+weekText+")"
         self.title = String(month) + "月" + String(day) + "日" + "("+weekText+")"
     }
-    
-    //画面が表示されるたび最初に呼ばれるとこ
-    override func viewDidAppear(_ animated: Bool) {
-        firstCam()
-    }
-    
     
     
     //データのセーブ。保存ボタンが押されたら呼ばれる
@@ -224,6 +221,15 @@ class ViewController2 : UIViewController ,UIPickerViewDelegate,UIPickerViewDataS
     
     
     //カメラの起動を1回だけにするとこ
+    override func viewDidAppear(_ animated: Bool) {
+        
+    }
+    
+    @IBAction func Camera(){
+        
+        firstCam()
+    }
+    
     func firstCam(){
         if isCamShown == false{
             cameraStart()
@@ -232,7 +238,7 @@ class ViewController2 : UIViewController ,UIPickerViewDelegate,UIPickerViewDataS
         
     }
     
-    //カメラの起動するとこ
+    
     func cameraStart() {
         
         print("cameraStart")
@@ -247,6 +253,36 @@ class ViewController2 : UIViewController ,UIPickerViewDelegate,UIPickerViewDataS
             
         }
         
+    }
+    
+    @IBAction func Library(){
+        
+        self.secondCam()
+        
+    }
+    
+    func secondCam(){
+        
+        if UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.photoLibrary) {
+            
+            let picker = UIImagePickerController()
+            picker.modalPresentationStyle = UIModalPresentationStyle.popover
+            picker.delegate = self // UINavigationControllerDelegate と　UIImagePickerControllerDelegateを実装する
+            picker.sourceType = UIImagePickerControllerSourceType.photoLibrary
+           
+            self.present(picker, animated: true, completion: nil)
+        }
+        
+        print("cameraStart")
+        
+        let sourceType:UIImagePickerControllerSourceType = UIImagePickerControllerSourceType.photoLibrary
+        if UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.photoLibrary){
+            let cameraPicker = UIImagePickerController()
+            cameraPicker.sourceType = sourceType
+            cameraPicker.delegate = self
+            self.present(cameraPicker, animated: true, completion: nil)
+            
+        }
     }
     
     //imagePickerで撮った画像をViewController2に渡すとこ
@@ -293,7 +329,7 @@ class ViewController2 : UIViewController ,UIPickerViewDelegate,UIPickerViewDataS
         alertView.message = message
         alertView.addButton(withTitle: "OK")
         alertView.show()
-       
+        
     }
     
     //mapのとこ
