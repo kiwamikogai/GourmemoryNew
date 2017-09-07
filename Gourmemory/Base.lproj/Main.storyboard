@@ -125,15 +125,10 @@
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mzb-nM-2DY">
                                 <rect key="frame" x="297" y="622" width="62" height="37"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="保存する"/>
                                 <connections>
                                     <segue destination="bgW-MU-MNb" kind="unwind" unwindAction="goBack:" id="tcG-sU-lrL"/>
                                 </connections>
                             </button>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="oV3-3j-CkN">
-                                <rect key="frame" x="51" y="301" width="271" height="167"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RGP-3x-nc8">
                                 <rect key="frame" x="51" y="250" width="77" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -158,6 +153,10 @@
                                 <rect key="frame" x="183" y="111" width="192" height="121"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                             </pickerView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="oV3-3j-CkN">
+                                <rect key="frame" x="51" y="283" width="271" height="167"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -180,9 +179,7 @@
                     <connections>
                         <outlet property="categoryPickerView" destination="v6E-Nh-koo" id="lQ8-IK-7fb"/>
                         <outlet property="imageView" destination="oV3-3j-CkN" id="1bf-T4-3y7"/>
-                        <outlet property="imageView2" destination="oV3-3j-CkN" id="m2k-9I-kE3"/>
                         <outlet property="mapView" destination="kGr-NN-Qtz" id="Ac3-nC-Zks"/>
-                        <outlet property="selectedImageView" destination="oV3-3j-CkN" id="oe3-kg-cTh"/>
                         <outlet property="textField" destination="v3z-zg-Gbi" id="W5h-0O-8pO"/>
                     </connections>
                 </viewController>
@@ -235,30 +232,30 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="l8R-5c-3vE">
-                                <rect key="frame" x="44" y="198" width="294" height="177"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="zPN-Oj-EXO">
-                                <rect key="frame" x="73" y="413" width="237" height="176"/>
+                                <rect key="frame" x="0.0" y="444" width="375" height="174"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </mapView>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="cOa-3y-FQ4">
-                                <rect key="frame" x="85" y="132" width="213" height="1"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="0.16862745098039217" green="0.16862745098039217" blue="0.16862745098039217" alpha="1" colorSpace="calibratedRGB"/>
-                            </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ax2-Zh-Cpa">
-                                <rect key="frame" x="44" y="141" width="294" height="43"/>
+                                <rect key="frame" x="233" y="386" width="114" height="43"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="22"/>
+                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="16"/>
                                 <color key="textColor" red="0.16862745100000001" green="0.16862745100000001" blue="0.16862745100000001" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uy8-Wq-9L1">
-                                <rect key="frame" x="44" y="81" width="294" height="43"/>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="wL0-oZ-nMy">
+                                <rect key="frame" x="-2" y="444" width="379" height="2"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="22"/>
+                                <color key="backgroundColor" red="0.41568627450980389" green="0.72549019607843135" blue="0.74509803921568629" alpha="1" colorSpace="calibratedRGB"/>
+                            </view>
+                            <imageView contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="l8R-5c-3vE">
+                                <rect key="frame" x="56" y="90" width="262" height="262"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uy8-Wq-9L1">
+                                <rect key="frame" x="16" y="386" width="209" height="43"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="20"/>
                                 <color key="textColor" red="0.16862745098039217" green="0.16862745098039217" blue="0.16862745098039217" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -266,7 +263,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" title="Title" id="fXS-ud-p7f">
-                        <barButtonItem key="rightBarButtonItem" title="..." id="4a6-tb-SNa">
+                        <barButtonItem key="rightBarButtonItem" image="Image" id="4a6-tb-SNa">
                             <connections>
                                 <action selector="showAlert:" destination="4WM-Xb-WnG" id="IEq-r9-pdw"/>
                             </connections>
@@ -274,7 +271,6 @@
                     </navigationItem>
                     <connections>
                         <outlet property="categoryLabel" destination="ax2-Zh-Cpa" id="F4s-5I-suV"/>
-                        <outlet property="imageView" destination="l8R-5c-3vE" id="sP7-oN-j9O"/>
                         <outlet property="imageView2" destination="l8R-5c-3vE" id="uj4-1N-5zD"/>
                         <outlet property="mapView" destination="zPN-Oj-EXO" id="CoW-TU-Cra"/>
                         <outlet property="selectedImageView" destination="l8R-5c-3vE" id="c73-OO-3Pr"/>
@@ -370,5 +366,8 @@
             <point key="canvasLocation" x="912.79999999999995" y="497.90104947526243"/>
         </scene>
     </scenes>
-    <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+    <resources>
+        <image name="Image" width="22" height="4"/>
+    </resources>
+    <color key="tintColor" red="0.16862745098039217" green="0.16862745098039217" blue="0.16862745098039217" alpha="1" colorSpace="calibratedRGB"/>
 </document>

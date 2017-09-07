@@ -13,7 +13,19 @@ import MapKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
+    
+    func applicationDidFinishLaunching(_ application: UIApplication) {
+        let color = UIColor(rgb: 0x6AB9BE)
+        
+        //ナビゲーションアイテムの色を変更
+        UINavigationBar.appearance().tintColor = UIColor.white
+        //ナビゲーションバーの背景を変更
+        UINavigationBar.appearance().barTintColor = color
+        //ナビゲーションのタイトル文字列の色を変更
+        UINavigationBar.appearance().titleTextAttributes = [NSForegroundColorAttributeName : UIColor.white]
 
+    }
+/*
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
         
@@ -28,6 +40,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         return true
     }
+ */
+    
     func applicationWillResignActive(_ application: UIApplication) {
         // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
         // Use this method to pause ongoing tasks, disable timers, and invalidate graphics rendering callbacks. Games should use this method to pause the game.

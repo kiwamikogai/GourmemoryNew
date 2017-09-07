@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		26F7A08EE20C635F877203D7 /* Pods_GourmemoryUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 444BF3629418F20D978B7761 /* Pods_GourmemoryUITests.framework */; };
 		832E2C0C1E4348D4005DCB53 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 832E2C0B1E4348D4005DCB53 /* AppDelegate.swift */; };
-		832E2C0E1E4348D4005DCB53 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 832E2C0D1E4348D4005DCB53 /* ViewController.swift */; };
 		832E2C111E4348D4005DCB53 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 832E2C0F1E4348D4005DCB53 /* Main.storyboard */; };
 		832E2C131E4348D4005DCB53 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 832E2C121E4348D4005DCB53 /* Assets.xcassets */; };
 		832E2C161E4348D4005DCB53 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 832E2C141E4348D4005DCB53 /* LaunchScreen.storyboard */; };
@@ -18,6 +17,7 @@
 		8335B1DC1F46D40F003EC749 /* RealmFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8335B1DB1F46D40F003EC749 /* RealmFactory.swift */; };
 		833FF7FA1EBB47790045F109 /* toViewController3.swift in Sources */ = {isa = PBXBuildFile; fileRef = 833FF7F91EBB47790045F109 /* toViewController3.swift */; };
 		8359887F1EDE797400988863 /* Kiwami.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8359887E1EDE797400988863 /* Kiwami.swift */; };
+		835F77721F614CB2004904BD /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 835F77711F614CB2004904BD /* ViewController.swift */; };
 		836299431F4AD4070065056F /* アプリ@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 836299421F4AD4070065056F /* アプリ@2x.png */; };
 		836299511F4D155C0065056F /* ParentTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 836299501F4D155C0065056F /* ParentTabBarController.swift */; };
 		836299581F4D1E710065056F /* a.png in Resources */ = {isa = PBXBuildFile; fileRef = 836299521F4D1E710065056F /* a.png */; };
@@ -63,7 +63,6 @@
 		7417A75581239083FBA29C05 /* Pods-GourmemoryTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GourmemoryTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-GourmemoryTests/Pods-GourmemoryTests.debug.xcconfig"; sourceTree = "<group>"; };
 		832E2C081E4348D4005DCB53 /* Gourmemory.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Gourmemory.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		832E2C0B1E4348D4005DCB53 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		832E2C0D1E4348D4005DCB53 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		832E2C101E4348D4005DCB53 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		832E2C121E4348D4005DCB53 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		832E2C151E4348D4005DCB53 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -77,6 +76,7 @@
 		8335B1DB1F46D40F003EC749 /* RealmFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RealmFactory.swift; sourceTree = "<group>"; };
 		833FF7F91EBB47790045F109 /* toViewController3.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = toViewController3.swift; sourceTree = "<group>"; };
 		8359887E1EDE797400988863 /* Kiwami.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Kiwami.swift; sourceTree = "<group>"; };
+		835F77711F614CB2004904BD /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		836299421F4AD4070065056F /* アプリ@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "アプリ@2x.png"; sourceTree = "<group>"; };
 		836299501F4D155C0065056F /* ParentTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParentTabBarController.swift; sourceTree = "<group>"; };
 		836299521F4D1E710065056F /* a.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = a.png; sourceTree = "<group>"; };
@@ -142,6 +142,7 @@
 		832E2BFF1E4348D4005DCB53 = {
 			isa = PBXGroup;
 			children = (
+				832E2C0F1E4348D4005DCB53 /* Main.storyboard */,
 				832E2C0A1E4348D4005DCB53 /* Gourmemory */,
 				832E2C1F1E4348D5005DCB53 /* GourmemoryTests */,
 				832E2C2A1E4348D5005DCB53 /* GourmemoryUITests */,
@@ -164,9 +165,8 @@
 		832E2C0A1E4348D4005DCB53 /* Gourmemory */ = {
 			isa = PBXGroup;
 			children = (
-				832E2C0F1E4348D4005DCB53 /* Main.storyboard */,
 				832E2C0B1E4348D4005DCB53 /* AppDelegate.swift */,
-				832E2C0D1E4348D4005DCB53 /* ViewController.swift */,
+				835F77711F614CB2004904BD /* ViewController.swift */,
 				8367C85D1E936ADC007D080C /* toViewController2.swift */,
 				833FF7F91EBB47790045F109 /* toViewController3.swift */,
 				83CE70B21F4694FF008D1F6D /* CustomTableViewCell.swift */,
@@ -513,7 +513,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				832E2C0E1E4348D4005DCB53 /* ViewController.swift in Sources */,
+				835F77721F614CB2004904BD /* ViewController.swift in Sources */,
 				83CE70B41F4694FF008D1F6D /* CustomTableViewCell.swift in Sources */,
 				832E2C0C1E4348D4005DCB53 /* AppDelegate.swift in Sources */,
 				8367C85E1E936ADC007D080C /* toViewController2.swift in Sources */,
@@ -564,6 +564,7 @@
 				832E2C101E4348D4005DCB53 /* Base */,
 			);
 			name = Main.storyboard;
+			path = Gourmemory;
 			sourceTree = "<group>";
 		};
 		832E2C141E4348D4005DCB53 /* LaunchScreen.storyboard */ = {

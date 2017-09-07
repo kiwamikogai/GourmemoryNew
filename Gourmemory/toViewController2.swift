@@ -10,6 +10,7 @@ import UIKit
 import CoreLocation
 import MapKit
 import RealmSwift      //データベース用のライブラリを読み込んでるで
+import Photos
 
 //入力するとこ。センターボタン
 
@@ -35,9 +36,7 @@ class ViewController2 : UIViewController ,UIPickerViewDelegate,UIPickerViewDataS
     var isCamShown = false
     
     @IBOutlet var categoryPickerView: UIPickerView!
-    @IBOutlet var imageView2 : UIImageView!
     @IBOutlet var mapView : MKMapView!
-    @IBOutlet var selectedImageView : UIImageView!
     @IBOutlet var textField : UITextField!
     @IBOutlet var imageView : UIImageView!
     
@@ -50,14 +49,12 @@ class ViewController2 : UIViewController ,UIPickerViewDelegate,UIPickerViewDataS
     
     //初回呼び出されるとこ
     override func viewDidLoad() {
-        
+        super.viewDidLoad()
         
         self.navigationController?.navigationBar.barTintColor = UIColor(rgb: 0x6AB9BE)
         self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.white]
         
         //navigationItem.leftBarButtonItem?.setBackgroundImage(UIImage(named: "ばつ.png"), for: .normal, barMetrics: .default)
-        
-        super.viewDidLoad()
         
         let region = MKCoordinateRegionMake(coordiate, span)
         mapView.setRegion(region, animated:true)
@@ -82,8 +79,12 @@ class ViewController2 : UIViewController ,UIPickerViewDelegate,UIPickerViewDataS
         categoryPickerView.selectRow(1, inComponent: 0, animated: true)
         
         //        self.view.addSubview(categoryPickerView)
-        imageView2.image = image
-        
+        //        imageView2.image = image
+        //        imageView2.layer.masksToBounds = false
+        //        imageView2.layer.shadowColor = UIColor.black.cgColor
+        //        imageView2.layer.shadowOpacity = 0.5 // 透明度
+        //        imageView2.layer.shadowOffset = CGSize(width: 5, height: 5) // 距離
+        //        imageView2.layer.shadowRadius = 5 // ぼかし量
         
         //画面のラベルに日時表示
         let monthComp = Calendar.Component.month
@@ -249,6 +250,7 @@ class ViewController2 : UIViewController ,UIPickerViewDelegate,UIPickerViewDataS
             let cameraPicker = UIImagePickerController()
             cameraPicker.sourceType = sourceType
             cameraPicker.delegate = self
+            cameraPicker.allowsEditing = true
             self.present(cameraPicker, animated: true, completion: nil)
             
         }
@@ -268,8 +270,9 @@ class ViewController2 : UIViewController ,UIPickerViewDelegate,UIPickerViewDataS
             let picker = UIImagePickerController()
             picker.modalPresentationStyle = UIModalPresentationStyle.popover
             picker.delegate = self // UINavigationControllerDelegate と　UIImagePickerControllerDelegateを実装する
+            picker.allowsEditing = true
             picker.sourceType = UIImagePickerControllerSourceType.photoLibrary
-           
+            
             self.present(picker, animated: true, completion: nil)
         }
         
@@ -285,12 +288,16 @@ class ViewController2 : UIViewController ,UIPickerViewDelegate,UIPickerViewDataS
         }
     }
     
+    
     //imagePickerで撮った画像をViewController2に渡すとこ
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
         
-        image = info[UIImagePickerControllerOriginalImage] as? UIImage
+        image = info[UIImagePickerControllerEditedImage] as? UIImage
+        
+        let referenceURL = info[UIImagePickerControllerReferenceURL]
         
         imageView.image = image
+        
         
         self.dismiss(animated: true, completion: nil)
     }

@@ -1,16 +1,7 @@
-//
-//  ViewController.swift
-//  Gourmemory
-//
-//  Created by Kiwami on 2017/02/02.
-//  Copyright © 2017年 Kiwami. All rights reserved.
-//
-
 import UIKit
 import MapKit
 import AVFoundation
 import RealmSwift     //データベース用のライブラリを読み込んでるで
-
 class ViewController: UIViewController,MKMapViewDelegate,CLLocationManagerDelegate,UIImagePickerControllerDelegate,UINavigationControllerDelegate,UITextFieldDelegate {
     
     private var myTextField: UITextField!
@@ -22,9 +13,9 @@ class ViewController: UIViewController,MKMapViewDelegate,CLLocationManagerDelega
     var myImageOutput : AVCaptureStillImageOutput!
     // MKMapViewDelegate の追加
     
-    let coordiate = CLLocationCoordinate2DMake(37.331652997806785, -122.03072304117417)
+    let coordiate = CLLocationCoordinate2DMake(38.973599, 136.977116)
     
-    var span = MKCoordinateSpanMake(0.01 , 0.01)
+    var span = MKCoordinateSpanMake(24.0,0.4)
     
     var annotaion = MKPointAnnotation()
     
@@ -39,7 +30,7 @@ class ViewController: UIViewController,MKMapViewDelegate,CLLocationManagerDelega
     override func viewDidLoad() {
         self.navigationController?.navigationBar.barTintColor = UIColor(rgb: 0x6AB9BE)
         self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.white]
-
+        
         
         let region = MKCoordinateRegionMake(coordiate, span)
         mapView.setRegion(region, animated: true)
@@ -98,8 +89,10 @@ class ViewController: UIViewController,MKMapViewDelegate,CLLocationManagerDelega
             
             let span = MKCoordinateSpanMake(0.05, 0.05)
             
-            let rejion = MKCoordinateRegionMake(center, span)
-            mapView.setRegion(rejion, animated:true)
+            
+            //センターに持ってきちゃう
+            //            let rejion = MKCoordinateRegionMake(center, span)
+            //            mapView.setRegion(rejion, animated:true)
             
             let annotation = MKPointAnnotation()
             annotaion.coordinate = CLLocationCoordinate2DMake(location.coordinate.latitude, location.coordinate.longitude)
@@ -185,4 +178,3 @@ class ViewController: UIViewController,MKMapViewDelegate,CLLocationManagerDelega
     }
     
 }
-

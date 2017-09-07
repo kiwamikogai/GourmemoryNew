@@ -14,7 +14,6 @@ class ViewController3: UIViewController{
     
     var kiwami: Kiwami?
     
-    @IBOutlet var imageView: UIImageView!
     @IBOutlet var imageView2: UIImageView!
     @IBOutlet var selectedImageView: UIImageView!
     @IBOutlet var shopnameLabel: UILabel!
@@ -25,19 +24,14 @@ class ViewController3: UIViewController{
     @IBAction func showAlert(_ sender: Any) {
         let actionSheet = UIAlertController(title: nil, message: nil, preferredStyle: UIAlertControllerStyle.actionSheet)
         
-        let action1 = UIAlertAction(title: "編集", style: UIAlertActionStyle.default, handler: {
-            (action: UIAlertAction!) in
-            print("アクション１をタップした時の処理")
-        })
-        
         let action2 = UIAlertAction(title: "シェア", style: UIAlertActionStyle.default, handler: {
             (action: UIAlertAction!) in
             print("アクション２をタップした時の処理")
             
             // 共有する項目
-            let shareText = "しらすは稚魚、俺は普通部ぅ"
-//            let shareWebsite = NSURL(string: "https://www.apple.com/jp/watch/")!
-            let shareImage = self.imageView.image!
+            let shareText = "#グルメモリー"
+            //            let shareWebsite = NSURL(string: "https://www.apple.com/jp/watch/")!
+            let shareImage = self.imageView2.image!
             
             let activityItems: [Any] = [shareText, shareImage]
             
@@ -70,7 +64,6 @@ class ViewController3: UIViewController{
             print("キャンセルをタップした時の処理")
         })
         
-        actionSheet.addAction(action1)
         actionSheet.addAction(action2)
         actionSheet.addAction(action3)
         actionSheet.addAction(cancel)
@@ -79,7 +72,10 @@ class ViewController3: UIViewController{
     }
     
     
+    
+    
     override func viewDidLoad() {
+      
         
         self.navigationController?.navigationBar.barTintColor = UIColor(rgb: 0x6AB9BE)
         self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.white]
@@ -90,7 +86,7 @@ class ViewController3: UIViewController{
         print("これは\(kiwami)")
         guard let kiwami = kiwami else { return }
         //        dateLabel.text = kiwami.weekDay!
-        imageView.image = UIImage(data: kiwami.imageData)
+        imageView2.image = UIImage(data: kiwami.imageData)
         shopnameLabel.text = kiwami.shopname
         categoryLabel.text = kiwami.category
         
