@@ -20,6 +20,7 @@ class ViewController2 : UIViewController ,UIPickerViewDelegate,UIPickerViewDataS
     //var shopname : String!
     //var shosai : String!
     
+    
     var category: String!
     var weakday: String!
     var coordiate2 : CLLocationCoordinate2D!
@@ -45,316 +46,345 @@ class ViewController2 : UIViewController ,UIPickerViewDelegate,UIPickerViewDataS
     var pickerView : UIPickerView!
     var testManager:CLLocationManager = CLLocationManager()
     
-    //MARK: - normal
+    @IBOutlet weak var testLabel: UILabel!
     
-    //初回呼び出されるとこ
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        self.navigationController?.navigationBar.barTintColor = UIColor(rgb: 0x6AB9BE)
-        self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.white]
-        
-        //navigationItem.leftBarButtonItem?.setBackgroundImage(UIImage(named: "ばつ.png"), for: .normal, barMetrics: .default)
-        
-        let region = MKCoordinateRegionMake(coordiate, span)
-        mapView.setRegion(region, animated:true)
-        
-        textField.delegate = self
-        annotaion.coordinate = CLLocationCoordinate2DMake(37.331652997806785, -122.03072304117417)
-        
-        annotaion.title = textField.text!
-        annotaion.subtitle = ""
-        
-        
-        self.mapView.addAnnotation(annotaion)
-        
-        testManager.delegate = self
-        testManager.startUpdatingLocation()
-        testManager.requestWhenInUseAuthorization()
-        
-        //        categoryPickerView = UIPickerView(frame: CGRect(x: 200, y: 0, width: self.view.frame.width - 200, height: 100))
-        //        categoryPickerView.center.y = self.view.center.y - 160
-        categoryPickerView.delegate = self
-        categoryPickerView.dataSource = self as UIPickerViewDataSource
-        categoryPickerView.selectRow(1, inComponent: 0, animated: true)
-        
-        //        self.view.addSubview(categoryPickerView)
-        //        imageView2.image = image
-        //        imageView2.layer.masksToBounds = false
-        //        imageView2.layer.shadowColor = UIColor.black.cgColor
-        //        imageView2.layer.shadowOpacity = 0.5 // 透明度
-        //        imageView2.layer.shadowOffset = CGSize(width: 5, height: 5) // 距離
-        //        imageView2.layer.shadowRadius = 5 // ぼかし量
-        
-        //画面のラベルに日時表示
-        let monthComp = Calendar.Component.month
-        let month = NSCalendar.current.component(monthComp, from: NSDate() as Date)
-        let dayComp = Calendar.Component.day
-        let day = NSCalendar.current.component(dayComp, from: NSDate() as Date)
-        let weekcomp = Calendar.Component.weekday
-        let week = NSCalendar.current.component(weekcomp, from: NSDate() as Date)
-        let weekText:String = weekArray[week]
-        //        dateLabel.text = String(month) + "月" + String(day) + "日" + "("+weekText+")"
-        self.title = String(month) + "月" + String(day) + "日" + "("+weekText+")"
+    @IBAction func testUISwitch(sender: UISwitch) {
+        if ( sender.isOn ) {
+            testLabel.text = "行った"
+        } else {
+            testLabel.text = "これから"
+            //annotaion.pinColor = UIColor.redColor()
+        }
     }
     
-    
-    //データのセーブ。保存ボタンが押されたら呼ばれる
-    
-    @IBAction func SaveKiwami(sender : AnyObject) {
+    @IBAction func showAlert(_ sender: Any) {
+        let actionSheet = UIAlertController(title: nil, message: nil, preferredStyle: UIAlertControllerStyle.actionSheet)
         
-        if textField.text == "" {
+        let action2 = UIAlertAction(title: "カメラ起動", style: UIAlertActionStyle.default, handler: {
+            (action: UIAlertAction!) in
+            print("アクション２をタップした時の処理")
             
-            let alertController = UIAlertController(title: "エラー", message: "店名が未記入です", preferredStyle: .alert)
+            func viewDidAppear(_ animated: Bool) {
+                
+            }
             
-            alertController.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+            func Camera(){
+                
+                firstCam()
+            }
             
-            //アラートを表示
-            present(alertController, animated: true, completion: nil)
+            func firstCam(){
+                if self.isCamShown == false{
+                    cameraStart()
+                }
+                self.isCamShown = true
+                
+            }
             
-            print("OK")
+            func cameraStart() {
+                
+                print("cameraStart")
+                
+                let sourceType:UIImagePickerControllerSourceType = UIImagePickerControllerSourceType.camera
+                
+                if UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.camera){
+                    let cameraPicker = UIImagePickerController()
+                    cameraPicker.sourceType = sourceType
+                    cameraPicker.delegate = self
+                    cameraPicker.allowsEditing = true
+                    self.present(cameraPicker, animated: true, completion: nil)
+                    
+                }
+                
+            }
             
-            return
+            let action3 = UIAlertAction(title: "ライブラリから", style: UIAlertActionStyle.destructive, handler: {
+                (action: UIAlertAction!) in
+                print("アクション３をタップした時の処理")
+                
+                func Library(){
+                    
+                    self.secondCam()
+                    
+                }
+                
+                func secondCam(){
+                    
+                    if UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.photoLibrary) {
+                        
+                        let picker = UIImagePickerController()
+                        picker.modalPresentationStyle = UIModalPresentationStyle.popover
+                        picker.delegate = self // UINavigationControllerDelegate と　UIImagePickerControllerDelegateを実装する
+                        picker.allowsEditing = true
+                        picker.sourceType = UIImagePickerControllerSourceType.photoLibrary
+                        
+                        self.present(picker, animated: true, completion: nil)
+                    }
+                    
+                    print("cameraStart")
+                    
+                    let sourceType:UIImagePickerControllerSourceType = UIImagePickerControllerSourceType.photoLibrary
+                    if UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.photoLibrary){
+                        let cameraPicker = UIImagePickerController()
+                        cameraPicker.sourceType = sourceType
+                        cameraPicker.delegate = self
+                        self.present(cameraPicker, animated: true, completion: nil)
+                        
+                    }
+                }
+                
+                //imagePickerで撮った画像をViewController2に渡すとこ
+                func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+                    
+                    self.image = info[UIImagePickerControllerEditedImage] as? UIImage
+                    
+                    let referenceURL = info[UIImagePickerControllerReferenceURL]
+                    
+                    self.imageView.image = self.image
+                    
+                    
+                    self.dismiss(animated: true, completion: nil)
+                }
+                
+                //imagePicerを呼び出したけどキャンセルした時動くとこ
+                func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+                    self.dismiss(animated: true, completion: nil)
+                }
+                
+            })
+            
+            
+            let cancel = UIAlertAction(title: "キャンセル", style: UIAlertActionStyle.cancel, handler: {
+                (action: UIAlertAction!) in
+                print("キャンセルをタップした時の処理")
+            })
+            
+            actionSheet.addAction(action2)
+            actionSheet.addAction(action3)
+            actionSheet.addAction(cancel)
+            
+            self.present(actionSheet, animated: true, completion: nil)
+        }
+        
+        //MARK: - normal
+        
+        //初回呼び出されるとこ
+        override func viewDidLoad() {
+            super.viewDidLoad()
+            
+            self.navigationController?.navigationBar.barTintColor = UIColor(rgb: 0x6AB9BE)
+            self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.white]
+            
+            //navigationItem.leftBarButtonItem?.setBackgroundImage(UIImage(named: "ばつ.png"), for: .normal, barMetrics: .default)
+            
+            let region = MKCoordinateRegionMake(coordiate, span)
+            mapView.setRegion(region, animated:true)
+            
+            textField.delegate = self
+            annotaion.coordinate = CLLocationCoordinate2DMake(37.331652997806785, -122.03072304117417)
+            
+            annotaion.title = textField.text!
+            annotaion.subtitle = ""
+            
+            
+            self.mapView.addAnnotation(annotaion)
+            
+            testManager.delegate = self
+            testManager.startUpdatingLocation()
+            testManager.requestWhenInUseAuthorization()
+            
+            categoryPickerView.delegate = self
+            categoryPickerView.dataSource = self as UIPickerViewDataSource
+            categoryPickerView.selectRow(1, inComponent: 0, animated: true)
+            
+            //画面のラベルに日時表示
+            let monthComp = Calendar.Component.month
+            let month = NSCalendar.current.component(monthComp, from: NSDate() as Date)
+            let dayComp = Calendar.Component.day
+            let day = NSCalendar.current.component(dayComp, from: NSDate() as Date)
+            let weekcomp = Calendar.Component.weekday
+            let week = NSCalendar.current.component(weekcomp, from: NSDate() as Date)
+            let weekText:String = weekArray[week]
+            //        dateLabel.text = String(month) + "月" + String(day) + "日" + "("+weekText+")"
+            self.title = String(month) + "月" + String(day) + "日" + "("+weekText+")"
+        }
+        
+        
+        //データのセーブ。保存ボタンが押されたら呼ばれる
+        
+        func SaveKiwami(sender : AnyObject) {
+            
+            if textField.text == "" {
+                
+                let alertController = UIAlertController(title: "エラー", message: "店名が未記入です", preferredStyle: .alert)
+                
+                alertController.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+                
+                //アラートを表示
+                present(alertController, animated: true, completion: nil)
+                
+                print("OK")
+                
+                return
+                
+            }
+            
+            func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+                
+                //キーボード以外のところをタップするとキーボードを閉じる
+                if textField.isFirstResponder {
+                    
+                    textField.resignFirstResponder()
+                    
+                }
+                
+                //キーボード以外のところをタップするとキーボードを閉じる
+                if textField.isFirstResponder{
+                    textField.resignFirstResponder()
+                }
+                
+            }
+            
+            
+            //ここにほぞんするためのこーどをかく
+            //まず保存したい情報を抽出する
+            let shopname = textField.text
+            //        let shosai = shosaiTextView.text
+            
+            
+            //画像のリサイズ。そのままだと大きすぎるから小さくする
+            let smallImage = image.resize(image: image, width: Int(image.size.width/2.0), height: Int(image.size.height/2.0))
+            
+            //画像をData型に変換する。画像そのままだと保存できないんよ
+            let saveImage = UIImagePNGRepresentation(smallImage)
+            
+            
+            //データベースの定義
+            let realm = try! Realm()
+            
+            //kiwamiオブジェクトの設定
+            let kiwami: Kiwami = Kiwami()
+            kiwami.shopname = shopname!
+            kiwami.imageData = saveImage
+            kiwami.latitude = annotaion.coordinate.latitude
+            kiwami.longitude = annotaion.coordinate.longitude
+            //        kiwami.text = shosai!
+            kiwami.category = category
+            kiwami.date = Date()
+            kiwami.weekDay = self.title
+            
+            //データベースに保存 try! realm.writeで書き込みモード
+            try! realm.write {
+                //realm.add(保存するクラス)でクラス名に応じて保存できるで
+                realm.add(kiwami)
+                print("保存できたで")
+            }
+            
+            
+            //保存できたら画面消す
+            dismiss(animated: true) {
+            }
+        }
+        
+        
+        //MARK: - pickerView
+        
+        //列の数 横にいくつに分けるか
+        func numberOfComponents(in pickerView: UIPickerView) -> Int {
+            
+            return 1
+        }
+        
+        //行数の設定
+        func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+            return dataList.count
+        }
+        
+        //1行に表示する内容の設定
+        func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+            return dataList[row]
+        }
+        
+        //選択されたら呼び出されるメソッド
+        func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+            
+            annotaion.subtitle = dataList[row]
+            category = dataList[row]
+            print(dataList[row])
+        }
+        
+        
+        //MARK: - textField
+        
+        
+        //textFieldに入力おわったら呼ばれるやつ
+        func textFieldDidEndEditing(_ textField: UITextField) {
+            
+            self.mapView.removeAnnotation(annotaion)
+            
+            annotaion.title = textField.text!
+            
+            self.mapView.addAnnotation(annotaion)
             
         }
         
+        
+        //MARK: - Camera
+        
+        
+        //カメラの起動を1回だけにするとこ
+        
+        
+        //ほっとくとこ。メモリ管理系
+        func didReceiveMemoryWarning() {
+            super.didReceiveMemoryWarning()
+        }
+        
+        
+        //画面タッチされたら動くとこ
         func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+            self.view.endEditing(true)
+        }
+        
+        
+        //戻るボタン押されたら画面消すとこ
+        func returnButton (_ segue:UIStoryboardSegue){
             
-            //キーボード以外のところをタップするとキーボードを閉じる
-            if textField.isFirstResponder {
+            dismiss(animated: true) {
+                //nasi
+            }
+        }
+        
+        //アラート出すとこ
+        
+        
+        func showAlert(title: String, message: String) {
+            let alertView = UIAlertView()
+            alertView.title = title
+            alertView.message = message
+            alertView.addButton(withTitle: "OK")
+            alertView.show()
+            
+        }
+        
+        //mapのとこ
+        func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+            for location in locations {
                 
-                textField.resignFirstResponder()
+                let center = CLLocationCoordinate2DMake(location.coordinate.latitude, location.coordinate.longitude)
+                
+                let span = MKCoordinateSpanMake(0.05, 0.05)
+                
+                let rejion = MKCoordinateRegionMake(center, span)
+                mapView.setRegion(rejion, animated:true)
+                
+                let annotation = MKPointAnnotation()
+                annotaion.coordinate = CLLocationCoordinate2DMake(location.coordinate.latitude, location.coordinate.longitude)
+                mapView.addAnnotation(annotation)
                 
             }
-            
-            //キーボード以外のところをタップするとキーボードを閉じる
-            if textField.isFirstResponder{
-                textField.resignFirstResponder()
-            }
-            
         }
         
-        
-        //ここにほぞんするためのこーどをかく
-        //まず保存したい情報を抽出する
-        let shopname = textField.text
-        //        let shosai = shosaiTextView.text
-        
-        
-        //画像のリサイズ。そのままだと大きすぎるから小さくする
-        let smallImage = image.resize(image: image, width: Int(image.size.width/2.0), height: Int(image.size.height/2.0))
-        
-        //画像をData型に変換する。画像そのままだと保存できないんよ
-        let saveImage = UIImagePNGRepresentation(smallImage)
-        
-        
-        //データベースの定義
-        let realm = try! Realm()
-        
-        //kiwamiオブジェクトの設定
-        let kiwami: Kiwami = Kiwami()
-        kiwami.shopname = shopname!
-        kiwami.imageData = saveImage
-        kiwami.latitude = annotaion.coordinate.latitude
-        kiwami.longitude = annotaion.coordinate.longitude
-        //        kiwami.text = shosai!
-        kiwami.category = category
-        kiwami.date = Date()
-        kiwami.weekDay = self.title
-        
-        //データベースに保存 try! realm.writeで書き込みモード
-        try! realm.write {
-            //realm.add(保存するクラス)でクラス名に応じて保存できるで
-            realm.add(kiwami)
-            print("保存できたで")
-        }
-        
-        
-        //保存できたら画面消す
-        dismiss(animated: true) {
-        }
-    }
-    
-    
-    //MARK: - pickerView
-    
-    //列の数 横にいくつに分けるか
-    func numberOfComponents(in pickerView: UIPickerView) -> Int {
-        
-        return 1
-    }
-    
-    //行数の設定
-    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        return dataList.count
-    }
-    
-    //1行に表示する内容の設定
-    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        return dataList[row]
-    }
-    
-    //選択されたら呼び出されるメソッド
-    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        
-        annotaion.subtitle = dataList[row]
-        category = dataList[row]
-        print(dataList[row])
-    }
-    
-    
-    //MARK: - textField
-    
-    
-    //textFieldに入力おわったら呼ばれるやつ
-    func textFieldDidEndEditing(_ textField: UITextField) {
-        
-        self.mapView.removeAnnotation(annotaion)
-        
-        annotaion.title = textField.text!
-        
-        self.mapView.addAnnotation(annotaion)
-        
-    }
-    
-    
-    //MARK: - Camera
-    
-    
-    //カメラの起動を1回だけにするとこ
-    override func viewDidAppear(_ animated: Bool) {
-        
-    }
-    
-    @IBAction func Camera(){
-        
-        firstCam()
-    }
-    
-    func firstCam(){
-        if isCamShown == false{
-            cameraStart()
-        }
-        isCamShown = true
-        
-    }
-    
-    
-    func cameraStart() {
-        
-        print("cameraStart")
-        
-        let sourceType:UIImagePickerControllerSourceType = UIImagePickerControllerSourceType.camera
-        
-        if UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.camera){
-            let cameraPicker = UIImagePickerController()
-            cameraPicker.sourceType = sourceType
-            cameraPicker.delegate = self
-            cameraPicker.allowsEditing = true
-            self.present(cameraPicker, animated: true, completion: nil)
-            
-        }
-        
-    }
-    
-    @IBAction func Library(){
-        
-        self.secondCam()
-        
-    }
-    
-    func secondCam(){
-        
-        if UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.photoLibrary) {
-            
-            let picker = UIImagePickerController()
-            picker.modalPresentationStyle = UIModalPresentationStyle.popover
-            picker.delegate = self // UINavigationControllerDelegate と　UIImagePickerControllerDelegateを実装する
-            picker.allowsEditing = true
-            picker.sourceType = UIImagePickerControllerSourceType.photoLibrary
-            
-            self.present(picker, animated: true, completion: nil)
-        }
-        
-        print("cameraStart")
-        
-        let sourceType:UIImagePickerControllerSourceType = UIImagePickerControllerSourceType.photoLibrary
-        if UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.photoLibrary){
-            let cameraPicker = UIImagePickerController()
-            cameraPicker.sourceType = sourceType
-            cameraPicker.delegate = self
-            self.present(cameraPicker, animated: true, completion: nil)
-            
-        }
-    }
-    
-    
-    //imagePickerで撮った画像をViewController2に渡すとこ
-    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
-        
-        image = info[UIImagePickerControllerEditedImage] as? UIImage
-        
-        let referenceURL = info[UIImagePickerControllerReferenceURL]
-        
-        imageView.image = image
-        
-        
-        self.dismiss(animated: true, completion: nil)
-    }
-    
-    //imagePicerを呼び出したけどキャンセルした時動くとこ
-    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
-        self.dismiss(animated: true, completion: nil)
-    }
-    
-    //ほっとくとこ。メモリ管理系
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-    }
-    
-    
-    //画面タッチされたら動くとこ
-    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        self.view.endEditing(true)
-    }
-    
-    
-    //戻るボタン押されたら画面消すとこ
-    @IBAction func returnButton (_ segue:UIStoryboardSegue){
-        
-        dismiss(animated: true) {
-            //nasi
-        }
-    }
-    
-    //アラート出すとこ
-    
-    
-    func showAlert(title: String, message: String) {
-        let alertView = UIAlertView()
-        alertView.title = title
-        alertView.message = message
-        alertView.addButton(withTitle: "OK")
-        alertView.show()
-        
-    }
-    
-    //mapのとこ
-    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        for location in locations {
-            
-            let center = CLLocationCoordinate2DMake(location.coordinate.latitude, location.coordinate.longitude)
-            
-            let span = MKCoordinateSpanMake(0.05, 0.05)
-            
-            let rejion = MKCoordinateRegionMake(center, span)
-            mapView.setRegion(rejion, animated:true)
-            
-            let annotation = MKPointAnnotation()
-            annotaion.coordinate = CLLocationCoordinate2DMake(location.coordinate.latitude, location.coordinate.longitude)
-            mapView.addAnnotation(annotation)
-            
-        }
     }
     
 }

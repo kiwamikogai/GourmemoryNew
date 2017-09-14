@@ -91,25 +91,25 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="店名" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SqS-Oh-T9X">
-                                <rect key="frame" x="42" y="92" width="114" height="21"/>
+                                <rect key="frame" x="0.0" y="128" width="114" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <color key="textColor" red="0.16862745098039217" green="0.16862745098039217" blue="0.16862745098039217" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="kGr-NN-Qtz">
-                                <rect key="frame" x="51" y="470" width="271" height="161"/>
+                                <rect key="frame" x="-3" y="498" width="378" height="169"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </mapView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="評価" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="duX-Jo-kpt">
-                                <rect key="frame" x="51" y="161" width="96" height="21"/>
+                                <rect key="frame" x="10" y="211" width="96" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <color key="textColor" red="0.16862745098039217" green="0.16862745098039217" blue="0.16862745098039217" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="v3z-zg-Gbi">
-                                <rect key="frame" x="183" y="88" width="164" height="30"/>
+                                <rect key="frame" x="195" y="124" width="164" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -130,7 +130,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RGP-3x-nc8">
-                                <rect key="frame" x="51" y="250" width="77" height="30"/>
+                                <rect key="frame" x="98" y="173" width="77" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="カメラ起動">
                                     <color key="titleColor" red="0.16862745098039217" green="0.16862745098039217" blue="0.16862745098039217" alpha="1" colorSpace="calibratedRGB"/>
@@ -140,7 +140,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5Sw-1y-PcI">
-                                <rect key="frame" x="211" y="250" width="108" height="30"/>
+                                <rect key="frame" x="82" y="211" width="108" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="ライブラリから">
                                     <color key="titleColor" red="0.16862745098039217" green="0.16862745098039217" blue="0.16862745098039217" alpha="1" colorSpace="calibratedRGB"/>
@@ -150,13 +150,34 @@
                                 </connections>
                             </button>
                             <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="v6E-Nh-koo">
-                                <rect key="frame" x="183" y="111" width="192" height="121"/>
+                                <rect key="frame" x="183" y="161" width="192" height="121"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                             </pickerView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="oV3-3j-CkN">
-                                <rect key="frame" x="51" y="283" width="271" height="167"/>
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gw4-UK-KmM">
+                                <rect key="frame" x="88" y="77" width="51" height="31"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
+                                <color key="onTintColor" red="0.41546839475631714" green="0.72613555192947388" blue="0.74426734447479248" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="thumbTintColor" red="0.78086787462234497" green="0.89836853742599487" blue="0.90730947256088257" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <connections>
+                                    <action selector="testUISwitchWithSender:" destination="lS9-bb-sO2" eventType="touchUpInside" id="hW2-Se-dkc"/>
+                                </connections>
+                            </switch>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="この店に" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1nz-Va-t0b">
+                                <rect key="frame" x="10" y="82" width="70" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3sb-SF-DVI">
+                                <rect key="frame" x="82" y="274" width="209" height="209"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.78086787462234497" green="0.89836853742599487" blue="0.90730947256088257" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <state key="normal" title="写真がありません" backgroundImage="Image-1"/>
+                                <connections>
+                                    <action selector="showAlert:" destination="lS9-bb-sO2" eventType="touchUpInside" id="Ejg-9N-Dxq"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -178,15 +199,15 @@
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="categoryPickerView" destination="v6E-Nh-koo" id="lQ8-IK-7fb"/>
-                        <outlet property="imageView" destination="oV3-3j-CkN" id="1bf-T4-3y7"/>
                         <outlet property="mapView" destination="kGr-NN-Qtz" id="Ac3-nC-Zks"/>
+                        <outlet property="testLabel" destination="1nz-Va-t0b" id="l9W-bk-279"/>
                         <outlet property="textField" destination="v3z-zg-Gbi" id="W5h-0O-8pO"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oSV-Ik-Jr7" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="bgW-MU-MNb" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="1726" y="498"/>
+            <point key="canvasLocation" x="1725.5999999999999" y="497.90104947526243"/>
         </scene>
         <!--グルメモリー-->
         <scene sceneID="7Nh-fe-R8b">
@@ -368,6 +389,7 @@
     </scenes>
     <resources>
         <image name="Image" width="22" height="4"/>
+        <image name="Image-1" width="45" height="45"/>
     </resources>
     <color key="tintColor" red="0.16862745098039217" green="0.16862745098039217" blue="0.16862745098039217" alpha="1" colorSpace="calibratedRGB"/>
 </document>

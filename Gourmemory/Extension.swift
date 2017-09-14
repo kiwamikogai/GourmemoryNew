@@ -8,6 +8,7 @@
 
 import Foundation
 import UIKit
+import MapKit
 
 extension UIColor {
     convenience init(red: Int, green: Int, blue: Int) {
@@ -25,4 +26,10 @@ extension UIColor {
                     blue: rgb & 0xFF
         )
     }
+}
+
+extension MKPointAnnotation {
+//    var pinColor:UIColor?
+    
+    
 }
