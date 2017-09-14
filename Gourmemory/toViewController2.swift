@@ -39,7 +39,7 @@ class ViewController2 : UIViewController ,UIPickerViewDelegate,UIPickerViewDataS
     @IBOutlet var categoryPickerView: UIPickerView!
     @IBOutlet var mapView : MKMapView!
     @IBOutlet var textField : UITextField!
-    @IBOutlet var imageView : UIImageView!
+    @IBOutlet var buttonImage : UIButton!
     
     let weekArray:[String] = ["さきね","日","月","火","水","木","金","土"]
     
@@ -53,9 +53,10 @@ class ViewController2 : UIViewController ,UIPickerViewDelegate,UIPickerViewDataS
             testLabel.text = "行った"
         } else {
             testLabel.text = "これから"
-//            annotaion.pinColor = UIColor.redColor()
+            //            annotaion.pinColor = UIColor.redColor()
         }
     }
+    
     
     
     //MARK: - normal
@@ -85,19 +86,10 @@ class ViewController2 : UIViewController ,UIPickerViewDelegate,UIPickerViewDataS
         testManager.startUpdatingLocation()
         testManager.requestWhenInUseAuthorization()
         
-        //        categoryPickerView = UIPickerView(frame: CGRect(x: 200, y: 0, width: self.view.frame.width - 200, height: 100))
-        //        categoryPickerView.center.y = self.view.center.y - 160
         categoryPickerView.delegate = self
         categoryPickerView.dataSource = self as UIPickerViewDataSource
         categoryPickerView.selectRow(1, inComponent: 0, animated: true)
         
-        //        self.view.addSubview(categoryPickerView)
-        //        imageView2.image = image
-        //        imageView2.layer.masksToBounds = false
-        //        imageView2.layer.shadowColor = UIColor.black.cgColor
-        //        imageView2.layer.shadowOpacity = 0.5 // 透明度
-        //        imageView2.layer.shadowOffset = CGSize(width: 5, height: 5) // 距離
-        //        imageView2.layer.shadowRadius = 5 // ぼかし量
         
         //画面のラベルに日時表示
         let monthComp = Calendar.Component.month
@@ -113,6 +105,46 @@ class ViewController2 : UIViewController ,UIPickerViewDelegate,UIPickerViewDataS
     
     
     //データのセーブ。保存ボタンが押されたら呼ばれる
+    
+    @IBAction func buttonImage(_ sender: Any) {
+        
+        
+        let action1 = UIAlertAction(title: "カメラ起動", style: UIAlertActionStyle.default, handler: {
+            (action: UIAlertAction!) in
+            print("アクション１をタップした時の処理")
+            
+            func Camera(){
+                
+                self.firstCam()
+            }
+            
+        })
+        
+        let action2 = UIAlertAction(title: "ライブラリーから", style: UIAlertActionStyle.default, handler: {
+            (action: UIAlertAction!) in
+            print("アクション２をタップした時の処理")
+            
+            func Library(){
+                
+                self.secondCam()
+                
+            }
+            
+            
+        })
+        
+        let cancel = UIAlertAction(title: "キャンセル", style: UIAlertActionStyle.cancel, handler: {
+            (action: UIAlertAction!) in
+            print("キャンセルをタップした時の処理")
+        })
+        
+        // actionSheet.addAction(action1)
+        // actionSheet.addAction(action2)
+        // actionSheet.addAction(cancel)
+        
+        //self.present(actionSheet, animated: true, completion: nil)
+    }
+
     
     @IBAction func SaveKiwami(sender : AnyObject) {
         
@@ -309,7 +341,7 @@ class ViewController2 : UIViewController ,UIPickerViewDelegate,UIPickerViewDataS
         
         let referenceURL = info[UIImagePickerControllerReferenceURL]
         
-        imageView.image = image
+        // buttonImage.image = image
         
         
         self.dismiss(animated: true, completion: nil)
@@ -342,7 +374,6 @@ class ViewController2 : UIViewController ,UIPickerViewDelegate,UIPickerViewDataS
     
     //アラート出すとこ
     
-    
     func showAlert(title: String, message: String) {
         let alertView = UIAlertView()
         alertView.title = title
@@ -372,6 +403,7 @@ class ViewController2 : UIViewController ,UIPickerViewDelegate,UIPickerViewDataS
     
     //MARK: - SHOW あらーと
     
-    
 }
+
+
 
