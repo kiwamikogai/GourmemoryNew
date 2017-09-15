@@ -151,8 +151,7 @@
                                 <color key="backgroundColor" red="0.78086787462234497" green="0.89836853742599487" blue="0.90730947256088257" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <state key="normal" title="写真がありません" backgroundImage="Image-1"/>
                                 <connections>
-                                    <action selector="buttonImage:" destination="lS9-bb-sO2" eventType="touchUpInside" id="vcb-W0-oed"/>
-                                    <action selector="showAlert:" destination="lS9-bb-sO2" eventType="touchUpInside" id="Ejg-9N-Dxq"/>
+                                    <action selector="imageAlert:" destination="lS9-bb-sO2" eventType="touchUpInside" id="9ym-8e-l2H"/>
                                 </connections>
                             </button>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="kGr-NN-Qtz">
@@ -167,13 +166,13 @@
                         <barButtonItem key="leftBarButtonItem" title="閉じる" id="f4E-JP-Q2Q">
                             <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <connections>
-                                <action selector="returnButton:" destination="lS9-bb-sO2" id="saL-Th-eXt"/>
+                                <action selector="returnButton:" destination="lS9-bb-sO2" id="I2a-Go-1g1"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="登録" id="Quo-62-ycv">
                             <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <connections>
-                                <action selector="SaveKiwamiWithSender:" destination="lS9-bb-sO2" id="P2H-3U-hae"/>
+                                <action selector="SaveKiwamiWithSender:" destination="lS9-bb-sO2" id="Fx4-0C-577"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>

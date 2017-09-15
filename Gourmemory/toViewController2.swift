@@ -49,14 +49,14 @@ class ViewController2 : UIViewController ,UIPickerViewDelegate,UIPickerViewDataS
     @IBOutlet weak var testLabel: UILabel!
     
     @IBAction func testUISwitch(sender: UISwitch) {
+        
         if ( sender.isOn ) {
             testLabel.text = "行った"
         } else {
             testLabel.text = "これから"
-            //            annotaion.pinColor = UIColor.redColor()
+            //annotaion.pinColor = UIColor.redColor()
         }
     }
-    
     
     
     //MARK: - normal
@@ -106,45 +106,40 @@ class ViewController2 : UIViewController ,UIPickerViewDelegate,UIPickerViewDataS
     
     //データのセーブ。保存ボタンが押されたら呼ばれる
     
-    @IBAction func buttonImage(_ sender: Any) {
+    @IBAction func imageAlert(_ sender: Any) {
         
+        let actionSheet: UIAlertController = UIAlertController(title: nil, message: nil, preferredStyle:  UIAlertControllerStyle.actionSheet)
         
         let action1 = UIAlertAction(title: "カメラ起動", style: UIAlertActionStyle.default, handler: {
             (action: UIAlertAction!) in
             print("アクション１をタップした時の処理")
-            
-            func Camera(){
-                
-                self.firstCam()
-            }
+            self.cameraStart()
             
         })
         
         let action2 = UIAlertAction(title: "ライブラリーから", style: UIAlertActionStyle.default, handler: {
             (action: UIAlertAction!) in
-            print("アクション２をタップした時の処理")
-            
-            func Library(){
-                
-                self.secondCam()
-                
-            }
-            
-            
+                print("アクション２をタップした時の処理")
+                self.Library()
         })
-        
+
+    
+
         let cancel = UIAlertAction(title: "キャンセル", style: UIAlertActionStyle.cancel, handler: {
             (action: UIAlertAction!) in
             print("キャンセルをタップした時の処理")
         })
         
-        // actionSheet.addAction(action1)
-        // actionSheet.addAction(action2)
-        // actionSheet.addAction(cancel)
+        actionSheet.addAction(action1)
+        actionSheet.addAction(action2)
+        actionSheet.addAction(cancel)
         
-        //self.present(actionSheet, animated: true, completion: nil)
-    }
+        self.present(actionSheet, animated: true, completion: nil)
 
+    }
+        
+    
+    
     
     @IBAction func SaveKiwami(sender : AnyObject) {
         
@@ -267,15 +262,6 @@ class ViewController2 : UIViewController ,UIPickerViewDelegate,UIPickerViewDataS
     
     
     //カメラの起動を1回だけにするとこ
-    override func viewDidAppear(_ animated: Bool) {
-        
-    }
-    
-    @IBAction func Camera(){
-        
-        firstCam()
-    }
-    
     func firstCam(){
         if isCamShown == false{
             cameraStart()
@@ -302,13 +288,7 @@ class ViewController2 : UIViewController ,UIPickerViewDelegate,UIPickerViewDataS
         
     }
     
-    @IBAction func Library(){
-        
-        self.secondCam()
-        
-    }
-    
-    func secondCam(){
+    func Library(){
         
         if UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.photoLibrary) {
             
@@ -341,8 +321,9 @@ class ViewController2 : UIViewController ,UIPickerViewDelegate,UIPickerViewDataS
         
         let referenceURL = info[UIImagePickerControllerReferenceURL]
         
-        // buttonImage.image = image
-        
+        buttonImage.imageView?.contentMode = UIViewContentMode.scaleAspectFit
+        buttonImage.setBackgroundImage(image, for: .normal)// = image
+        buttonImage.setTitle("", for: .normal)
         
         self.dismiss(animated: true, completion: nil)
     }
@@ -401,9 +382,4 @@ class ViewController2 : UIViewController ,UIPickerViewDelegate,UIPickerViewDataS
         }
     }
     
-    //MARK: - SHOW あらーと
-    
 }
-
-
-
