@@ -16,10 +16,10 @@ import Photos
 
 class ViewController2 : UIViewController ,UIPickerViewDelegate,UIPickerViewDataSource,MKMapViewDelegate,CLLocationManagerDelegate,UITextFieldDelegate, UINavigationControllerDelegate,UIImagePickerControllerDelegate{
     
-    let dataList = ["😋","😍","😆","😕","😓","😭"]
+    let dataList = ["😋","😍","😆","😕","😓","😭","😢","😡","😩","😏","😷","😄","😨","😳","😃","☺️","😪","😊",""]
+    
     //var shopname : String!
     //var shosai : String!
-    
     
     var category: String!
     var weakday: String!
@@ -31,6 +31,7 @@ class ViewController2 : UIViewController ,UIPickerViewDelegate,UIPickerViewDataS
     let mySpan: MKCoordinateSpan = MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01)
     var span = MKCoordinateSpanMake(0.01 , 0.01)
     var annotaion = MKPointAnnotation()
+    var x:MKAnnotation?
     var myPin:MKPointAnnotation = MKPointAnnotation()
     var cal = NSCalendar.current
     let now = NSDate()
@@ -40,20 +41,25 @@ class ViewController2 : UIViewController ,UIPickerViewDelegate,UIPickerViewDataS
     @IBOutlet var mapView : MKMapView!
     @IBOutlet var textField : UITextField!
     @IBOutlet var buttonImage : UIButton!
+    @IBOutlet var dataSwitch: UISwitch!
+    
     
     let weekArray:[String] = ["さきね","日","月","火","水","木","金","土"]
     
     var pickerView : UIPickerView!
     var testManager:CLLocationManager = CLLocationManager()
     
-    @IBOutlet weak var testLabel: UILabel!
     
     @IBAction func testUISwitch(sender: UISwitch) {
         
+        print("changeSwitch")
+        mapView.reloadInputViews()
+        
         if ( sender.isOn ) {
-            testLabel.text = "行った"
+            //testLabel.text = "行った"
+            //mapView.reloadInputViews()
         } else {
-            testLabel.text = "これから"
+            //testLabel.text = "これから"
             //annotaion.pinColor = UIColor.redColor()
         }
     }
@@ -72,6 +78,7 @@ class ViewController2 : UIViewController ,UIPickerViewDelegate,UIPickerViewDataS
         
         let region = MKCoordinateRegionMake(coordiate, span)
         mapView.setRegion(region, animated:true)
+        mapView.delegate = self
         
         textField.delegate = self
         annotaion.coordinate = CLLocationCoordinate2DMake(37.331652997806785, -122.03072304117417)
@@ -380,6 +387,22 @@ class ViewController2 : UIViewController ,UIPickerViewDelegate,UIPickerViewDataS
             mapView.addAnnotation(annotation)
             
         }
+    }
+    
+    func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
+        
+        print("mapView delegate!!")
+        let pinView = MKPinAnnotationView()
+        if dataSwitch.isOn == true{
+            //行った
+            pinView.pinTintColor = UIColor.green
+        }else{
+            pinView.pinTintColor = UIColor.blue
+        }
+        
+        return pinView
+        
+        
     }
     
 }
