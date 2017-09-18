@@ -7,6 +7,7 @@ target 'Gourmemory' do
 
   # Pods for Gourmemory
   pod 'RealmSwift'
+pod 'AGEmojiKeyboard'
 
   target 'GourmemoryTests' do
     inherit! :search_paths

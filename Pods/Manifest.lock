@@ -1,4 +1,5 @@
 PODS:
+  - AGEmojiKeyboard (0.2.1)
   - Realm (2.8.3):
     - Realm/Headers (= 2.8.3)
   - Realm/Headers (2.8.3)
@@ -6,12 +7,14 @@ PODS:
     - Realm (= 2.8.3)
 
 DEPENDENCIES:
+  - AGEmojiKeyboard
   - RealmSwift
 
 SPEC CHECKSUMS:
+  AGEmojiKeyboard: d5a01a4b0de30e1f1c2a121503ac36a79c7217ab
   Realm: 3601ef091c8c499a31101d8563b991e75546cdce
   RealmSwift: 8183818515471b01a99abdd2970f8e4fd52b6f4a
 
-PODFILE CHECKSUM: 2022bfe1348f72b0cb7b06d428b38ec347e47570
+PODFILE CHECKSUM: 423c8b5fb4603470f95397148a850e8499fd8586
 
 COCOAPODS: 1.2.1
