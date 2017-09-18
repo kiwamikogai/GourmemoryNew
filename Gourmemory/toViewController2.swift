@@ -15,7 +15,10 @@ import AGEmojiKeyboard
 
 //入力するとこ。センターボタン
 
-class ViewController2 : UIViewController ,UIPickerViewDelegate,UIPickerViewDataSource,MKMapViewDelegate,CLLocationManagerDelegate,UITextFieldDelegate, UINavigationControllerDelegate,UIImagePickerControllerDelegate, AGEmojiKeyboardViewDelegate, AGEmojiKeyboardViewDataSource, UITextFieldDelegate{
+class ViewController2 : UIViewController ,UIPickerViewDelegate,UIPickerViewDataSource,MKMapViewDelegate,CLLocationManagerDelegate,UITextFieldDelegate, UINavigationControllerDelegate,UIImagePickerControllerDelegate, AGEmojiKeyboardViewDelegate, AGEmojiKeyboardViewDataSource{
+    @available(iOS 2.0, *)
+
+
     
     //var shopname : String!
     //var shosai : String!
@@ -496,6 +499,5 @@ extension String {
     }
     
 }
-
 
 
