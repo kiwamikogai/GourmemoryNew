@@ -15,10 +15,11 @@ import AGEmojiKeyboard
 
 //入力するとこ。センターボタン
 
-class ViewController2 : UIViewController ,UIPickerViewDelegate,UIPickerViewDataSource,MKMapViewDelegate,CLLocationManagerDelegate,UITextFieldDelegate, UINavigationControllerDelegate,UIImagePickerControllerDelegate, AGEmojiKeyboardViewDelegate, AGEmojiKeyboardViewDataSource{
-    @available(iOS 2.0, *)
 
-
+//
+class ViewController2 : UIViewController ,MKMapViewDelegate,CLLocationManagerDelegate,UITextFieldDelegate, UINavigationControllerDelegate,UIImagePickerControllerDelegate, AGEmojiKeyboardViewDelegate, AGEmojiKeyboardViewDataSource{
+    
+    
     
     //var shopname : String!
     //var shosai : String!
@@ -48,7 +49,7 @@ class ViewController2 : UIViewController ,UIPickerViewDelegate,UIPickerViewDataS
     
     let weekArray:[String] = ["さきね","日","月","火","水","木","金","土"]
     
-    var pickerView : UIPickerView!
+    
     var testManager:CLLocationManager = CLLocationManager()
     
     
@@ -128,359 +129,324 @@ class ViewController2 : UIViewController ,UIPickerViewDelegate,UIPickerViewDataS
         self.view.endEditing(true)
     }
     
-}
-@IBAction func tapScreen(sender: UITapGestureRecognizer) {
-    self.view.endEditing(true)
-}
-
-//MARK: - AGEmojiKeyboardViewDataSource
-//AGEmojiKeyboardViewDataSource キーボードの初期設定するところ
-func emojiKeyboardView(_ emojiKeyboardView: AGEmojiKeyboardView!, imageForSelectedCategory category: AGEmojiKeyboardViewCategoryImage) -> UIImage! {
-    
-    return emojiSilhouette(category: category)
-}
-
-func emojiKeyboardView(_ emojiKeyboardView: AGEmojiKeyboardView!, imageForNonSelectedCategory category: AGEmojiKeyboardViewCategoryImage) -> UIImage! {
-    
-    return emojiSilhouette(category: category)
-}
-
-//ここで絵文字キーボードのシルエット
-func emojiSilhouette(category: AGEmojiKeyboardViewCategoryImage) -> UIImage!{
-    var emojiImage:UIImage! = UIImage()
-    
-    switch category {
-    case .recent:
-        emojiImage = "💭".image()
+    //MARK: - AGEmojiKeyboardViewDataSource
+    //AGEmojiKeyboardViewDataSource キーボードの初期設定するところ
+    func emojiKeyboardView(_ emojiKeyboardView: AGEmojiKeyboardView!, imageForSelectedCategory category: AGEmojiKeyboardViewCategoryImage) -> UIImage! {
         
-    case .face:
-        emojiImage = "👷".image()
-        
-    case .bell:
-        emojiImage = "🔔".image()
-        
-    case .flower:
-        emojiImage = "🐱".image()
-        
-    case .car:
-        emojiImage = "🚗".image()
-        
-    case .characters:
-        emojiImage = "♣️".image()
-    default:
-        break
+        return emojiSilhouette(category: category)
     }
     
-    return emojiImage
-    
-}
-
-func backSpaceButtonImage(for emojiKeyboardView: AGEmojiKeyboardView!) -> UIImage! {
-    return UIImage()
-}
-
-
-//MARK: - AGEmojiKeyboardViewDelegate
-//キーボードの動きを見るところ。ここでtextfieldとかに文字を入れる
-func emojiKeyBoardView(_ emojiKeyBoardView: AGEmojiKeyboardView!, didUseEmoji emoji: String!) {
-    self.textfield.text = emoji
-}
-
-//ここも必ずかくこと。空っぽでもこのメソッドないとエラーでる
-func emojiKeyBoardViewDidPressBackSpace(_ emojiKeyBoardView: AGEmojiKeyboardView!) {
-    
-}
-
-//データのセーブ。保存ボタンが押されたら呼ばれる
-
-@IBAction func imageAlert(_ sender: Any) {
-    
-    let actionSheet: UIAlertController = UIAlertController(title: nil, message: nil, preferredStyle:  UIAlertControllerStyle.actionSheet)
-    
-    let action1 = UIAlertAction(title: "カメラ起動", style: UIAlertActionStyle.default, handler: {
-        (action: UIAlertAction!) in
-        print("アクション１をタップした時の処理")
-        self.cameraStart()
+    func emojiKeyboardView(_ emojiKeyboardView: AGEmojiKeyboardView!, imageForNonSelectedCategory category: AGEmojiKeyboardViewCategoryImage) -> UIImage! {
         
-    })
-    
-    let action2 = UIAlertAction(title: "ライブラリーから", style: UIAlertActionStyle.default, handler: {
-        (action: UIAlertAction!) in
-        print("アクション２をタップした時の処理")
-        self.Library()
-    })
-    
-    
-    
-    let cancel = UIAlertAction(title: "キャンセル", style: UIAlertActionStyle.cancel, handler: {
-        (action: UIAlertAction!) in
-        print("キャンセルをタップした時の処理")
-    })
-    
-    actionSheet.addAction(action1)
-    actionSheet.addAction(action2)
-    actionSheet.addAction(cancel)
-    
-    self.present(actionSheet, animated: true, completion: nil)
-    
-}
-
-
-
-
-@IBAction func SaveKiwami(sender : AnyObject) {
-    
-    if textField.text == "" {
-        
-        let alertController = UIAlertController(title: "エラー", message: "店名が未記入です", preferredStyle: .alert)
-        
-        alertController.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
-        
-        //アラートを表示
-        present(alertController, animated: true, completion: nil)
-        
-        print("OK")
-        
-        return
-        
+        return emojiSilhouette(category: category)
     }
     
-    func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+    //ここで絵文字キーボードのシルエット
+    func emojiSilhouette(category: AGEmojiKeyboardViewCategoryImage) -> UIImage!{
+        var emojiImage:UIImage! = UIImage()
         
-        //キーボード以外のところをタップするとキーボードを閉じる
-        if textField.isFirstResponder {
+        switch category {
+        case .recent:
+            emojiImage = "💭".image()
             
-            textField.resignFirstResponder()
+        case .face:
+            emojiImage = "👷".image()
+            
+        case .bell:
+            emojiImage = "🔔".image()
+            
+        case .flower:
+            emojiImage = "🐱".image()
+            
+        case .car:
+            emojiImage = "🚗".image()
+            
+        case .characters:
+            emojiImage = "♣️".image()
+        default:
+            break
+        }
+        
+        return emojiImage
+        
+    }
+    
+    func backSpaceButtonImage(for emojiKeyboardView: AGEmojiKeyboardView!) -> UIImage! {
+        return UIImage()
+    }
+    
+    
+    //MARK: - AGEmojiKeyboardViewDelegate
+    //キーボードの動きを見るところ。ここでtextfieldとかに文字を入れる
+    func emojiKeyBoardView(_ emojiKeyBoardView: AGEmojiKeyboardView!, didUseEmoji emoji: String!) {
+        self.textfield.text = emoji
+    }
+    
+    //ここも必ずかくこと。空っぽでもこのメソッドないとエラーでる
+    func emojiKeyBoardViewDidPressBackSpace(_ emojiKeyBoardView: AGEmojiKeyboardView!) {
+        
+    }
+    
+    //データのセーブ。保存ボタンが押されたら呼ばれる
+    
+    @IBAction func imageAlert(_ sender: Any) {
+        
+        let actionSheet: UIAlertController = UIAlertController(title: nil, message: nil, preferredStyle:  UIAlertControllerStyle.actionSheet)
+        
+        let action1 = UIAlertAction(title: "カメラ起動", style: UIAlertActionStyle.default, handler: {
+            (action: UIAlertAction!) in
+            print("アクション１をタップした時の処理")
+            self.cameraStart()
+            
+        })
+        
+        let action2 = UIAlertAction(title: "ライブラリーから", style: UIAlertActionStyle.default, handler: {
+            (action: UIAlertAction!) in
+            print("アクション２をタップした時の処理")
+            self.Library()
+        })
+        
+        
+        
+        let cancel = UIAlertAction(title: "キャンセル", style: UIAlertActionStyle.cancel, handler: {
+            (action: UIAlertAction!) in
+            print("キャンセルをタップした時の処理")
+        })
+        
+        actionSheet.addAction(action1)
+        actionSheet.addAction(action2)
+        actionSheet.addAction(cancel)
+        
+        self.present(actionSheet, animated: true, completion: nil)
+        
+    }
+    
+    
+    
+    
+    @IBAction func SaveKiwami(sender : AnyObject) {
+        
+        if textField.text == "" {
+            
+            let alertController = UIAlertController(title: "エラー", message: "店名が未記入です", preferredStyle: .alert)
+            
+            alertController.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+            
+            //アラートを表示
+            present(alertController, animated: true, completion: nil)
+            
+            print("OK")
+            
+            return
             
         }
         
-        //キーボード以外のところをタップするとキーボードを閉じる
-        if textField.isFirstResponder{
-            textField.resignFirstResponder()
+        func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+            
+            //キーボード以外のところをタップするとキーボードを閉じる
+            if textField.isFirstResponder {
+                
+                textField.resignFirstResponder()
+                
+            }
+            
+            //キーボード以外のところをタップするとキーボードを閉じる
+            if textField.isFirstResponder{
+                textField.resignFirstResponder()
+            }
+            
+        }
+        
+        
+        //ここにほぞんするためのこーどをかく
+        //まず保存したい情報を抽出する
+        let shopname = textField.text
+        //        let shosai = shosaiTextView.text
+        
+        
+        //画像のリサイズ。そのままだと大きすぎるから小さくする
+        let smallImage = image.resize(image: image, width: Int(image.size.width/2.0), height: Int(image.size.height/2.0))
+        
+        //画像をData型に変換する。画像そのままだと保存できないんよ
+        let saveImage = UIImagePNGRepresentation(smallImage)
+        
+        
+        //データベースの定義
+        let realm = try! Realm()
+        
+        //kiwamiオブジェクトの設定
+        let kiwami: Kiwami = Kiwami()
+        kiwami.shopname = shopname!
+        kiwami.imageData = saveImage
+        kiwami.latitude = annotaion.coordinate.latitude
+        kiwami.longitude = annotaion.coordinate.longitude
+        //        kiwami.text = shosai!
+        kiwami.category = category
+        kiwami.date = Date()
+        kiwami.weekDay = self.title
+        
+        //データベースに保存 try! realm.writeで書き込みモード
+        try! realm.write {
+            //realm.add(保存するクラス)でクラス名に応じて保存できるで
+            realm.add(kiwami)
+            print("保存できたで")
+        }
+        
+        
+        //保存できたら画面消す
+        dismiss(animated: true) {
+        }
+    }
+    
+    
+    //MARK: - textField
+    
+    
+    //textFieldに入力おわったら呼ばれるやつ
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        
+        self.mapView.removeAnnotation(annotaion)
+        
+        annotaion.title = textField.text!
+        
+        self.mapView.addAnnotation(annotaion)
+        
+    }
+    
+    
+    //MARK: - Camera
+    
+    
+    //カメラの起動を1回だけにするとこ
+    func firstCam(){
+        if isCamShown == false{
+            cameraStart()
+        }
+        isCamShown = true
+        
+    }
+    
+    
+    func cameraStart() {
+        
+        print("cameraStart")
+        
+        let sourceType:UIImagePickerControllerSourceType = UIImagePickerControllerSourceType.camera
+        
+        if UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.camera){
+            let cameraPicker = UIImagePickerController()
+            cameraPicker.sourceType = sourceType
+            cameraPicker.delegate = self
+            cameraPicker.allowsEditing = true
+            self.present(cameraPicker, animated: true, completion: nil)
+            
         }
         
     }
     
-    
-    //ここにほぞんするためのこーどをかく
-    //まず保存したい情報を抽出する
-    let shopname = textField.text
-    //        let shosai = shosaiTextView.text
-    
-    
-    //画像のリサイズ。そのままだと大きすぎるから小さくする
-    let smallImage = image.resize(image: image, width: Int(image.size.width/2.0), height: Int(image.size.height/2.0))
-    
-    //画像をData型に変換する。画像そのままだと保存できないんよ
-    let saveImage = UIImagePNGRepresentation(smallImage)
-    
-    
-    //データベースの定義
-    let realm = try! Realm()
-    
-    //kiwamiオブジェクトの設定
-    let kiwami: Kiwami = Kiwami()
-    kiwami.shopname = shopname!
-    kiwami.imageData = saveImage
-    kiwami.latitude = annotaion.coordinate.latitude
-    kiwami.longitude = annotaion.coordinate.longitude
-    //        kiwami.text = shosai!
-    kiwami.category = category
-    kiwami.date = Date()
-    kiwami.weekDay = self.title
-    
-    //データベースに保存 try! realm.writeで書き込みモード
-    try! realm.write {
-        //realm.add(保存するクラス)でクラス名に応じて保存できるで
-        realm.add(kiwami)
-        print("保存できたで")
+    func Library(){
+        
+        if UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.photoLibrary) {
+            
+            let picker = UIImagePickerController()
+            picker.modalPresentationStyle = UIModalPresentationStyle.popover
+            picker.delegate = self // UINavigationControllerDelegate と　UIImagePickerControllerDelegateを実装する
+            picker.allowsEditing = true
+            picker.sourceType = UIImagePickerControllerSourceType.photoLibrary
+            
+            self.present(picker, animated: true, completion: nil)
+        }
+        
+        print("cameraStart")
+        
+        let sourceType:UIImagePickerControllerSourceType = UIImagePickerControllerSourceType.photoLibrary
+        if UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.photoLibrary){
+            let cameraPicker = UIImagePickerController()
+            cameraPicker.sourceType = sourceType
+            cameraPicker.delegate = self
+            self.present(cameraPicker, animated: true, completion: nil)
+            
+        }
     }
     
     
-    //保存できたら画面消す
-    dismiss(animated: true) {
+    //imagePickerで撮った画像をViewController2に渡すとこ
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+        
+        image = info[UIImagePickerControllerEditedImage] as? UIImage
+        
+        let referenceURL = info[UIImagePickerControllerReferenceURL]
+        
+        buttonImage.imageView?.contentMode = UIViewContentMode.scaleAspectFit
+        buttonImage.setBackgroundImage(image, for: .normal)// = image
+        buttonImage.setTitle("", for: .normal)
+        
+        self.dismiss(animated: true, completion: nil)
     }
-}
-
-
-//MARK: - pickerView
-
-//列の数 横にいくつに分けるか
-func numberOfComponents(in pickerView: UIPickerView) -> Int {
     
-    return 1
-}
-
-//行数の設定
-func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-    return dataList.count
-}
-
-//1行に表示する内容の設定
-func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-    return dataList[row]
-}
-
-//選択されたら呼び出されるメソッド
-func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-    
-    annotaion.subtitle = dataList[row]
-    category = dataList[row]
-    print(dataList[row])
-}
-
-
-//MARK: - textField
-
-
-//textFieldに入力おわったら呼ばれるやつ
-func textFieldDidEndEditing(_ textField: UITextField) {
-    
-    self.mapView.removeAnnotation(annotaion)
-    
-    annotaion.title = textField.text!
-    
-    self.mapView.addAnnotation(annotaion)
-    
-}
-
-
-//MARK: - Camera
-
-
-//カメラの起動を1回だけにするとこ
-func firstCam(){
-    if isCamShown == false{
-        cameraStart()
+    //imagePicerを呼び出したけどキャンセルした時動くとこ
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+        self.dismiss(animated: true, completion: nil)
     }
-    isCamShown = true
     
-}
-
-
-func cameraStart() {
     
-    print("cameraStart")
+    //画面タッチされたら動くとこ
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true)
+    }
     
-    let sourceType:UIImagePickerControllerSourceType = UIImagePickerControllerSourceType.camera
     
-    if UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.camera){
-        let cameraPicker = UIImagePickerController()
-        cameraPicker.sourceType = sourceType
-        cameraPicker.delegate = self
-        cameraPicker.allowsEditing = true
-        self.present(cameraPicker, animated: true, completion: nil)
+    //戻るボタン押されたら画面消すとこ
+    @IBAction func returnButton (_ segue:UIStoryboardSegue){
+        
+        dismiss(animated: true) {
+            //nasi
+        }
+    }
+    
+    //アラート出すとこ
+    
+    func showAlert(title: String, message: String) {
+        let alertView = UIAlertView()
+        alertView.title = title
+        alertView.message = message
+        alertView.addButton(withTitle: "OK")
+        alertView.show()
         
     }
     
-}
-
-func Library(){
-    
-    if UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.photoLibrary) {
-        
-        let picker = UIImagePickerController()
-        picker.modalPresentationStyle = UIModalPresentationStyle.popover
-        picker.delegate = self // UINavigationControllerDelegate と　UIImagePickerControllerDelegateを実装する
-        picker.allowsEditing = true
-        picker.sourceType = UIImagePickerControllerSourceType.photoLibrary
-        
-        self.present(picker, animated: true, completion: nil)
+    //mapのとこ
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        for location in locations {
+            
+            let center = CLLocationCoordinate2DMake(location.coordinate.latitude, location.coordinate.longitude)
+            
+            let span = MKCoordinateSpanMake(0.05, 0.05)
+            
+            let rejion = MKCoordinateRegionMake(center, span)
+            mapView.setRegion(rejion, animated:true)
+            
+            let annotation = MKPointAnnotation()
+            annotaion.coordinate = CLLocationCoordinate2DMake(location.coordinate.latitude, location.coordinate.longitude)
+            mapView.addAnnotation(annotation)
+            
+        }
     }
     
-    print("cameraStart")
-    
-    let sourceType:UIImagePickerControllerSourceType = UIImagePickerControllerSourceType.photoLibrary
-    if UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.photoLibrary){
-        let cameraPicker = UIImagePickerController()
-        cameraPicker.sourceType = sourceType
-        cameraPicker.delegate = self
-        self.present(cameraPicker, animated: true, completion: nil)
+    func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
+        
+        print("mapView delegate!!")
+        let pinView = MKPinAnnotationView()
+        if dataSwitch.isOn == true{
+            //行った
+            pinView.pinTintColor = UIColor.green
+        }else{
+            pinView.pinTintColor = UIColor.blue
+        }
+        
+        return pinView
         
     }
-}
-
-
-//imagePickerで撮った画像をViewController2に渡すとこ
-func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
-    
-    image = info[UIImagePickerControllerEditedImage] as? UIImage
-    
-    let referenceURL = info[UIImagePickerControllerReferenceURL]
-    
-    buttonImage.imageView?.contentMode = UIViewContentMode.scaleAspectFit
-    buttonImage.setBackgroundImage(image, for: .normal)// = image
-    buttonImage.setTitle("", for: .normal)
-    
-    self.dismiss(animated: true, completion: nil)
-}
-
-//imagePicerを呼び出したけどキャンセルした時動くとこ
-func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
-    self.dismiss(animated: true, completion: nil)
-}
-
-//ほっとくとこ。メモリ管理系
-override func didReceiveMemoryWarning() {
-    didReceiveMemoryWarning()
-}
-
-
-//画面タッチされたら動くとこ
-override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-    self.view.endEditing(true)
-}
-
-
-//戻るボタン押されたら画面消すとこ
-@IBAction func returnButton (_ segue:UIStoryboardSegue){
-    
-    dismiss(animated: true) {
-        //nasi
-    }
-}
-
-//アラート出すとこ
-
-func showAlert(title: String, message: String) {
-    let alertView = UIAlertView()
-    alertView.title = title
-    alertView.message = message
-    alertView.addButton(withTitle: "OK")
-    alertView.show()
-    
-}
-
-//mapのとこ
-func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-    for location in locations {
-        
-        let center = CLLocationCoordinate2DMake(location.coordinate.latitude, location.coordinate.longitude)
-        
-        let span = MKCoordinateSpanMake(0.05, 0.05)
-        
-        let rejion = MKCoordinateRegionMake(center, span)
-        mapView.setRegion(rejion, animated:true)
-        
-        let annotation = MKPointAnnotation()
-        annotaion.coordinate = CLLocationCoordinate2DMake(location.coordinate.latitude, location.coordinate.longitude)
-        mapView.addAnnotation(annotation)
-        
-    }
-}
-
-func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
-    
-    print("mapView delegate!!")
-    let pinView = MKPinAnnotationView()
-    if dataSwitch.isOn == true{
-        //行った
-        pinView.pinTintColor = UIColor.green
-    }else{
-        pinView.pinTintColor = UIColor.blue
-    }
-    
-    return pinView
     
 }
 
