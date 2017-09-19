@@ -83,8 +83,7 @@ class ViewController2 : UIViewController ,MKMapViewDelegate,CLLocationManagerDel
         emojiKeyboard?.segmentsBar.tintColor = UIColor(rgb: 0x6AB9BE)
         
         self.textfield.inputView = emojiKeyboard
-        self.textfield.becomeFirstResponder()
-        
+
         
         self.navigationController?.navigationBar.barTintColor = UIColor(rgb: 0x6AB9BE)
         self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.white]
@@ -248,6 +247,9 @@ class ViewController2 : UIViewController ,MKMapViewDelegate,CLLocationManagerDel
             
         }
         
+        
+        self.textfield.becomeFirstResponder()  //これを消す
+        
         func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
             
             //キーボード以外のところをタップするとキーボードを閉じる
@@ -287,8 +289,7 @@ class ViewController2 : UIViewController ,MKMapViewDelegate,CLLocationManagerDel
         kiwami.imageData = saveImage
         kiwami.latitude = annotaion.coordinate.latitude
         kiwami.longitude = annotaion.coordinate.longitude
-        //        kiwami.text = shosai!
-        kiwami.category = category
+        kiwami.category = textfield.text
         kiwami.date = Date()
         kiwami.weekDay = self.title
         
@@ -313,8 +314,6 @@ class ViewController2 : UIViewController ,MKMapViewDelegate,CLLocationManagerDel
     
     func textFieldDidEndEditing(_ textField: UITextField) {
         
-        self.textfield.becomeFirstResponder()  //これを消す
-        
         self.mapView.removeAnnotation(annotaion)
         
         annotaion.title = textField.text!
@@ -337,9 +336,9 @@ class ViewController2 : UIViewController ,MKMapViewDelegate,CLLocationManagerDel
         mapAnnotationView = pinView
         
         return mapAnnotationView
-    
+        
     }
-
+    
     
     //MARK: - Camera
     
