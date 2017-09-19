@@ -61,18 +61,22 @@ class ViewController2 : UIViewController ,MKMapViewDelegate,CLLocationManagerDel
         print("changeSwitch")
         
         if ( sender.isOn ) {
-            //testLabel.text = "行った"
+            textLabel.text = "行った"
             mapAnnotationView.pinTintColor = UIColor.red
         } else {
-            //testLabel.text = "これから"
+            textLabel.text = "これから"
             mapAnnotationView.pinTintColor = UIColor.blue
         }
     }
     
     //MARK: - normal
     
+    
     //初回呼び出されるとこ
     override func viewDidLoad() {
+        
+        mapView.delegate = self
+        
         super.viewDidLoad()
         
         let emojiKeyboard = AGEmojiKeyboardView(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: 216), dataSource: self)
@@ -119,6 +123,11 @@ class ViewController2 : UIViewController ,MKMapViewDelegate,CLLocationManagerDel
         let weekText:String = weekArray[week]
         //        dateLabel.text = String(month) + "月" + String(day) + "日" + "("+weekText+")"
         self.title = String(month) + "月" + String(day) + "日" + "("+weekText+")"
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        SaveKiwami(sender: <#AnyObject#>)
+        mapView.reloadInputViews()
     }
     
     
