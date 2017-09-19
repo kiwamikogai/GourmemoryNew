@@ -157,6 +157,13 @@
                                     <action selector="tapScreenWithSender:" destination="lS9-bb-sO2" eventType="touchUpInside" id="mK7-gG-gML"/>
                                 </connections>
                             </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="d5T-si-tJH">
+                                <rect key="frame" x="214" y="77" width="42" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -181,6 +188,7 @@
                         <outlet property="dataSwitch" destination="gw4-UK-KmM" id="i7I-uq-USA"/>
                         <outlet property="mapView" destination="kGr-NN-Qtz" id="Ac3-nC-Zks"/>
                         <outlet property="textField" destination="v3z-zg-Gbi" id="W5h-0O-8pO"/>
+                        <outlet property="textLabel" destination="d5T-si-tJH" id="Tdw-zH-HKD"/>
                         <outlet property="textfield" destination="jgz-wf-5sd" id="aWH-NR-hfP"/>
                     </connections>
                 </viewController>

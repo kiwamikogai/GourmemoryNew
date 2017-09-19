@@ -45,6 +45,7 @@ class ViewController2 : UIViewController ,MKMapViewDelegate,CLLocationManagerDel
     @IBOutlet var buttonImage : UIButton!
     @IBOutlet var dataSwitch: UISwitch!
     @IBOutlet weak var textfield: UITextField!
+    @IBOutlet var textLabel : UILabel!
     
     
     let weekArray:[String] = ["さきね","日","月","火","水","木","金","土"]
@@ -326,10 +327,10 @@ class ViewController2 : UIViewController ,MKMapViewDelegate,CLLocationManagerDel
         
         let pinView = MKPinAnnotationView()
         if ( dataSwitch.isOn ) {
-            //testLabel.text = "行った"
+            textLabel.text = "行った"
             pinView.pinTintColor = UIColor.red
         } else {
-            //testLabel.text = "これから"
+            textLabel.text = "これから"
             pinView.pinTintColor = UIColor.blue
         }
         
