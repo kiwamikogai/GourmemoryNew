@@ -53,20 +53,20 @@ class ViewController2 : UIViewController ,MKMapViewDelegate,CLLocationManagerDel
     var testManager:CLLocationManager = CLLocationManager()
     
     
+    var mapAnnotationView:MKPinAnnotationView = MKPinAnnotationView()
+    
     @IBAction func testUISwitch(sender: UISwitch) {
         
         print("changeSwitch")
-        mapView.reloadInputViews()
         
         if ( sender.isOn ) {
             //testLabel.text = "行った"
-            //mapView.reloadInputViews()
+            mapAnnotationView.pinTintColor = UIColor.red
         } else {
             //testLabel.text = "これから"
-            //annotaion.pinColor = UIColor.redColor()
+            mapAnnotationView.pinTintColor = UIColor.blue
         }
     }
-    
     
     //MARK: - normal
     
@@ -78,7 +78,9 @@ class ViewController2 : UIViewController ,MKMapViewDelegate,CLLocationManagerDel
         emojiKeyboard?.autoresizingMask = UIViewAutoresizing.flexibleWidth
         emojiKeyboard?.dataSource = self
         emojiKeyboard?.delegate = self
-        
+        emojiKeyboard?.backgroundColor = UIColor(rgb: 0xC7E5E7)
+        emojiKeyboard?.segmentsBar.backgroundColor = UIColor.white
+        emojiKeyboard?.segmentsBar.tintColor = UIColor(rgb: 0x6AB9BE)
         
         self.textfield.inputView = emojiKeyboard
         self.textfield.becomeFirstResponder()
@@ -172,20 +174,28 @@ class ViewController2 : UIViewController ,MKMapViewDelegate,CLLocationManagerDel
     }
     
     func backSpaceButtonImage(for emojiKeyboardView: AGEmojiKeyboardView!) -> UIImage! {
-        return UIImage()
+        return "🔙".image()
     }
     
     
-    //MARK: - AGEmojiKeyboardViewDelegate
     //キーボードの動きを見るところ。ここでtextfieldとかに文字を入れる
     func emojiKeyBoardView(_ emojiKeyBoardView: AGEmojiKeyboardView!, didUseEmoji emoji: String!) {
-        self.textfield.text = emoji
+        if (textfield.text?.characters.count)! <= 2{
+            self.textfield.text?.append(emoji)
+        }
+        
     }
     
     //ここも必ずかくこと。空っぽでもこのメソッドないとエラーでる
     func emojiKeyBoardViewDidPressBackSpace(_ emojiKeyBoardView: AGEmojiKeyboardView!) {
+        if (textfield.text?.characters.count)! >= 1{
+            var str:String = self.textfield.text!
+            str = str.substring(to: str.index(before: str.endIndex))
+            self.textfield.text = str
+        }
         
     }
+    
     
     //データのセーブ。保存ボタンが押されたら呼ばれる
     
@@ -220,9 +230,6 @@ class ViewController2 : UIViewController ,MKMapViewDelegate,CLLocationManagerDel
         self.present(actionSheet, animated: true, completion: nil)
         
     }
-    
-    
-    
     
     @IBAction func SaveKiwami(sender : AnyObject) {
         
@@ -303,7 +310,10 @@ class ViewController2 : UIViewController ,MKMapViewDelegate,CLLocationManagerDel
     
     
     //textFieldに入力おわったら呼ばれるやつ
+    
     func textFieldDidEndEditing(_ textField: UITextField) {
+        
+        self.textfield.becomeFirstResponder()  //これを消す
         
         self.mapView.removeAnnotation(annotaion)
         
@@ -313,6 +323,23 @@ class ViewController2 : UIViewController ,MKMapViewDelegate,CLLocationManagerDel
         
     }
     
+    func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
+        
+        let pinView = MKPinAnnotationView()
+        if ( dataSwitch.isOn ) {
+            //testLabel.text = "行った"
+            pinView.pinTintColor = UIColor.red
+        } else {
+            //testLabel.text = "これから"
+            pinView.pinTintColor = UIColor.blue
+        }
+        
+        mapAnnotationView = pinView
+        
+        return mapAnnotationView
+    
+    }
+
     
     //MARK: - Camera
     
@@ -432,24 +459,7 @@ class ViewController2 : UIViewController ,MKMapViewDelegate,CLLocationManagerDel
             
         }
     }
-    
-    func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
-        
-        print("mapView delegate!!")
-        let pinView = MKPinAnnotationView()
-        if dataSwitch.isOn == true{
-            //行った
-            pinView.pinTintColor = UIColor.green
-        }else{
-            pinView.pinTintColor = UIColor.blue
-        }
-        
-        return pinView
-        
-    }
-    
 }
-
 
 extension String {
     func image() -> UIImage {
