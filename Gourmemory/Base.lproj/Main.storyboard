@@ -241,28 +241,28 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="zPN-Oj-EXO">
-                                <rect key="frame" x="0.0" y="64" width="375" height="206"/>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="A0C-a3-VBf">
+                                <rect key="frame" x="0.0" y="64" width="375" height="90"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </mapView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ax2-Zh-Cpa">
-                                <rect key="frame" x="56" y="329" width="262" height="43"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="33"/>
-                                <color key="textColor" red="0.16862745100000001" green="0.16862745100000001" blue="0.16862745100000001" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uy8-Wq-9L1">
-                                <rect key="frame" x="83" y="278" width="209" height="43"/>
+                                <rect key="frame" x="83" y="162" width="209" height="43"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="20"/>
+                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="25"/>
                                 <color key="textColor" red="0.16862745098039217" green="0.16862745098039217" blue="0.16862745098039217" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="l8R-5c-3vE">
-                                <rect key="frame" x="87" y="380" width="200" height="200"/>
+                                <rect key="frame" x="47" y="267" width="280" height="280"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ax2-Zh-Cpa">
+                                <rect key="frame" x="56" y="213" width="262" height="43"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="41"/>
+                                <color key="textColor" red="0.16862745100000001" green="0.16862745100000001" blue="0.16862745100000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -276,7 +276,7 @@
                     <connections>
                         <outlet property="categoryLabel" destination="ax2-Zh-Cpa" id="F4s-5I-suV"/>
                         <outlet property="imageView2" destination="l8R-5c-3vE" id="uj4-1N-5zD"/>
-                        <outlet property="mapView" destination="zPN-Oj-EXO" id="CoW-TU-Cra"/>
+                        <outlet property="mapView" destination="A0C-a3-VBf" id="ggI-Mp-jF5"/>
                         <outlet property="selectedImageView" destination="l8R-5c-3vE" id="c73-OO-3Pr"/>
                         <outlet property="shopnameLabel" destination="uy8-Wq-9L1" id="1z7-6q-SeR"/>
                     </connections>

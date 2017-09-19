@@ -75,13 +75,15 @@ class ViewController3: UIViewController{
     
     
     override func viewDidLoad() {
-      
         
+        self.imageView2.layer.borderColor = UIColor(rgb: 0xC7E5E7).cgColor
+        self.imageView2.layer.borderWidth = 7
+        self.imageView2.layer.cornerRadius = 25
+        self.imageView2.layer.masksToBounds = true
         self.navigationController?.navigationBar.barTintColor = UIColor(rgb: 0x6AB9BE)
         self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.white]
         self.title = kiwami!.weekDay
         self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "戻る", style: UIBarButtonItemStyle.plain, target: nil, action: nil)
-        
         super.viewDidLoad()
         print("これは\(kiwami)")
         guard let kiwami = kiwami else { return }
