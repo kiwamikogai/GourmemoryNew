@@ -88,7 +88,7 @@ class ViewController2 : UIViewController ,MKMapViewDelegate,CLLocationManagerDel
         emojiKeyboard?.segmentsBar.tintColor = UIColor(rgb: 0x6AB9BE)
         
         self.textfield.inputView = emojiKeyboard
-
+        
         
         self.navigationController?.navigationBar.barTintColor = UIColor(rgb: 0x6AB9BE)
         self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.white]
@@ -121,13 +121,7 @@ class ViewController2 : UIViewController ,MKMapViewDelegate,CLLocationManagerDel
         let weekcomp = Calendar.Component.weekday
         let week = NSCalendar.current.component(weekcomp, from: NSDate() as Date)
         let weekText:String = weekArray[week]
-        //        dateLabel.text = String(month) + "月" + String(day) + "日" + "("+weekText+")"
         self.title = String(month) + "月" + String(day) + "日" + "("+weekText+")"
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        SaveKiwami(sender: <#AnyObject#>)
-        mapView.reloadInputViews()
     }
     
     

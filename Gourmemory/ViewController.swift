@@ -28,6 +28,8 @@ class ViewController: UIViewController,MKMapViewDelegate,CLLocationManagerDelega
     var testManager:CLLocationManager = CLLocationManager()
     
     override func viewDidLoad() {
+        
+        mapView.delegate = self
         self.navigationController?.navigationBar.barTintColor = UIColor(rgb: 0x6AB9BE)
         self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.white]
         
@@ -43,6 +45,11 @@ class ViewController: UIViewController,MKMapViewDelegate,CLLocationManagerDelega
         testManager.startUpdatingLocation()
         testManager.requestWhenInUseAuthorization()
         
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        readKiwamiData()
+        mapView.reloadInputViews()
     }
     
     
