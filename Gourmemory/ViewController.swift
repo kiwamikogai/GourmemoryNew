@@ -52,7 +52,6 @@ class ViewController: UIViewController,MKMapViewDelegate,CLLocationManagerDelega
         mapView.reloadInputViews()
     }
     
-    
     //保存したデータを読み込んで、ピン打つとこ！
     func readKiwamiData(){
         //realmに保存したデータを読み込んでいく!!
@@ -84,7 +83,6 @@ class ViewController: UIViewController,MKMapViewDelegate,CLLocationManagerDelega
         
     }
     
-    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
@@ -96,59 +94,12 @@ class ViewController: UIViewController,MKMapViewDelegate,CLLocationManagerDelega
             
             let span = MKCoordinateSpanMake(0.05, 0.05)
             
-            
-            //センターに持ってきちゃう
-            //            let rejion = MKCoordinateRegionMake(center, span)
-            //            mapView.setRegion(rejion, animated:true)
-            
             let annotation = MKPointAnnotation()
             annotaion.coordinate = CLLocationCoordinate2DMake(location.coordinate.latitude, location.coordinate.longitude)
             mapView.addAnnotation(annotation)
             
         }
     }
-    
-    
-    
-    /* ボタン追加したから要らないとこ
-     
-     
-     @IBAction func cameraStart(sender : AnyObject) {
-     
-     let sourceType:UIImagePickerControllerSourceType = UIImagePickerControllerSourceType.camera
-     
-     if UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.camera){
-     let cameraPicker = UIImagePickerController()
-     cameraPicker.sourceType = sourceType
-     cameraPicker.delegate = self
-     self.present(cameraPicker, animated: true, completion: nil)
-     
-     }
-     
-     }
-     
-     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
-     
-     if let pickedImage = info[UIImagePickerControllerOriginalImage] as? UIImage {
-     self.imageView.image = pickedImage
-     }
-     picker.dismiss(animated: true, completion: {
-     
-     self.performSegue(withIdentifier: "toViewController2", sender: nil)
-     })
-     
-     }
-     @IBAction func buttonTapped(sender : AnyObject) {
-     performSegue(withIdentifier: "toViewController2",sender: nil)
-     
-     }
-     
-     
-     func imagePickerControllerDidCancel(picker: UIImagePickerController) {
-     picker.dismiss(animated: true, completion: nil)
-     }
-     
-     */
     
     //アラート出すならメソッドの中確認！！
     func image(image: UIImage, didFinishSavingWithError error: NSError!, contextInfo: UnsafeMutablePointer<Void>) {
@@ -181,6 +132,11 @@ class ViewController: UIViewController,MKMapViewDelegate,CLLocationManagerDelega
             self.imageView.image = nil
             
         }
+        
+    }
+    
+    func mapView(_: MKMapView, didSelect: MKAnnotationView) {
+        performSegue(withIdentifier: "ViewController3",sender: MKAnnotation.self)
         
     }
     

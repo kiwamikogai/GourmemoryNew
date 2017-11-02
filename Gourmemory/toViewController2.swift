@@ -119,6 +119,7 @@ class ViewController2 : UIViewController ,MKMapViewDelegate,CLLocationManagerDel
         let dayComp = Calendar.Component.day
         let day = NSCalendar.current.component(dayComp, from: NSDate() as Date)
         let weekcomp = Calendar.Component.weekday
+        //let timecomp = Calendar.Component.weekday
         let week = NSCalendar.current.component(weekcomp, from: NSDate() as Date)
         let weekText:String = weekArray[week]
         self.title = String(month) + "月" + String(day) + "日" + "("+weekText+")"
@@ -129,6 +130,20 @@ class ViewController2 : UIViewController ,MKMapViewDelegate,CLLocationManagerDel
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+//
+//    func displayClock() {
+//        // 現在時刻を「HH:MM:SS」形式で取得する
+//        let formatter = DateFormatter()
+//        formatter.dateFormat = "HH:mm:ss"
+//        var displayTime = formatter.string(from: Date())
+//        if displayTime.hasPrefix("0") {
+//            // 最初に見つかった0だけ削除(スペース埋め)される
+//            if let range = displayTime.range(of: "0") {
+//                displayTime.replaceSubrange(range, with: " ")
+//            }
+//        }
+//    }
     
     @IBAction func tapScreen(sender: UITapGestureRecognizer) {
         self.view.endEditing(true)
@@ -212,14 +227,11 @@ class ViewController2 : UIViewController ,MKMapViewDelegate,CLLocationManagerDel
             self.cameraStart()
             
         })
-        
         let action2 = UIAlertAction(title: "ライブラリーから", style: UIAlertActionStyle.default, handler: {
             (action: UIAlertAction!) in
             print("アクション２をタップした時の処理")
             self.Library()
         })
-        
-        
         
         let cancel = UIAlertAction(title: "キャンセル", style: UIAlertActionStyle.cancel, handler: {
             (action: UIAlertAction!) in
@@ -251,7 +263,6 @@ class ViewController2 : UIViewController ,MKMapViewDelegate,CLLocationManagerDel
             
         }
         
-        
         self.textfield.becomeFirstResponder()  //これを消す
         
         func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -270,8 +281,6 @@ class ViewController2 : UIViewController ,MKMapViewDelegate,CLLocationManagerDel
             
         }
         
-        
-        //ここにほぞんするためのこーどをかく
         //まず保存したい情報を抽出する
         let shopname = textField.text
         //        let shosai = shosaiTextView.text
@@ -310,10 +319,6 @@ class ViewController2 : UIViewController ,MKMapViewDelegate,CLLocationManagerDel
         }
     }
     
-    
-    //MARK: - textField
-    
-    
     //textFieldに入力おわったら呼ばれるやつ
     
     func textFieldDidEndEditing(_ textField: UITextField) {
@@ -343,10 +348,6 @@ class ViewController2 : UIViewController ,MKMapViewDelegate,CLLocationManagerDel
         
     }
     
-    
-    //MARK: - Camera
-    
-    
     //カメラの起動を1回だけにするとこ
     func firstCam(){
         if isCamShown == false{
@@ -355,7 +356,6 @@ class ViewController2 : UIViewController ,MKMapViewDelegate,CLLocationManagerDel
         isCamShown = true
         
     }
-    
     
     func cameraStart() {
         

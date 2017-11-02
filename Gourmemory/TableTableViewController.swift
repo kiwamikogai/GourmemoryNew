@@ -71,8 +71,10 @@ class TableTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "customCell", for: indexPath) as! CustomTableViewCell
-        cell.storeLabel.text = kiwamis[indexPath.row].shopname
+        //cell.storeLabel.text = kiwamis[indexPath.row].shopname
         cell.dateLabel.text = kiwamis[indexPath.row].weekDay
+        cell.imageView2.image = UIImage(data: kiwamis[indexPath.row].imageData)
+
         cell.categoryLabel.text = kiwamis[indexPath.row].category
         return cell
     }

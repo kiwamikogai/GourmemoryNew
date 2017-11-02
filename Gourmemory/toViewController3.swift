@@ -24,6 +24,12 @@ class ViewController3: UIViewController{
     @IBAction func showAlert(_ sender: Any) {
         let actionSheet = UIAlertController(title: nil, message: nil, preferredStyle: UIAlertControllerStyle.actionSheet)
         
+        let action1 = UIAlertAction(title: "編集する", style: UIAlertActionStyle.default, handler: {
+            (action: UIAlertAction!) in
+            print("アクション１をタップした時の処理")
+            
+        })
+        
         let action2 = UIAlertAction(title: "シェア", style: UIAlertActionStyle.default, handler: {
             (action: UIAlertAction!) in
             print("アクション２をタップした時の処理")
@@ -87,7 +93,7 @@ class ViewController3: UIViewController{
         super.viewDidLoad()
         print("これは\(kiwami)")
         guard let kiwami = kiwami else { return }
-        //        dateLabel.text = kiwami.weekDay!
+       
         imageView2.image = UIImage(data: kiwami.imageData)
         shopnameLabel.text = kiwami.shopname
         categoryLabel.text = kiwami.category

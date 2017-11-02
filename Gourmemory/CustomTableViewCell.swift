@@ -12,7 +12,10 @@ class CustomTableViewCell: UITableViewCell {
     
     @IBOutlet var dateLabel: UILabel!
     @IBOutlet var categoryLabel: UILabel!
+    @IBOutlet var imageView2: UIImageView!
+    @IBOutlet var selectedImageView: UIImageView!
     @IBOutlet var storeLabel: UILabel!
+    
  
     override func awakeFromNib() {
         super.awakeFromNib()
