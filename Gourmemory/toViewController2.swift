@@ -298,6 +298,7 @@ class ViewController2 : UIViewController ,MKMapViewDelegate,CLLocationManagerDel
         
         //kiwamiオブジェクトの設定
         let kiwami: Kiwami = Kiwami()
+        kiwami.id = Kiwami.findAll().count+1
         kiwami.shopname = shopname!
         kiwami.imageData = saveImage
         kiwami.latitude = annotaion.coordinate.latitude
@@ -305,6 +306,8 @@ class ViewController2 : UIViewController ,MKMapViewDelegate,CLLocationManagerDel
         kiwami.category = textfield.text
         kiwami.date = Date()
         kiwami.weekDay = self.title
+        
+        kiwami.save()
         
         //データベースに保存 try! realm.writeで書き込みモード
         try! realm.write {

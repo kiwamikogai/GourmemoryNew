@@ -27,6 +27,8 @@ class ViewController: UIViewController,MKMapViewDelegate,CLLocationManagerDelega
     
     var testManager:CLLocationManager = CLLocationManager()
     
+    var selectedID:Int = 0
+    
     override func viewDidLoad() {
         
         mapView.delegate = self
@@ -57,7 +59,7 @@ class ViewController: UIViewController,MKMapViewDelegate,CLLocationManagerDelega
         //realmに保存したデータを読み込んでいく!!
         
         //データベースの定義
-        let realm = try! Realm()
+        let realm = RealmFactory.sharedInstance.realm()
         
         //保存されたKiwamiのデータが空じゃなければ
         if realm.objects(Kiwami.self) != nil {
@@ -71,11 +73,12 @@ class ViewController: UIViewController,MKMapViewDelegate,CLLocationManagerDelega
                 
                 let kiwami:Kiwami = annotationData[i]
                 
-                var annotaion = MKPointAnnotation()
+                var annotaion = KwMAnnotation()
                 
                 annotaion.coordinate = CLLocationCoordinate2DMake(kiwami.latitude, kiwami.longitude)
                 annotaion.title = kiwami.shopname
                 annotaion.subtitle = kiwami.text
+                annotaion.id = Int(kiwami.id)
                 self.mapView.addAnnotation(annotaion)
             }
             
@@ -121,8 +124,7 @@ class ViewController: UIViewController,MKMapViewDelegate,CLLocationManagerDelega
     }
     
     //画面遷移ないならここも要らんかな！現状呼ばれてないよ！
-    override func prepare(
-        for segue: UIStoryboardSegue, sender: Any?) {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "toViewController2" {
             let vc2: ViewController2 = segue.destination as! ViewController2
             
@@ -133,11 +135,27 @@ class ViewController: UIViewController,MKMapViewDelegate,CLLocationManagerDelega
             
         }
         
-    }
-    
-    func mapView(_: MKMapView, didSelect: MKAnnotationView) {
-        performSegue(withIdentifier: "ViewController3",sender: MKAnnotation.self)
+        if segue.identifier == "ViewControllerPin" {
+            let realm = RealmFactory.sharedInstance.realm()
+            let result = realm.objects(Kiwami).filter("id = %@", selectedID)
+            
+            
+            let secondViewController = segue.destination as! ViewController3
+            secondViewController.kiwami = result as! Kiwami
+        }
         
     }
     
+    func mapView(_: MKMapView, didSelect: MKAnnotationView) {
+//        selectedID = didSelect.
+        performSegue(withIdentifier: "ViewControllerPin",sender: MKAnnotation.self)
+        
+    
+    }
+    
+}
+
+class KwMAnnotation:MKPointAnnotation {
+    var x = ""
+    var id:Int!
 }

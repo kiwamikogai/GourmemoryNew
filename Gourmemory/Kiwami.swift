@@ -13,6 +13,7 @@ import RealmSwift
 
 class Kiwami: Object {
     
+    dynamic var id = 0
     dynamic var shopname: String!
     dynamic var imageData: Data!
     
@@ -43,9 +44,22 @@ class Kiwami: Object {
         
     }
     
+    //idをプライマリキーに設定
+    override static func primaryKey() -> String?{
+        return "id"
+    }
+    
+    func save(){
+        let realm = RealmFactory.sharedInstance.realm()
+        do{
+            try realm.write {
+                realm.add(self)
+            }
+        }catch let error as NSError{
+            print(error)
+        }
+    }
 }
-
-
 //画像リサイズ用
 extension UIImage{
     func resize(image: UIImage, width: Int, height: Int) -> UIImage {
