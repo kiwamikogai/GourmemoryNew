@@ -64,13 +64,7 @@ class ParentTabBarController: UITabBarController, UITabBarControllerDelegate {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "ViewController3" {
-            let vc3 = segue.destination as! ViewController3
-        }
-        
-    }
+
 }
 
 class DummyVC: UIViewController {}

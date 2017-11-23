@@ -21,10 +21,10 @@
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     </tabBar>
                     <connections>
+                        <segue destination="2pT-bP-gHM" kind="presentation" identifier="toViewController2" id="nGb-6V-ExL"/>
                         <segue destination="p41-HQ-GGu" kind="relationship" relationship="viewControllers" id="pX4-Q0-iKB"/>
                         <segue destination="6p1-c7-RAu" kind="relationship" relationship="viewControllers" id="m3C-U4-yqu"/>
-                        <segue destination="2pT-bP-gHM" kind="presentation" identifier="toViewController2" id="nGb-6V-ExL"/>
-                        <segue destination="5zS-N5-2kZ" kind="relationship" relationship="viewControllers" id="h5H-kp-w5k"/>
+                        <segue destination="okm-iH-Hdi" kind="relationship" relationship="viewControllers" id="IuJ-UV-j4i"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TmG-cM-aLr" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -74,7 +74,7 @@
                         <outlet property="imageView" destination="1sd-za-yQ7" id="gMf-8o-kED"/>
                         <outlet property="mapView" destination="yzi-NC-i0I" id="ZV0-OJ-zqL"/>
                         <outlet property="selectedImageView" destination="1sd-za-yQ7" id="A6V-NZ-d6C"/>
-                        <segue destination="4WM-Xb-WnG" kind="presentation" identifier="ViewControllerPin" id="99W-o9-tnM"/>
+                        <segue destination="4WM-Xb-WnG" kind="show" identifier="ViewControllerPin" id="99W-o9-tnM"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -241,7 +241,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Cd6-4Y-ulc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1726" y="1339"/>
+            <point key="canvasLocation" x="1945" y="1630"/>
         </scene>
         <!--Title-->
         <scene sceneID="6Ks-Wu-Xzz">
@@ -256,7 +256,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="A0C-a3-VBf">
-                                <rect key="frame" x="0.0" y="20" width="375" height="90"/>
+                                <rect key="frame" x="0.0" y="64" width="375" height="90"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="90" id="vS5-oE-2rf"/>
                                 </constraints>
@@ -306,23 +306,6 @@
             </objects>
             <point key="canvasLocation" x="2940" y="636"/>
         </scene>
-        <!--Item-->
-        <scene sceneID="Gvd-yB-lIQ">
-            <objects>
-                <navigationController id="5zS-N5-2kZ" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="fI4-HP-EXz"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="4lH-PY-Tdv">
-                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <connections>
-                        <segue destination="okm-iH-Hdi" kind="relationship" relationship="rootViewController" id="pxH-jT-sVi"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="r0R-fP-fBX" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-23" y="1357"/>
-        </scene>
         <!--DummyVC-->
         <scene sceneID="kik-Z0-YcD">
             <objects>
@@ -339,6 +322,13 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="ダミー" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zEW-QQ-P65">
+                                <rect key="frame" x="161" y="323" width="52" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -349,7 +339,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RtZ-rp-WvD" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-23" y="2104"/>
+            <point key="canvasLocation" x="-23" y="1339"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="xVz-BC-FUh">
@@ -446,7 +436,7 @@
         <image name="Image-1" width="45" height="45"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="99W-o9-tnM"/>
+        <segue reference="zlP-uy-IKM"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.16862745098039217" green="0.16862745098039217" blue="0.16862745098039217" alpha="1" colorSpace="calibratedRGB"/>
 </document>
