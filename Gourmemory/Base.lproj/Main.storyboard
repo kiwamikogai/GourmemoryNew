@@ -23,8 +23,8 @@
                     <connections>
                         <segue destination="2pT-bP-gHM" kind="presentation" identifier="toViewController2" id="nGb-6V-ExL"/>
                         <segue destination="p41-HQ-GGu" kind="relationship" relationship="viewControllers" id="pX4-Q0-iKB"/>
-                        <segue destination="6p1-c7-RAu" kind="relationship" relationship="viewControllers" id="m3C-U4-yqu"/>
                         <segue destination="okm-iH-Hdi" kind="relationship" relationship="viewControllers" id="IuJ-UV-j4i"/>
+                        <segue destination="6p1-c7-RAu" kind="relationship" relationship="viewControllers" id="m3C-U4-yqu"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TmG-cM-aLr" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -241,7 +241,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Cd6-4Y-ulc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1945" y="1630"/>
+            <point key="canvasLocation" x="1726" y="1339"/>
         </scene>
         <!--Title-->
         <scene sceneID="6Ks-Wu-Xzz">
@@ -304,7 +304,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Q3n-3s-4GJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2940" y="636"/>
+            <point key="canvasLocation" x="2593" y="498"/>
         </scene>
         <!--DummyVC-->
         <scene sceneID="kik-Z0-YcD">
