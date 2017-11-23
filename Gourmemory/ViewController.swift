@@ -67,7 +67,6 @@ class ViewController: UIViewController,MKMapViewDelegate,CLLocationManagerDelega
             //Kiwamiクラスのデータの読み込み realm.object(クラス名.self)で読み込めるよ！
             annotationData = realm.objects(Kiwami.self)
             
-            
             //annotationを追加しまくる
             for i in 0..<annotationData.count {
                 
@@ -136,26 +135,28 @@ class ViewController: UIViewController,MKMapViewDelegate,CLLocationManagerDelega
         }
         
         if segue.identifier == "ViewControllerPin" {
+            let selectedAnnotation = sender as! KwMAnnotation
             let realm = RealmFactory.sharedInstance.realm()
-            let result = realm.objects(Kiwami).filter("id = %@", selectedID)
+            let result = realm.objects(Kiwami.self).filter("id = %@", selectedAnnotation.id).first
             
             
             let secondViewController = segue.destination as! ViewController3
-            secondViewController.kiwami = result as! Kiwami
+            secondViewController.kiwami = result
         }
-        
-    }
-    
-    func mapView(_: MKMapView, didSelect: MKAnnotationView) {
-//        selectedID = didSelect.
-        performSegue(withIdentifier: "ViewControllerPin",sender: MKAnnotation.self)
-        
     
     }
     
+    
+    func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
+        
+        if let annotation: KwMAnnotation = view.annotation as? KwMAnnotation {
+            
+            performSegue(withIdentifier: "ViewControllerPin", sender: annotation)
+        }
+    }
 }
 
-class KwMAnnotation:MKPointAnnotation {
+class KwMAnnotation: MKPointAnnotation {
     var x = ""
     var id:Int!
 }
