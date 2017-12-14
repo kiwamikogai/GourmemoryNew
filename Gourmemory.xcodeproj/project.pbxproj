@@ -30,7 +30,6 @@
 		836299611F4D3ED90065056F /* カメラ.png in Resources */ = {isa = PBXBuildFile; fileRef = 836299601F4D3ED90065056F /* カメラ.png */; };
 		8367C85E1E936ADC007D080C /* toViewController2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8367C85D1E936ADC007D080C /* toViewController2.swift */; };
 		83BB54881F4EB69D005251CE /* CustomTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 83BB54871F4EB69D005251CE /* CustomTableViewCell.xib */; };
-		83BB548A1F4ECF09005251CE /* ばつ.png in Resources */ = {isa = PBXBuildFile; fileRef = 83BB54891F4ECF09005251CE /* ばつ.png */; };
 		83BB54931F4FFE0F005251CE /* Pods_Gourmemory.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CBA4AA3635E8A2A5903EE08F /* Pods_Gourmemory.framework */; };
 		83CE70B11F4694AE008D1F6D /* TableTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83CE70B01F4694AE008D1F6D /* TableTableViewController.swift */; };
 		83CE70B41F4694FF008D1F6D /* CustomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83CE70B21F4694FF008D1F6D /* CustomTableViewCell.swift */; };
@@ -89,7 +88,6 @@
 		836299601F4D3ED90065056F /* カメラ.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "カメラ.png"; sourceTree = "<group>"; };
 		8367C85D1E936ADC007D080C /* toViewController2.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = toViewController2.swift; sourceTree = "<group>"; };
 		83BB54871F4EB69D005251CE /* CustomTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CustomTableViewCell.xib; sourceTree = "<group>"; };
-		83BB54891F4ECF09005251CE /* ばつ.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ばつ.png"; sourceTree = "<group>"; };
 		83BB54911F4FF7A7005251CE /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
 		83CE70B01F4694AE008D1F6D /* TableTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableTableViewController.swift; sourceTree = "<group>"; };
 		83CE70B21F4694FF008D1F6D /* CustomTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomTableViewCell.swift; sourceTree = "<group>"; };
@@ -179,7 +177,6 @@
 				836299501F4D155C0065056F /* ParentTabBarController.swift */,
 				832E2C121E4348D4005DCB53 /* Assets.xcassets */,
 				836299601F4D3ED90065056F /* カメラ.png */,
-				83BB54891F4ECF09005251CE /* ばつ.png */,
 				836299521F4D1E710065056F /* a.png */,
 				836299531F4D1E710065056F /* b.png */,
 				836299541F4D1E710065056F /* c.png */,
@@ -348,7 +345,6 @@
 				8362995A1F4D1E710065056F /* c.png in Resources */,
 				8362995C1F4D1E710065056F /* e.png in Resources */,
 				836299581F4D1E710065056F /* a.png in Resources */,
-				83BB548A1F4ECF09005251CE /* ばつ.png in Resources */,
 				832E2C111E4348D4005DCB53 /* Main.storyboard in Resources */,
 				836299591F4D1E710065056F /* b.png in Resources */,
 			);

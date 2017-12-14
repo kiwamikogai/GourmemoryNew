@@ -46,6 +46,7 @@ class ViewController2 : UIViewController ,MKMapViewDelegate,CLLocationManagerDel
     @IBOutlet var dataSwitch: UISwitch!
     @IBOutlet weak var textfield: UITextField!
     @IBOutlet var textLabel : UILabel!
+    @IBOutlet weak var pinButton : UIButton!
     
     
     let weekArray:[String] = ["さきね","日","月","火","水","木","金","土"]
@@ -56,24 +57,29 @@ class ViewController2 : UIViewController ,MKMapViewDelegate,CLLocationManagerDel
     
     var mapAnnotationView:MKPinAnnotationView = MKPinAnnotationView()
     
-    @IBAction func testUISwitch(sender: UISwitch) {
-        
-        print("changeSwitch")
-        
-        if ( sender.isOn ) {
-            textLabel.text = "行った"
-            mapAnnotationView.pinTintColor = UIColor.red
-        } else {
-            textLabel.text = "これから"
-            mapAnnotationView.pinTintColor = UIColor.blue
-        }
-    }
+    //    @IBAction func testUISwitch(sender: UISwitch) {
+    //
+    //        print("changeSwitch")
+    //
+    //        if ( sender.isOn ) {
+    //            textLabel.text = "行った"
+    //            mapAnnotationView.pinTintColor = UIColor.red
+    //        } else {
+    //            textLabel.text = "これから"
+    //            mapAnnotationView.pinTintColor = UIColor.blue
+    //        }
+    //    }
     
     //MARK: - normal
     
     
     //初回呼び出されるとこ
     override func viewDidLoad() {
+        
+        pinButton.imageView?.image = UIImage(named:"Image-8")?.withRenderingMode(.alwaysTemplate)
+        pinButton.tintColor = UIColor.rgb(r: 255, g: 0, b: 0, alpha: 1)
+        
+        
         
         mapView.delegate = self
         
@@ -131,19 +137,19 @@ class ViewController2 : UIViewController ,MKMapViewDelegate,CLLocationManagerDel
         // Dispose of any resources that can be recreated.
     }
     
-//
-//    func displayClock() {
-//        // 現在時刻を「HH:MM:SS」形式で取得する
-//        let formatter = DateFormatter()
-//        formatter.dateFormat = "HH:mm:ss"
-//        var displayTime = formatter.string(from: Date())
-//        if displayTime.hasPrefix("0") {
-//            // 最初に見つかった0だけ削除(スペース埋め)される
-//            if let range = displayTime.range(of: "0") {
-//                displayTime.replaceSubrange(range, with: " ")
-//            }
-//        }
-//    }
+    //
+    //    func displayClock() {
+    //        // 現在時刻を「HH:MM:SS」形式で取得する
+    //        let formatter = DateFormatter()
+    //        formatter.dateFormat = "HH:mm:ss"
+    //        var displayTime = formatter.string(from: Date())
+    //        if displayTime.hasPrefix("0") {
+    //            // 最初に見つかった0だけ削除(スペース埋め)される
+    //            if let range = displayTime.range(of: "0") {
+    //                displayTime.replaceSubrange(range, with: " ")
+    //            }
+    //        }
+    //    }
     
     @IBAction func tapScreen(sender: UITapGestureRecognizer) {
         self.view.endEditing(true)
@@ -213,6 +219,7 @@ class ViewController2 : UIViewController ,MKMapViewDelegate,CLLocationManagerDel
         }
         
     }
+    
     
     
     //データのセーブ。保存ボタンが押されたら呼ばれる
@@ -480,6 +487,13 @@ extension String {
         return image!
     }
     
+}
+
+extension UIColor {
+    // RGBからUIColorを返します
+    class func rgb(r: Int, g: Int, b: Int, alpha: CGFloat) -> UIColor{
+        return UIColor(red: CGFloat(r) / 255.0, green: CGFloat(g) / 255.0, blue: CGFloat(b) / 255.0, alpha: alpha)
+    }
 }
 
 
