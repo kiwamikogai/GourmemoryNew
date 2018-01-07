@@ -43,7 +43,7 @@ class ViewController2 : UIViewController ,MKMapViewDelegate,CLLocationManagerDel
     @IBOutlet var mapView : MKMapView!
     @IBOutlet var textField : UITextField!
     @IBOutlet var buttonImage : UIButton!
-    @IBOutlet var dataSwitch: UISwitch!
+//    @IBOutlet var dataSwitch: UISwitch!
     @IBOutlet weak var textfield: UITextField!
     @IBOutlet var textLabel : UILabel!
     @IBOutlet weak var pinButton : UIButton!
@@ -77,7 +77,7 @@ class ViewController2 : UIViewController ,MKMapViewDelegate,CLLocationManagerDel
     override func viewDidLoad() {
         
         pinButton.imageView?.image = UIImage(named:"Image-8")?.withRenderingMode(.alwaysTemplate)
-        pinButton.tintColor = UIColor.rgb(r: 255, g: 0, b: 0, alpha: 1)
+        pinButton.tintColor = UIColor(hex: "0080FF")//UIColor.rgb(r: 255, g: 0, b: 0, alpha: 1)
         
         
         
@@ -153,6 +153,10 @@ class ViewController2 : UIViewController ,MKMapViewDelegate,CLLocationManagerDel
     
     @IBAction func tapScreen(sender: UITapGestureRecognizer) {
         self.view.endEditing(true)
+    }
+    
+    @IBAction func tappedPinButton(sender:UIButton){
+        
     }
     
     //MARK: - AGEmojiKeyboardViewDataSource
@@ -344,13 +348,13 @@ class ViewController2 : UIViewController ,MKMapViewDelegate,CLLocationManagerDel
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
         
         let pinView = MKPinAnnotationView()
-        if ( dataSwitch.isOn ) {
-            textLabel.text = "行った"
-            pinView.pinTintColor = UIColor.red
-        } else {
-            textLabel.text = "これから"
-            pinView.pinTintColor = UIColor.blue
-        }
+//        if ( dataSwitch.isOn ) {
+//            textLabel.text = "行った"
+//            pinView.pinTintColor = UIColor.red
+//        } else {
+//            textLabel.text = "これから"
+//            pinView.pinTintColor = UIColor.blue
+//        }
         
         mapAnnotationView = pinView
         
@@ -474,26 +478,6 @@ class ViewController2 : UIViewController ,MKMapViewDelegate,CLLocationManagerDel
     }
 }
 
-extension String {
-    func image() -> UIImage {
-        let size = CGSize(width: 30, height: 35)
-        UIGraphicsBeginImageContextWithOptions(size, false, 0);
-        UIColor.clear.set()
-        let rect = CGRect(origin: CGPoint.zero, size: size)
-        UIRectFill(CGRect(origin: CGPoint.zero, size: size))
-        (self as NSString).draw(in: rect, withAttributes: [NSFontAttributeName: UIFont.systemFont(ofSize: 30)])
-        let image = UIGraphicsGetImageFromCurrentImageContext()
-        UIGraphicsEndImageContext()
-        return image!
-    }
-    
-}
 
-extension UIColor {
-    // RGBからUIColorを返します
-    class func rgb(r: Int, g: Int, b: Int, alpha: CGFloat) -> UIColor{
-        return UIColor(red: CGFloat(r) / 255.0, green: CGFloat(g) / 255.0, blue: CGFloat(b) / 255.0, alpha: alpha)
-    }
-}
 
 

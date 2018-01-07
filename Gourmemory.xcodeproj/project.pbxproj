@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		26F7A08EE20C635F877203D7 /* Pods_GourmemoryUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 444BF3629418F20D978B7761 /* Pods_GourmemoryUITests.framework */; };
+		618EEF2420021557000C89A5 /* CategorySettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 618EEF2320021557000C89A5 /* CategorySettingViewController.swift */; };
+		618EEF26200219AC000C89A5 /* CategorySettingViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 618EEF25200219AC000C89A5 /* CategorySettingViewCell.swift */; };
+		618EEF2820022A83000C89A5 /* EditCategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 618EEF2720022A83000C89A5 /* EditCategoryViewController.swift */; };
 		832E2C0C1E4348D4005DCB53 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 832E2C0B1E4348D4005DCB53 /* AppDelegate.swift */; };
 		832E2C111E4348D4005DCB53 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 832E2C0F1E4348D4005DCB53 /* Main.storyboard */; };
 		832E2C131E4348D4005DCB53 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 832E2C121E4348D4005DCB53 /* Assets.xcassets */; };
@@ -58,6 +61,9 @@
 		31FA0AD9768C656675C4C908 /* Pods-Gourmemory.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Gourmemory.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Gourmemory/Pods-Gourmemory.debug.xcconfig"; sourceTree = "<group>"; };
 		444BF3629418F20D978B7761 /* Pods_GourmemoryUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GourmemoryUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4868D04B706BE91CA4557022 /* Pods-GourmemoryUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GourmemoryUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-GourmemoryUITests/Pods-GourmemoryUITests.release.xcconfig"; sourceTree = "<group>"; };
+		618EEF2320021557000C89A5 /* CategorySettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategorySettingViewController.swift; sourceTree = "<group>"; };
+		618EEF25200219AC000C89A5 /* CategorySettingViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategorySettingViewCell.swift; sourceTree = "<group>"; };
+		618EEF2720022A83000C89A5 /* EditCategoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditCategoryViewController.swift; sourceTree = "<group>"; };
 		688E64B8FA1904106761B7C9 /* Pods-GourmemoryUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GourmemoryUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-GourmemoryUITests/Pods-GourmemoryUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		7417A75581239083FBA29C05 /* Pods-GourmemoryTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GourmemoryTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-GourmemoryTests/Pods-GourmemoryTests.debug.xcconfig"; sourceTree = "<group>"; };
 		832E2C081E4348D4005DCB53 /* Gourmemory.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Gourmemory.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -165,7 +171,10 @@
 			children = (
 				832E2C0B1E4348D4005DCB53 /* AppDelegate.swift */,
 				835F77711F614CB2004904BD /* ViewController.swift */,
+				618EEF2720022A83000C89A5 /* EditCategoryViewController.swift */,
 				8367C85D1E936ADC007D080C /* toViewController2.swift */,
+				618EEF2320021557000C89A5 /* CategorySettingViewController.swift */,
+				618EEF25200219AC000C89A5 /* CategorySettingViewCell.swift */,
 				833FF7F91EBB47790045F109 /* toViewController3.swift */,
 				83CE70B21F4694FF008D1F6D /* CustomTableViewCell.swift */,
 				83BB54871F4EB69D005251CE /* CustomTableViewCell.xib */,
@@ -295,7 +304,7 @@
 				TargetAttributes = {
 					832E2C071E4348D4005DCB53 = {
 						CreatedOnToolsVersion = 8.2.1;
-						DevelopmentTeam = UWJ4P79UVK;
+						DevelopmentTeam = NWMCRKZDG5;
 						ProvisioningStyle = Automatic;
 					};
 					832E2C1B1E4348D5005DCB53 = {
@@ -512,12 +521,15 @@
 				835F77721F614CB2004904BD /* ViewController.swift in Sources */,
 				83CE70B41F4694FF008D1F6D /* CustomTableViewCell.swift in Sources */,
 				832E2C0C1E4348D4005DCB53 /* AppDelegate.swift in Sources */,
+				618EEF26200219AC000C89A5 /* CategorySettingViewCell.swift in Sources */,
+				618EEF2820022A83000C89A5 /* EditCategoryViewController.swift in Sources */,
 				8367C85E1E936ADC007D080C /* toViewController2.swift in Sources */,
 				8335B1DC1F46D40F003EC749 /* RealmFactory.swift in Sources */,
 				83CE70B11F4694AE008D1F6D /* TableTableViewController.swift in Sources */,
 				833FF7FA1EBB47790045F109 /* toViewController3.swift in Sources */,
 				8359887F1EDE797400988863 /* Kiwami.swift in Sources */,
 				8362995F1F4D201F0065056F /* Extension.swift in Sources */,
+				618EEF2420021557000C89A5 /* CategorySettingViewController.swift in Sources */,
 				836299511F4D155C0065056F /* ParentTabBarController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -670,8 +682,9 @@
 			baseConfigurationReference = 31FA0AD9768C656675C4C908 /* Pods-Gourmemory.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = UWJ4P79UVK;
+				DEVELOPMENT_TEAM = NWMCRKZDG5;
 				INFOPLIST_FILE = Gourmemory/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.kii.Gourmemory.2;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -684,8 +697,9 @@
 			baseConfigurationReference = 8FCAB96D58E66A0B07A39D04 /* Pods-Gourmemory.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = UWJ4P79UVK;
+				DEVELOPMENT_TEAM = NWMCRKZDG5;
 				INFOPLIST_FILE = Gourmemory/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.kii.Gourmemory.2;
 				PRODUCT_NAME = "$(TARGET_NAME)";

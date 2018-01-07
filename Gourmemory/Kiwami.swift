@@ -60,6 +60,54 @@ class Kiwami: Object {
         }
     }
 }
+
+class Category: Object {
+    
+    dynamic var id:Int = 0
+    dynamic var categoryName:String!
+    dynamic var colorCode:String!
+    
+    static func findAll() -> [Category] {
+        let realm = RealmFactory.sharedInstance.realm()
+        let allCategory = realm.objects(Category.self)
+        return allCategory.map { $0 }.reversed()
+    }
+    
+    // realm削除
+    func delete() {
+        let realm = RealmFactory.sharedInstance.realm()
+        do {
+            try realm.write {
+                realm.delete(self)
+            }
+        } catch let error  {
+            print(error)
+        }
+        
+    }
+    
+    //idをプライマリキーに設定
+    override static func primaryKey() -> String?{
+        return "id"
+    }
+    
+    func save(){
+        let realm = RealmFactory.sharedInstance.realm()
+        do{
+            try realm.write {
+                realm.add(self)
+            }
+        }catch let error as NSError{
+            print(error)
+        }
+    }
+    
+    func color() -> UIColor{
+        return UIColor(hex: colorCode)
+    }
+}
+
+
 //画像リサイズ用
 extension UIImage{
     func resize(image: UIImage, width: Int, height: Int) -> UIImage {
@@ -71,5 +119,7 @@ extension UIImage{
         UIGraphicsEndImageContext()
         return resizeImage!
     }
-    
 }
+
+
+
