@@ -60,6 +60,13 @@ class Kiwami: Object {
         }
     }
 }
+
+class Category: Object {
+    
+    dynamic var id:Int = 0
+    dynamic var categoryName:String!
+    dynamic var colorCode:String!
+}
 //画像リサイズ用
 extension UIImage{
     func resize(image: UIImage, width: Int, height: Int) -> UIImage {
