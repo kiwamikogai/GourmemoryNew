@@ -43,7 +43,7 @@ class ViewController2 : UIViewController ,MKMapViewDelegate,CLLocationManagerDel
     @IBOutlet var mapView : MKMapView!
     @IBOutlet var textField : UITextField!
     @IBOutlet var buttonImage : UIButton!
-    @IBOutlet var dataSwitch: UISwitch!
+    //    @IBOutlet var dataSwitch: UISwitch!
     @IBOutlet weak var textfield: UITextField!
     @IBOutlet var textLabel : UILabel!
     @IBOutlet weak var pinButton : UIButton!
@@ -76,10 +76,9 @@ class ViewController2 : UIViewController ,MKMapViewDelegate,CLLocationManagerDel
     //初回呼び出されるとこ
     override func viewDidLoad() {
         
-        //カテゴリーピンをタップしたらぴこぴこしてくやつ
-        
         pinButton.imageView?.image = UIImage(named:"Image-8")?.withRenderingMode(.alwaysTemplate)
-        pinButton.tintColor = UIColor.rgb(r: 255, g: 0, b: 0, alpha: 1)
+        pinButton.tintColor = UIColor(hex: "0080FF")//UIColor.rgb(r: 255, g: 0, b: 0, alpha: 1)
+        
         
         
         mapView.delegate = self
@@ -154,6 +153,10 @@ class ViewController2 : UIViewController ,MKMapViewDelegate,CLLocationManagerDel
     
     @IBAction func tapScreen(sender: UITapGestureRecognizer) {
         self.view.endEditing(true)
+    }
+    
+    @IBAction func tappedPinButton(sender:UIButton){
+        
     }
     
     //MARK: - AGEmojiKeyboardViewDataSource
@@ -345,13 +348,13 @@ class ViewController2 : UIViewController ,MKMapViewDelegate,CLLocationManagerDel
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
         
         let pinView = MKPinAnnotationView()
-//        if ( dataSwitch.isOn ) {
-//            textLabel.text = "行った"
-//            pinView.pinTintColor = UIColor.red
-//        } else {
-//            textLabel.text = "これから"
-//            pinView.pinTintColor = UIColor.blue
-//        }
+        //        if ( dataSwitch.isOn ) {
+        //            textLabel.text = "行った"
+        //            pinView.pinTintColor = UIColor.red
+        //        } else {
+        //            textLabel.text = "これから"
+        //            pinView.pinTintColor = UIColor.blue
+        //        }
         
         mapAnnotationView = pinView
         
@@ -474,4 +477,3 @@ class ViewController2 : UIViewController ,MKMapViewDelegate,CLLocationManagerDel
         }
     }
 }
-

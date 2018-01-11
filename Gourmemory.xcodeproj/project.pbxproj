@@ -29,6 +29,9 @@
 		8362995F1F4D201F0065056F /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8362995E1F4D201F0065056F /* Extension.swift */; };
 		836299611F4D3ED90065056F /* カメラ.png in Resources */ = {isa = PBXBuildFile; fileRef = 836299601F4D3ED90065056F /* カメラ.png */; };
 		8367C85E1E936ADC007D080C /* toViewController2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8367C85D1E936ADC007D080C /* toViewController2.swift */; };
+		83688487200772AD009AFDCE /* EditCategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83688486200772AD009AFDCE /* EditCategoryViewController.swift */; };
+		8368848920077337009AFDCE /* CategorySettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8368848820077337009AFDCE /* CategorySettingViewController.swift */; };
+		8368848B20077390009AFDCE /* CategorySettingViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8368848A20077390009AFDCE /* CategorySettingViewCell.swift */; };
 		83BB54881F4EB69D005251CE /* CustomTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 83BB54871F4EB69D005251CE /* CustomTableViewCell.xib */; };
 		83BB54931F4FFE0F005251CE /* Pods_Gourmemory.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CBA4AA3635E8A2A5903EE08F /* Pods_Gourmemory.framework */; };
 		83CE70B11F4694AE008D1F6D /* TableTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83CE70B01F4694AE008D1F6D /* TableTableViewController.swift */; };
@@ -87,6 +90,9 @@
 		8362995E1F4D201F0065056F /* Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
 		836299601F4D3ED90065056F /* カメラ.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "カメラ.png"; sourceTree = "<group>"; };
 		8367C85D1E936ADC007D080C /* toViewController2.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = toViewController2.swift; sourceTree = "<group>"; };
+		83688486200772AD009AFDCE /* EditCategoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditCategoryViewController.swift; sourceTree = "<group>"; };
+		8368848820077337009AFDCE /* CategorySettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategorySettingViewController.swift; sourceTree = "<group>"; };
+		8368848A20077390009AFDCE /* CategorySettingViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategorySettingViewCell.swift; sourceTree = "<group>"; };
 		83BB54871F4EB69D005251CE /* CustomTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CustomTableViewCell.xib; sourceTree = "<group>"; };
 		83BB54911F4FF7A7005251CE /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
 		83CE70B01F4694AE008D1F6D /* TableTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableTableViewController.swift; sourceTree = "<group>"; };
@@ -165,7 +171,10 @@
 			children = (
 				832E2C0B1E4348D4005DCB53 /* AppDelegate.swift */,
 				835F77711F614CB2004904BD /* ViewController.swift */,
+				83688486200772AD009AFDCE /* EditCategoryViewController.swift */,
 				8367C85D1E936ADC007D080C /* toViewController2.swift */,
+				8368848820077337009AFDCE /* CategorySettingViewController.swift */,
+				8368848A20077390009AFDCE /* CategorySettingViewCell.swift */,
 				833FF7F91EBB47790045F109 /* toViewController3.swift */,
 				83CE70B21F4694FF008D1F6D /* CustomTableViewCell.swift */,
 				83BB54871F4EB69D005251CE /* CustomTableViewCell.xib */,
@@ -511,12 +520,15 @@
 			files = (
 				835F77721F614CB2004904BD /* ViewController.swift in Sources */,
 				83CE70B41F4694FF008D1F6D /* CustomTableViewCell.swift in Sources */,
+				8368848B20077390009AFDCE /* CategorySettingViewCell.swift in Sources */,
 				832E2C0C1E4348D4005DCB53 /* AppDelegate.swift in Sources */,
+				83688487200772AD009AFDCE /* EditCategoryViewController.swift in Sources */,
 				8367C85E1E936ADC007D080C /* toViewController2.swift in Sources */,
 				8335B1DC1F46D40F003EC749 /* RealmFactory.swift in Sources */,
 				83CE70B11F4694AE008D1F6D /* TableTableViewController.swift in Sources */,
 				833FF7FA1EBB47790045F109 /* toViewController3.swift in Sources */,
 				8359887F1EDE797400988863 /* Kiwami.swift in Sources */,
+				8368848920077337009AFDCE /* CategorySettingViewController.swift in Sources */,
 				8362995F1F4D201F0065056F /* Extension.swift in Sources */,
 				836299511F4D155C0065056F /* ParentTabBarController.swift in Sources */,
 			);
