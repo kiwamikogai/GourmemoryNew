@@ -39,46 +39,36 @@ class ViewController2 : UIViewController ,MKMapViewDelegate,CLLocationManagerDel
     var cal = NSCalendar.current
     let now = NSDate()
     var isCamShown = false
+
+    //var categoryData:Results<Category>?
+    
     
     @IBOutlet var mapView : MKMapView!
     @IBOutlet var textField : UITextField!
     @IBOutlet var buttonImage : UIButton!
-    //    @IBOutlet var dataSwitch: UISwitch!
     @IBOutlet weak var textfield: UITextField!
     @IBOutlet var textLabel : UILabel!
     @IBOutlet weak var pinButton : UIButton!
     
     
     let weekArray:[String] = ["さきね","日","月","火","水","木","金","土"]
-    
+    var categoryArray:[Category] = []
     
     var testManager:CLLocationManager = CLLocationManager()
     
     
     var mapAnnotationView:MKPinAnnotationView = MKPinAnnotationView()
     
-    //    @IBAction func testUISwitch(sender: UISwitch) {
-    //
-    //        print("changeSwitch")
-    //
-    //        if ( sender.isOn ) {
-    //            textLabel.text = "行った"
-    //            mapAnnotationView.pinTintColor = UIColor.red
-    //        } else {
-    //            textLabel.text = "これから"
-    //            mapAnnotationView.pinTintColor = UIColor.blue
-    //        }
-    //    }
+    var num = 0
+    
     
     //MARK: - normal
-    
     
     //初回呼び出されるとこ
     override func viewDidLoad() {
         
         pinButton.imageView?.image = UIImage(named:"Image-8")?.withRenderingMode(.alwaysTemplate)
         pinButton.tintColor = UIColor(hex: "0080FF")//UIColor.rgb(r: 255, g: 0, b: 0, alpha: 1)
-        
         
         
         mapView.delegate = self
@@ -129,6 +119,20 @@ class ViewController2 : UIViewController ,MKMapViewDelegate,CLLocationManagerDel
         let week = NSCalendar.current.component(weekcomp, from: NSDate() as Date)
         let weekText:String = weekArray[week]
         self.title = String(month) + "月" + String(day) + "日" + "("+weekText+")"
+        
+        let realm = RealmFactory.sharedInstance.realm()
+        let category = Array(realm.objects(Category))
+        categoryArray = category
+        
+        /*
+         var label = UILabel()
+         label.text = categoryArray[num].categoryName
+         
+         image. = categoryArray[0].colorCode
+         
+         */
+        
+        
     }
     
     
@@ -137,27 +141,55 @@ class ViewController2 : UIViewController ,MKMapViewDelegate,CLLocationManagerDel
         // Dispose of any resources that can be recreated.
     }
     
-    //
-    //    func displayClock() {
-    //        // 現在時刻を「HH:MM:SS」形式で取得する
-    //        let formatter = DateFormatter()
-    //        formatter.dateFormat = "HH:mm:ss"
-    //        var displayTime = formatter.string(from: Date())
-    //        if displayTime.hasPrefix("0") {
-    //            // 最初に見つかった0だけ削除(スペース埋め)される
-    //            if let range = displayTime.range(of: "0") {
-    //                displayTime.replaceSubrange(range, with: " ")
-    //            }
-    //        }
-    //    }
-    
     @IBAction func tapScreen(sender: UITapGestureRecognizer) {
         self.view.endEditing(true)
     }
     
+    
+    
     @IBAction func tappedPinButton(sender:UIButton){
         
+        num += 1
+        var label = UILabel()
+        label.text = categoryArray[num].categoryName
+        
     }
+        
+//        if category == nil {
+//            category = Category()
+//            category?.id = Category.findAll().count + 1
+//            category?.colorCode = colorCode(colorNum: colorNum)
+//            category?.categoryName = textField.text!
+//            category?.save()
+//        }else{
+//            try! realm.write {
+//                if colorNum != 0 {
+//                    category?.colorCode = colorCode(colorNum: colorNum)
+//                }
+//                category?.categoryName = textField.text!
+//            }
+//        }
+//    }
+//
+//    func colorCode(colorNum:Int) -> String{
+//        var code:String!
+//
+//        switch colorNum {
+//        case 1:
+//            code = "FF6666"
+//        case 2:
+//            code = "FFE866"
+//        case 3:
+//            code = "66D6FF"
+//        case 4:
+//            code = "A866FF"
+//        default:
+//            code = "FFFFFF"
+//        }
+//        return code
+//    }
+        //image.colornum = categoryArray[0].colorCode
+    
     
     //MARK: - AGEmojiKeyboardViewDataSource
     //AGEmojiKeyboardViewDataSource キーボードの初期設定するところ
@@ -314,7 +346,7 @@ class ViewController2 : UIViewController ,MKMapViewDelegate,CLLocationManagerDel
         kiwami.imageData = saveImage
         kiwami.latitude = annotaion.coordinate.latitude
         kiwami.longitude = annotaion.coordinate.longitude
-        kiwami.category = textfield.text
+        kiwami.category = Int!
         kiwami.date = Date()
         kiwami.weekDay = self.title
         
@@ -348,13 +380,6 @@ class ViewController2 : UIViewController ,MKMapViewDelegate,CLLocationManagerDel
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
         
         let pinView = MKPinAnnotationView()
-        //        if ( dataSwitch.isOn ) {
-        //            textLabel.text = "行った"
-        //            pinView.pinTintColor = UIColor.red
-        //        } else {
-        //            textLabel.text = "これから"
-        //            pinView.pinTintColor = UIColor.blue
-        //        }
         
         mapAnnotationView = pinView
         

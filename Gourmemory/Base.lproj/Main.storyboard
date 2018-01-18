@@ -135,6 +135,9 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="31"/>
                                 <state key="normal" title="ピンのアイコン" image="Image-8"/>
+                                <connections>
+                                    <action selector="tappedPinButtonWithSender:" destination="lS9-bb-sO2" eventType="touchUpInside" id="Waa-XB-5XY"/>
+                                </connections>
                             </button>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="詳細" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="v3z-zg-Gbi">
                                 <rect key="frame" x="209" y="261" width="111" height="30"/>

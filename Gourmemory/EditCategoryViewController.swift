@@ -14,7 +14,6 @@ class EditCategoryViewController: UIViewController {
     var category:Category?
     var getCategoryid = 0
     @IBOutlet weak var imageView: UIImageView!
-    
     @IBOutlet weak var textField: UITextField!
     
     var colorNum = 0
@@ -64,8 +63,6 @@ class EditCategoryViewController: UIViewController {
                 category?.categoryName = textField.text!
             }
         }
-        
-        
     }
     
     func colorCode(colorNum:Int) -> String{

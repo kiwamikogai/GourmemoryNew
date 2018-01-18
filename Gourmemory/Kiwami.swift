@@ -21,7 +21,8 @@ class Kiwami: Object {
     dynamic var longitude: Double = -122.03072304117417
     
     dynamic var text: String!
-    dynamic var category: String! //Category!
+    dynamic var categoryId = 0
+    dynamic var category: Int!
     dynamic var date: Date!
     dynamic var weekDay: String!
     

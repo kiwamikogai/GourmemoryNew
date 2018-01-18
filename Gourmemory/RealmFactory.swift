@@ -9,6 +9,8 @@ class RealmFactory {
     private init() {
     }
     
+    
+    
     // MARK: - Publics
     internal func realm() -> Realm {
         if let configuration = configuration {

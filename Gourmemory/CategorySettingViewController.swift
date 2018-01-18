@@ -12,6 +12,7 @@ import RealmSwift
 //カテゴリー編集のためのクラス、tableView
 class CategorySettingViewController: UITableViewController {
     
+
     var categoryData:Results<Category>? //カテゴリーの中身
     
     override func viewDidLoad() {
@@ -19,22 +20,27 @@ class CategorySettingViewController: UITableViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        
         readCategoryData()
         tableView.reloadData()
+        
     }
     
-    //realmのカテゴリーの読み込み
+    //realmのカテゴリーを読み込む
+    
     func readCategoryData(){
-        let realm = RealmFactory.sharedInstance.realm()
         
+        let realm = RealmFactory.sharedInstance.realm()
         if realm.objects(Category.self) != nil {
             categoryData = realm.objects(Category.self)
+            
         }
     }
     
-    
     @IBAction func tappedAddButton(_ sender: Any) {
+        
         performSegue(withIdentifier: "toEditCategory", sender: nil)
+    
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -79,7 +85,6 @@ class CategorySettingViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         performSegue(withIdentifier: "toEditCategory", sender: indexPath)
     }
-    
     
     
 }
