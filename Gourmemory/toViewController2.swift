@@ -39,7 +39,7 @@ class ViewController2 : UIViewController ,MKMapViewDelegate,CLLocationManagerDel
     var cal = NSCalendar.current
     let now = NSDate()
     var isCamShown = false
-
+    
     //var categoryData:Results<Category>?
     
     
@@ -123,14 +123,16 @@ class ViewController2 : UIViewController ,MKMapViewDelegate,CLLocationManagerDel
         let realm = RealmFactory.sharedInstance.realm()
         let category = Array(realm.objects(Category))
         categoryArray = category
+            
         
-        /*
-         var label = UILabel()
-         label.text = categoryArray[num].categoryName
-         
-         image. = categoryArray[0].colorCode
-         
-         */
+        
+        var label = UILabel()
+        label.text = categoryArray[num].categoryName
+        
+        imageView.image = UIImage(named:"Image-8")?.withRenderingMode(.alwaysTemplate)
+        imageView.tintColor = UIColor(hex: categoryArray[0].colorCode)
+//        image.tintColer = categoryArray[0].colorCode
+        
         
         
     }
@@ -153,42 +155,10 @@ class ViewController2 : UIViewController ,MKMapViewDelegate,CLLocationManagerDel
         var label = UILabel()
         label.text = categoryArray[num].categoryName
         
-    }
+        imageView.tintColor = UIColor(hex: categoryArray[num].colorCode)
         
-//        if category == nil {
-//            category = Category()
-//            category?.id = Category.findAll().count + 1
-//            category?.colorCode = colorCode(colorNum: colorNum)
-//            category?.categoryName = textField.text!
-//            category?.save()
-//        }else{
-//            try! realm.write {
-//                if colorNum != 0 {
-//                    category?.colorCode = colorCode(colorNum: colorNum)
-//                }
-//                category?.categoryName = textField.text!
-//            }
-//        }
-//    }
-//
-//    func colorCode(colorNum:Int) -> String{
-//        var code:String!
-//
-//        switch colorNum {
-//        case 1:
-//            code = "FF6666"
-//        case 2:
-//            code = "FFE866"
-//        case 3:
-//            code = "66D6FF"
-//        case 4:
-//            code = "A866FF"
-//        default:
-//            code = "FFFFFF"
-//        }
-//        return code
-//    }
-        //image.colornum = categoryArray[0].colorCode
+    }
+    
     
     
     //MARK: - AGEmojiKeyboardViewDataSource
