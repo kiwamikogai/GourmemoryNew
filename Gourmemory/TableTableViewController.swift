@@ -75,7 +75,7 @@ class TableTableViewController: UITableViewController {
         cell.dateLabel.text = kiwamis[indexPath.row].weekDay
         cell.imageView2.image = UIImage(data: kiwamis[indexPath.row].imageData)
 
-        cell.categoryLabel.text = kiwamis[indexPath.row].category
+        cell.categoryLabel.text = kiwamis[indexPath.row].category.categoryName
         return cell
     }
     

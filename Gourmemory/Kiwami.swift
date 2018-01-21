@@ -22,7 +22,7 @@ class Kiwami: Object {
     
     dynamic var text: String!
     dynamic var categoryId = 0
-    dynamic var category: Int!
+    dynamic var category = Category()
     dynamic var date: Date!
     dynamic var weekDay: String!
     
@@ -65,8 +65,8 @@ class Kiwami: Object {
 class Category: Object {
     
     dynamic var id:Int = 0
-    dynamic var categoryName:String!
-    dynamic var colorCode:String!
+    dynamic var categoryName: String!
+    dynamic var colorCode: String!
     
     static func findAll() -> [Category] {
         let realm = RealmFactory.sharedInstance.realm()

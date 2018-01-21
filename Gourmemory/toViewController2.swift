@@ -49,8 +49,7 @@ class ViewController2 : UIViewController ,MKMapViewDelegate,CLLocationManagerDel
     @IBOutlet weak var textfield: UITextField!
     @IBOutlet var textLabel : UILabel!
     @IBOutlet weak var pinButton : UIButton!
-    
-    
+
     let weekArray:[String] = ["さきね","日","月","火","水","木","金","土"]
     var categoryArray:[Category] = []
     
@@ -129,12 +128,11 @@ class ViewController2 : UIViewController ,MKMapViewDelegate,CLLocationManagerDel
         var label = UILabel()
         label.text = categoryArray[num].categoryName
         
-        imageView.image = UIImage(named:"Image-8")?.withRenderingMode(.alwaysTemplate)
-        imageView.tintColor = UIColor(hex: categoryArray[0].colorCode)
+        pinButton.setImage(UIImage(named: "image-8"), for: .normal)
+        pinButton.tintColor = UIColor(hex: categoryArray[0].colorCode)
 //        image.tintColer = categoryArray[0].colorCode
         
-        
-        
+    
     }
     
     
@@ -155,7 +153,7 @@ class ViewController2 : UIViewController ,MKMapViewDelegate,CLLocationManagerDel
         var label = UILabel()
         label.text = categoryArray[num].categoryName
         
-        imageView.tintColor = UIColor(hex: categoryArray[num].colorCode)
+        pinButton.tintColor = UIColor(hex: categoryArray[num].colorCode)
         
     }
     
@@ -316,7 +314,7 @@ class ViewController2 : UIViewController ,MKMapViewDelegate,CLLocationManagerDel
         kiwami.imageData = saveImage
         kiwami.latitude = annotaion.coordinate.latitude
         kiwami.longitude = annotaion.coordinate.longitude
-        kiwami.category = Int!
+        kiwami.category = Category()
         kiwami.date = Date()
         kiwami.weekDay = self.title
         
