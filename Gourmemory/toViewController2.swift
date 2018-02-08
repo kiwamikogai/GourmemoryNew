@@ -9,7 +9,7 @@
 import UIKit
 import CoreLocation
 import MapKit
-import RealmSwift      //データベース用のライブラリを読み込んでるで
+import RealmSwift     //データベース用のライブラリを読み込んでるで
 import Photos
 import AGEmojiKeyboard
 
@@ -18,8 +18,6 @@ import AGEmojiKeyboard
 
 //
 class ViewController2 : UIViewController ,MKMapViewDelegate,CLLocationManagerDelegate,UITextFieldDelegate, UINavigationControllerDelegate,UIImagePickerControllerDelegate, AGEmojiKeyboardViewDelegate, AGEmojiKeyboardViewDataSource{
-    
-    
     
     //var shopname : String!
     //var shosai : String!
@@ -43,23 +41,22 @@ class ViewController2 : UIViewController ,MKMapViewDelegate,CLLocationManagerDel
     //var categoryData:Results<Category>?
     
     
-    @IBOutlet var mapView : MKMapView!
-    @IBOutlet var textField : UITextField!
-    @IBOutlet var buttonImage : UIButton!
+    @IBOutlet var mapView: MKMapView!
+    @IBOutlet var textField: UITextField!
+    @IBOutlet var buttonImage: UIButton!
     @IBOutlet weak var textfield: UITextField!
-    @IBOutlet var textLabel : UILabel!
-    @IBOutlet weak var pinButton : UIButton!
-
+    @IBOutlet var textLabel: UILabel!
+    @IBOutlet weak var pinButton: UIButton!
+    @IBOutlet var label: UILabel!
+    
     let weekArray:[String] = ["さきね","日","月","火","水","木","金","土"]
     var categoryArray:[Category] = []
     
     var testManager:CLLocationManager = CLLocationManager()
     
-    
     var mapAnnotationView:MKPinAnnotationView = MKPinAnnotationView()
     
     var num = 0
-    
     
     //MARK: - normal
     
@@ -119,45 +116,53 @@ class ViewController2 : UIViewController ,MKMapViewDelegate,CLLocationManagerDel
         let weekText:String = weekArray[week]
         self.title = String(month) + "月" + String(day) + "日" + "("+weekText+")"
         
+       
+        
+    }
+    
+
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        
         let realm = RealmFactory.sharedInstance.realm()
-        let category = Array(realm.objects(Category))
-        categoryArray = category
+        var category = Array(realm.objects(Category.self))
+        
+        if category.count == 0 {
             
+            var cateDefault = Category()
+            cateDefault.categoryName = "行った"
+            cateDefault.colorCode = "FF5151"
+            cateDefault.save()
         
+            category = Array(realm.objects(Category.self))
+            //return
+        }
         
-        var label = UILabel()
+        categoryArray = category
+        
         label.text = categoryArray[num].categoryName
         
         pinButton.setImage(UIImage(named: "image-8"), for: .normal)
         pinButton.tintColor = UIColor(hex: categoryArray[0].colorCode)
-//        image.tintColer = categoryArray[0].colorCode
-        
-    
-    }
-    
-    
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+        //image.tintColer = categoryArray[0].colorCode
     }
     
     @IBAction func tapScreen(sender: UITapGestureRecognizer) {
         self.view.endEditing(true)
     }
     
-    
-    
     @IBAction func tappedPinButton(sender:UIButton){
         
         num += 1
-        var label = UILabel()
         label.text = categoryArray[num].categoryName
         
         pinButton.tintColor = UIColor(hex: categoryArray[num].colorCode)
         
     }
-    
-    
     
     //MARK: - AGEmojiKeyboardViewDataSource
     //AGEmojiKeyboardViewDataSource キーボードの初期設定するところ
@@ -387,7 +392,8 @@ class ViewController2 : UIViewController ,MKMapViewDelegate,CLLocationManagerDel
             
             let picker = UIImagePickerController()
             picker.modalPresentationStyle = UIModalPresentationStyle.popover
-            picker.delegate = self // UINavigationControllerDelegate と　UIImagePickerControllerDelegateを実装する
+            picker.delegate = self
+            // UINavigationControllerDelegateとUIImagePickerControllerDelegateを実装する
             picker.allowsEditing = true
             picker.sourceType = UIImagePickerControllerSourceType.photoLibrary
             

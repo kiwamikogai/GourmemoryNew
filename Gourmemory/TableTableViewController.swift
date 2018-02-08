@@ -19,7 +19,6 @@ class TableTableViewController: UITableViewController {
         
         super.viewDidLoad()
         
-        //        self.view
         self.tableView.register(UINib(nibName: "CustomTableViewCell", bundle: nil), forCellReuseIdentifier: "customCell")
         self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.white]
         self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: UIBarButtonItemStyle.plain, target: nil, action: nil)
@@ -75,7 +74,7 @@ class TableTableViewController: UITableViewController {
         cell.dateLabel.text = kiwamis[indexPath.row].weekDay
         cell.imageView2.image = UIImage(data: kiwamis[indexPath.row].imageData)
 
-        cell.categoryLabel.text = kiwamis[indexPath.row].category.categoryName
+        cell.categoryLabel.text = kiwamis[indexPath.row].category?.categoryName
         return cell
     }
     

@@ -96,7 +96,7 @@ class ViewController3: UIViewController{
        
         imageView2.image = UIImage(data: kiwami.imageData)
         shopnameLabel.text = kiwami.shopname
-        categoryLabel.text = kiwami.category.categoryName
+        categoryLabel.text = kiwami.category?.categoryName
         
         let center = CLLocationCoordinate2DMake(kiwami.latitude, kiwami.longitude)
         

@@ -49,6 +49,7 @@ class ViewController: UIViewController,MKMapViewDelegate,CLLocationManagerDelega
         
     }
     
+    
     override func viewWillAppear(_ animated: Bool) {
         readKiwamiData()
         mapView.reloadInputViews()

@@ -22,7 +22,7 @@ class Kiwami: Object {
     
     dynamic var text: String!
     dynamic var categoryId = 0
-    dynamic var category = Category()
+    dynamic var category:Category?// = Category()
     dynamic var date: Date!
     dynamic var weekDay: String!
     
