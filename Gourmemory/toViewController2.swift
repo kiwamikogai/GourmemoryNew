@@ -42,9 +42,9 @@ class ViewController2 : UIViewController ,MKMapViewDelegate,CLLocationManagerDel
     
     
     @IBOutlet var mapView: MKMapView!
-    @IBOutlet var textField: UITextField!
+    @IBOutlet var textField1: UITextField!
     @IBOutlet var buttonImage: UIButton!
-    @IBOutlet weak var textfield: UITextField!
+    @IBOutlet weak var textfield2: UITextField!
     @IBOutlet var textLabel: UILabel!
     @IBOutlet weak var pinButton: UIButton!
     @IBOutlet var label: UILabel!
@@ -79,7 +79,7 @@ class ViewController2 : UIViewController ,MKMapViewDelegate,CLLocationManagerDel
         emojiKeyboard?.segmentsBar.backgroundColor = UIColor.white
         emojiKeyboard?.segmentsBar.tintColor = UIColor(rgb: 0x6AB9BE)
         
-        self.textfield.inputView = emojiKeyboard
+        self.textfield2.inputView = emojiKeyboard
         
         
         self.navigationController?.navigationBar.barTintColor = UIColor(rgb: 0x6AB9BE)
@@ -91,10 +91,10 @@ class ViewController2 : UIViewController ,MKMapViewDelegate,CLLocationManagerDel
         mapView.setRegion(region, animated:true)
         mapView.delegate = self
         
-        textField.delegate = self
+        textField1.delegate = self
         annotaion.coordinate = CLLocationCoordinate2DMake(37.331652997806785, -122.03072304117417)
         
-        annotaion.title = textField.text!
+        annotaion.title = textField1.text!
         annotaion.subtitle = ""
         
         
@@ -213,18 +213,18 @@ class ViewController2 : UIViewController ,MKMapViewDelegate,CLLocationManagerDel
     
     //キーボードの動きを見るところ。ここでtextfieldとかに文字を入れる
     func emojiKeyBoardView(_ emojiKeyBoardView: AGEmojiKeyboardView!, didUseEmoji emoji: String!) {
-        if (textfield.text?.characters.count)! <= 2{
-            self.textfield.text?.append(emoji)
+        if (textfield2.text?.characters.count)! <= 2{
+            self.textfield2.text?.append(emoji)
         }
         
     }
     
     //ここも必ずかくこと。空っぽでもこのメソッドないとエラーでる
     func emojiKeyBoardViewDidPressBackSpace(_ emojiKeyBoardView: AGEmojiKeyboardView!) {
-        if (textfield.text?.characters.count)! >= 1{
-            var str:String = self.textfield.text!
+        if (textfield2.text?.characters.count)! >= 1{
+            var str:String = self.textfield2.text!
             str = str.substring(to: str.index(before: str.endIndex))
-            self.textfield.text = str
+            self.textfield2.text = str
         }
         
     }
@@ -264,7 +264,7 @@ class ViewController2 : UIViewController ,MKMapViewDelegate,CLLocationManagerDel
     
     @IBAction func SaveKiwami(sender : AnyObject) {
         
-        if textField.text == "" {
+        if textField1.text == "" {
             
             let alertController = UIAlertController(title: "エラー", message: "店名が未記入です", preferredStyle: .alert)
             
@@ -279,35 +279,32 @@ class ViewController2 : UIViewController ,MKMapViewDelegate,CLLocationManagerDel
             
         }
         
-        self.textfield.becomeFirstResponder()  //これを消す
+        self.textfield2.becomeFirstResponder()  //これを消す
         
         func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
             
             //キーボード以外のところをタップするとキーボードを閉じる
-            if textField.isFirstResponder {
+            if textField1.isFirstResponder {
                 
-                textField.resignFirstResponder()
+                textField1.resignFirstResponder()
                 
             }
             
             //キーボード以外のところをタップするとキーボードを閉じる
-            if textField.isFirstResponder{
-                textField.resignFirstResponder()
+            if textField1.isFirstResponder{
+                textField1.resignFirstResponder()
             }
             
         }
         
         //まず保存したい情報を抽出する
-        let shopname = textField.text
-        //        let shosai = shosaiTextView.text
-        
+        let shopname = textField1.text
         
         //画像のリサイズ。そのままだと大きすぎるから小さくする
         let smallImage = image.resize(image: image, width: Int(image.size.width/2.0), height: Int(image.size.height/2.0))
         
         //画像をData型に変換する。画像そのままだと保存できないんよ
         let saveImage = UIImagePNGRepresentation(smallImage)
-        
         
         //データベースの定義
         let realm = try! Realm()

@@ -111,8 +111,8 @@
                                     <segue destination="bgW-MU-MNb" kind="unwind" unwindAction="goBack:" id="tcG-sU-lrL"/>
                                 </connections>
                             </button>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="絵文字" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="jgz-wf-5sd">
-                                <rect key="frame" x="223" y="204" width="83" height="30"/>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="気持ち" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="jgz-wf-5sd">
+                                <rect key="frame" x="212" y="267" width="83" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -139,13 +139,6 @@
                                     <action selector="tappedPinButtonWithSender:" destination="lS9-bb-sO2" eventType="touchUpInside" id="Waa-XB-5XY"/>
                                 </connections>
                             </button>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="詳細" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="v3z-zg-Gbi">
-                                <rect key="frame" x="209" y="261" width="111" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <nil key="textColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="カテゴリー" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="h1u-sX-JYm">
                                 <rect key="frame" x="46" y="355" width="87" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -161,6 +154,13 @@
                                     <segue destination="hfS-oj-zhH" kind="show" id="dLC-nJ-gen"/>
                                 </connections>
                             </button>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="店名" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="v3z-zg-Gbi">
+                                <rect key="frame" x="212" y="216" width="111" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -190,8 +190,8 @@
                         <outlet property="label" destination="h1u-sX-JYm" id="P0X-zf-or0"/>
                         <outlet property="mapView" destination="kGr-NN-Qtz" id="Ac3-nC-Zks"/>
                         <outlet property="pinButton" destination="LcX-Xm-UPN" id="oqM-BE-o0v"/>
-                        <outlet property="textField" destination="v3z-zg-Gbi" id="W5h-0O-8pO"/>
-                        <outlet property="textfield" destination="jgz-wf-5sd" id="aWH-NR-hfP"/>
+                        <outlet property="textField1" destination="v3z-zg-Gbi" id="QZc-RU-WqI"/>
+                        <outlet property="textfield2" destination="jgz-wf-5sd" id="o4f-1r-65T"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oSV-Ik-Jr7" userLabel="First Responder" sceneMemberID="firstResponder"/>
