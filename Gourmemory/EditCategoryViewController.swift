@@ -63,6 +63,8 @@ class EditCategoryViewController: UIViewController {
                 category?.categoryName = textField.text!
             }
         }
+        
+        performSegue(withIdentifier: "toViewController2", sender: nil)
     }
     
     func colorCode(colorNum:Int) -> String{
@@ -77,12 +79,21 @@ class EditCategoryViewController: UIViewController {
             code = "66D6FF"
         case 4:
             code = "A866FF"
+        case 5:
+            code = "FF68AE"
+        case 6:
+            code = "4D63D1"
+        case 7:
+            code = "FFA528"
+        case 8:
+            code = "3F9FFF"
+        case 9:
+            code = "A866FF"
         default:
-            code = "FFFFFF"
+            code = "EFEFEF"
         }
         return code
     }
-    
     
 }
 

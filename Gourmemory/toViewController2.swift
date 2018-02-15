@@ -45,7 +45,6 @@ class ViewController2 : UIViewController ,MKMapViewDelegate,CLLocationManagerDel
     @IBOutlet var textField1: UITextField!
     @IBOutlet var buttonImage: UIButton!
     @IBOutlet weak var textfield2: UITextField!
-    @IBOutlet var textLabel: UILabel!
     @IBOutlet weak var pinButton: UIButton!
     @IBOutlet var label: UILabel!
     
@@ -63,10 +62,9 @@ class ViewController2 : UIViewController ,MKMapViewDelegate,CLLocationManagerDel
     //初回呼び出されるとこ
     override func viewDidLoad() {
         
-        pinButton.imageView?.image = UIImage(named:"Image-8")?.withRenderingMode(.alwaysTemplate)
-        pinButton.tintColor = UIColor(hex: "0080FF")//UIColor.rgb(r: 255, g: 0, b: 0, alpha: 1)
-        
-        
+        var image = UIImage(named:"Image-8")!.withRenderingMode(.alwaysTemplate)
+        pinButton.setImage(image, for: .normal)
+
         mapView.delegate = self
         
         super.viewDidLoad()
@@ -116,11 +114,11 @@ class ViewController2 : UIViewController ,MKMapViewDelegate,CLLocationManagerDel
         let weekText:String = weekArray[week]
         self.title = String(month) + "月" + String(day) + "日" + "("+weekText+")"
         
-       
+        
         
     }
     
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -137,7 +135,7 @@ class ViewController2 : UIViewController ,MKMapViewDelegate,CLLocationManagerDel
             cateDefault.categoryName = "行った"
             cateDefault.colorCode = "FF5151"
             cateDefault.save()
-        
+            
             category = Array(realm.objects(Category.self))
             //return
         }
@@ -146,8 +144,8 @@ class ViewController2 : UIViewController ,MKMapViewDelegate,CLLocationManagerDel
         
         label.text = categoryArray[num].categoryName
         
-        pinButton.setImage(UIImage(named: "image-8"), for: .normal)
-        pinButton.tintColor = UIColor(hex: categoryArray[0].colorCode)
+//        pinButton.setImage(UIImage(named: "image-8"), for: .normal)
+        pinButton.tintColor = UIColor(hex: categoryArray[0].colorCode!)
         //image.tintColer = categoryArray[0].colorCode
     }
     
@@ -156,11 +154,20 @@ class ViewController2 : UIViewController ,MKMapViewDelegate,CLLocationManagerDel
     }
     
     @IBAction func tappedPinButton(sender:UIButton){
+    
+        print("tapped pin button")
         
-        num += 1
         label.text = categoryArray[num].categoryName
+        if let colorCode = categoryArray[num].colorCode{
+            pinButton.tintColor = UIColor(hex: colorCode)
+        }
         
-        pinButton.tintColor = UIColor(hex: categoryArray[num].colorCode)
+//        pinButton.tintColor = UIColor(hex: categoryArray[num].colorCode!)
+        num += 1
+        
+        if num == categoryArray.count{
+            num = 0
+        }
         
     }
     
