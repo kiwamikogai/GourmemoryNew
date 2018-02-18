@@ -72,23 +72,23 @@ class EditCategoryViewController: UIViewController {
         
         switch colorNum {
         case 1:
-            code = "FF6666"
+            code = "FDB8B9"
         case 2:
-            code = "FFE866"
+            code = "C470ED"
         case 3:
-            code = "66D6FF"
+            code = "FC3A3F"
         case 4:
-            code = "A866FF"
+            code = "FEF034"
         case 5:
-            code = "FF68AE"
+            code = "FD9E31"
         case 6:
-            code = "4D63D1"
+            code = "44E178"
         case 7:
-            code = "FFA528"
+            code = "6CE5DC"
         case 8:
-            code = "3F9FFF"
+            code = "2AC0E9"
         case 9:
-            code = "A866FF"
+            code = "715DDF"
         default:
             code = "EFEFEF"
         }

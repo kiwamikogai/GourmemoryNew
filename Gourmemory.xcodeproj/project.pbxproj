@@ -18,7 +18,6 @@
 		833FF7FA1EBB47790045F109 /* toViewController3.swift in Sources */ = {isa = PBXBuildFile; fileRef = 833FF7F91EBB47790045F109 /* toViewController3.swift */; };
 		8359887F1EDE797400988863 /* Kiwami.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8359887E1EDE797400988863 /* Kiwami.swift */; };
 		835F77721F614CB2004904BD /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 835F77711F614CB2004904BD /* ViewController.swift */; };
-		836299431F4AD4070065056F /* アプリ@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 836299421F4AD4070065056F /* アプリ@2x.png */; };
 		836299511F4D155C0065056F /* ParentTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 836299501F4D155C0065056F /* ParentTabBarController.swift */; };
 		836299581F4D1E710065056F /* a.png in Resources */ = {isa = PBXBuildFile; fileRef = 836299521F4D1E710065056F /* a.png */; };
 		836299591F4D1E710065056F /* b.png in Resources */ = {isa = PBXBuildFile; fileRef = 836299531F4D1E710065056F /* b.png */; };
@@ -79,7 +78,6 @@
 		833FF7F91EBB47790045F109 /* toViewController3.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = toViewController3.swift; sourceTree = "<group>"; };
 		8359887E1EDE797400988863 /* Kiwami.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Kiwami.swift; sourceTree = "<group>"; };
 		835F77711F614CB2004904BD /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		836299421F4AD4070065056F /* アプリ@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "アプリ@2x.png"; sourceTree = "<group>"; };
 		836299501F4D155C0065056F /* ParentTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParentTabBarController.swift; sourceTree = "<group>"; };
 		836299521F4D1E710065056F /* a.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = a.png; sourceTree = "<group>"; };
 		836299531F4D1E710065056F /* b.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = b.png; sourceTree = "<group>"; };
@@ -192,7 +190,6 @@
 				836299551F4D1E710065056F /* d.png */,
 				836299561F4D1E710065056F /* e.png */,
 				836299571F4D1E710065056F /* f.png */,
-				836299421F4AD4070065056F /* アプリ@2x.png */,
 				832E2C171E4348D4005DCB53 /* Info.plist */,
 			);
 			path = Gourmemory;
@@ -349,7 +346,6 @@
 				83BB54881F4EB69D005251CE /* CustomTableViewCell.xib in Resources */,
 				832E2C161E4348D4005DCB53 /* LaunchScreen.storyboard in Resources */,
 				836299611F4D3ED90065056F /* カメラ.png in Resources */,
-				836299431F4AD4070065056F /* アプリ@2x.png in Resources */,
 				832E2C131E4348D4005DCB53 /* Assets.xcassets in Resources */,
 				8362995A1F4D1E710065056F /* c.png in Resources */,
 				8362995C1F4D1E710065056F /* e.png in Resources */,

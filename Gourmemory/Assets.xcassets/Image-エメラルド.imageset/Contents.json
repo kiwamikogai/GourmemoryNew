@@ -2,17 +2,17 @@
   "images" : [
     {
       "idiom" : "universal",
-      "filename" : "e-1.png",
+      "filename" : "エメラルド.png",
       "scale" : "1x"
     },
     {
       "idiom" : "universal",
-      "filename" : "e.png",
+      "filename" : "エメラルド-1.png",
       "scale" : "2x"
     },
     {
       "idiom" : "universal",
-      "filename" : "e-2.png",
+      "filename" : "エメラルド-2.png",
       "scale" : "3x"
     }
   ],
