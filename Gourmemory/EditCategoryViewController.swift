@@ -55,12 +55,13 @@ class EditCategoryViewController: UIViewController {
             category?.colorCode = colorCode(colorNum: colorNum)
             category?.categoryName = textField.text!
             category?.save()
-        }else{
+        } else {
             try! realm.write {
                 if colorNum != 0 {
                     category?.colorCode = colorCode(colorNum: colorNum)
                 }
                 category?.categoryName = textField.text!
+        
             }
         }
         

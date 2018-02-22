@@ -15,7 +15,6 @@ import AGEmojiKeyboard
 
 //入力するとこ。センターボタン
 
-
 //
 class ViewController2 : UIViewController ,MKMapViewDelegate,CLLocationManagerDelegate,UITextFieldDelegate, UINavigationControllerDelegate,UIImagePickerControllerDelegate, AGEmojiKeyboardViewDelegate, AGEmojiKeyboardViewDataSource{
     
@@ -316,6 +315,11 @@ class ViewController2 : UIViewController ,MKMapViewDelegate,CLLocationManagerDel
         //データベースの定義
         let realm = try! Realm()
         
+        var cate = Category()
+        cate.categoryName = "aaa"
+        cate.colorCode = "FFFFFF"
+        cate.id = 
+        
         //kiwamiオブジェクトの設定
         let kiwami: Kiwami = Kiwami()
         kiwami.id = Kiwami.findAll().count+1
@@ -323,18 +327,18 @@ class ViewController2 : UIViewController ,MKMapViewDelegate,CLLocationManagerDel
         kiwami.imageData = saveImage
         kiwami.latitude = annotaion.coordinate.latitude
         kiwami.longitude = annotaion.coordinate.longitude
-        kiwami.category = Category()
+        kiwami.categoryId = categoryArray[num].id
         kiwami.date = Date()
         kiwami.weekDay = self.title
         
         kiwami.save()
         
         //データベースに保存 try! realm.writeで書き込みモード
-        try! realm.write {
-            //realm.add(保存するクラス)でクラス名に応じて保存できるで
-            realm.add(kiwami)
-            print("保存できたで")
-        }
+//        try! realm.write {
+//            //realm.add(保存するクラス)でクラス名に応じて保存できるで
+//            realm.add(kiwami)
+//            print("保存できたで")
+//        }
         
         
         //保存できたら画面消す

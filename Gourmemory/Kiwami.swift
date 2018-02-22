@@ -22,7 +22,7 @@ class Kiwami: Object {
     
     dynamic var text: String!
     dynamic var categoryId = 0
-    dynamic var category:Category?// = Category()
+//    dynamic var category:Category?// = Category()
     dynamic var date: Date!
     dynamic var weekDay: String!
     
@@ -47,6 +47,7 @@ class Kiwami: Object {
     
     //idをプライマリキーに設定
     override static func primaryKey() -> String?{
+        
         return "id"
     }
     
@@ -108,7 +109,6 @@ class Category: Object {
         return UIColor(hex: colorCode)
     }
 }
-
 
 //画像リサイズ用
 extension UIImage{
