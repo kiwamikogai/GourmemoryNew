@@ -7,11 +7,13 @@
 //
 
 import UIKit
+import RealmSwift
 
 class TableTableViewController: UITableViewController {
     
     var kiwamis: [Kiwami] = []
     var refresher: UIRefreshControl!
+    var category:Results<Category>!
     
     override func viewDidLoad() {
         
@@ -32,11 +34,16 @@ class TableTableViewController: UITableViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         kiwamis = Kiwami.findAll()
+        
+        let realm = RealmFactory.sharedInstance.realm()
+        category = realm.objects(Category.self)
         tableView.reloadData()
     }
     
     func refresh() {
         kiwamis = Kiwami.findAll()
+        let realm = RealmFactory.sharedInstance.realm()
+        category = realm.objects(Category.self)
         tableView.reloadData()
         refresher.endRefreshing()
     }
@@ -74,7 +81,11 @@ class TableTableViewController: UITableViewController {
         cell.dateLabel.text = kiwamis[indexPath.row].weekDay
         cell.imageView2.image = UIImage(data: kiwamis[indexPath.row].imageData)
 
-        cell.categoryLabel.text = kiwamis[indexPath.row].category?.categoryName
+        var caregoryId = kiwamis[indexPath.row].categoryId
+        let getCategory = category.filter("id == %@", "\(caregoryId)").first
+        
+        cell.categoryLabel.text = getCategory?.categoryName
+        
         return cell
     }
     
